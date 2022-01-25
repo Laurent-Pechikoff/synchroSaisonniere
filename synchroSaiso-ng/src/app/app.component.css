@@ -1,8 +1,8 @@
 #navbarStyle{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px ;
+    font-weight: 700;
+    font-size: 20px; 
     background-color: #303030;
-    padding: 20px;
+    padding: 10px;
    
 }
 .nav-link, .navbar-brand{
@@ -10,4 +10,7 @@
 }
 .nav-link:hover, .navbar-brand:hover{
     color:white
+}
+#logo{
+    width:40px;    
 }
