@@ -1,0 +1,39 @@
+.container{
+    background-color: black;
+}
+.airBNB{
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 5vh;
+    width: 100px;
+    height: 200px;
+    background-color: rgb(211,211,211);
+    border-radius: 0px 30px 30px 0px;
+}
+.booking{
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 90vh;
+    width: 100px;
+    height: 200px;
+    background-color: rgb(211,211,211);
+    border-radius: 0px 30px 30px 0px;
+}
+.tripAdd{
+    padding: 10px;
+    position: fixed;
+    right: 0;
+    top: 5vh;
+    width: 100px;
+    height: 200px;
+    background-color: rgb(211,211,211);
+    border-radius: 30px 0px 0px 30px;
+}
+img{
+    
+        fill: rgb(0,0,0);
+        width: 100%;
+        height: 50%;
+}
