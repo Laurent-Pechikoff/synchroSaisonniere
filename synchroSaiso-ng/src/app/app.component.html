@@ -1,23 +1,23 @@
 <!-- *************************************************** Barre de navigation ************************************************************************* -->
-<nav class="navbar navbar-expand-sm bg-dark sticky-top" style="color:#e55e5b">
+<nav class="navbar navbar-expand-sm bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="home">
-            <span class="logo " style="color:#e55e5b"><i class="fas fa-book"></i> </span>
+            <span class="logo "><i class="fas fa-book"></i> </span>
         </a>
-    <button class="navbar-toggler" style="color:#e55e5b" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#e55e5b">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
         <ul class="navbar-nav m-auto" >
 
             <li class="nav-item ">
-                <a class="nav-link" routerLink="" role="button" style="color:#e55e5b"></a>
+                <a class="nav-link" routerLink="" role="button"></a>
             </li>                                
                 
         </ul>
         <ul class="navbar-nav mr-auto" >
-          <a routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal" data-bs-target="#userModal" [ngClass]="(sessionExist)?'fas fa-user text-success':'fas fa-user text-ligth'"></a>
+          <a routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal" data-bs-target="#userModal"></a>
           <!-- <span>  nom user  </span> -->
         </ul>
     </div>
@@ -27,12 +27,12 @@
   
   
   <!-- ******************************************************* Modal User************************************************** -->
-  <div *ngIf="sessionExist" class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div *ngIf="" class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content container-fluid">
             
           <div class='d-grid gap-2 col-6 mx-auto mt-4'>
-              <a type='submit' data-bs-dismiss="modal" aria-label="Close" routerLink='bibliotheque' (click)=deleteSession()>Se Déconnecter</a>
+              <a type='submit' data-bs-dismiss="modal" aria-label="Close" routerLink='bibliotheque' >Se Déconnecter</a>
           </div>
             
         </div>
