@@ -1,0 +1,19 @@
+h1{
+    margin-bottom: 10vh;
+}
+
+.devUn{
+    height: 30vh;
+    
+}
+
+.info{
+    border-style: 1rem solid;
+    color: rgb(250,37,203);
+    background-color: white;
+}
+
+.photo{
+    border-style: 1rem solid;
+    background-color: rgb(250,37,203);
+}
