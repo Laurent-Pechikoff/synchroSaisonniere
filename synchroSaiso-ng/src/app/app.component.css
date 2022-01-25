@@ -5,11 +5,14 @@
     padding: 10px;
    
 }
-.nav-link, .navbar-brand{
-    color: #fa25cb;
+.nav-link, .navbar-brand, #togglerIcon{
+    color: #fa25cb !important;
 }
-.nav-link:hover, .navbar-brand:hover{
-    color:white
+.nav-link:hover, .navbar-brand:hover, #togglerIcon:hover{
+    color: white !important;
+}
+#togglerIcon{
+    font-size: 28px;
 }
 #logo{
     width:40px;    

@@ -1,39 +1,56 @@
-.container{
-    background-color: black;
+
+.h2{
+    color: rgb(255,255,255);
+    position: fixed;
+    left:35vw;
+    top: 43vh;
 }
 .airBNB{
     padding: 10px;
     position: fixed;
-    left: 0;
-    top: 5vh;
-    width: 100px;
+    left: 1vw;
+    top: 3vh;
+    width: 20vw;
     height: 200px;
-    background-color: rgb(211,211,211);
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 30px 30px 30px 30px;
 }
 .booking{
     padding: 10px;
     position: fixed;
-    left: 0;
-    top: 90vh;
-    width: 100px;
+    left: 1vw;
+    top: 81vh;
+    width: 20vw;
     height: 200px;
-    background-color: rgb(211,211,211);
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 30px 30px 30px 30px;
 }
 .tripAdd{
     padding: 10px;
     position: fixed;
-    right: 0;
-    top: 5vh;
-    width: 100px;
+    right: 1vw;
+    top: 3vh;
+    width: 20vw;
     height: 200px;
-    background-color: rgb(211,211,211);
-    border-radius: 30px 0px 0px 30px;
+    border-radius: 30px 30px 30px 30px;
 }
+.homeAway{
+    padding: 10px;
+    position: fixed;
+    right: 1vw;
+    top: 81vh;
+    width: 20vw;
+    height: 200px;
+    border-radius: 30px 30px 30px 30px;
+}
+
 img{
     
         fill: rgb(0,0,0);
         width: 100%;
-        height: 50%;
+        height: 100%; 
+        border-radius: 30px 30px 30px 30px;
+}
+
+#logoDevelopper{
+    margin:auto;
+    width:50%
 }
