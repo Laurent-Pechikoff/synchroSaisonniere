@@ -1,29 +1,30 @@
 <!-- *************************************************** Barre de navigation ************************************************************************* -->
-<nav class="navbar navbar-expand-sm bg-dark sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="home">
-            <span class="logo "><i class="fas fa-book"></i> </span>
-        </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div id="navbarStyle">
+    <nav class="navbar navbar-expand-sm sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="home">
+                <i class="fas fa-sync-alt"></i>
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-        <ul class="navbar-nav m-auto" >
+            <ul class="navbar-nav m-auto" >
 
-            <li class="nav-item ">
-                <a class="nav-link" routerLink="" role="button"></a>
-            </li>                                
-                
-        </ul>
-        <ul class="navbar-nav mr-auto" >
-          <a routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal" data-bs-target="#userModal"></a>
-          <!-- <span>  nom user  </span> -->
-        </ul>
-    </div>
-    </div>
-  </nav>
-  
+                <li class="nav-item" *ngFor="let inb of dataNavBar">
+                    <a class="nav-link" routerLink="{{inb.routerLink}}" role="button">{{inb.item}}</a>
+                </li>                                
+                    
+            </ul>
+            <ul class="navbar-nav mr-auto" >
+            <a routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal" data-bs-target="#userModal"></a>
+            <!-- <span>  nom user  </span> -->
+            </ul>
+        </div>
+        </div>
+    </nav>
+</div> 
   
   
   <!-- ******************************************************* Modal User************************************************** -->

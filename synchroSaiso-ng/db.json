@@ -1,0 +1,25 @@
+{
+    "navbar":[
+        {
+            "id":1,
+            "item":"Qui sommes nous?",
+            "routerLink":"about"
+        },
+        {
+            "id":2,
+            "item":"Vos Actifs",
+            "routerLink":"actif"    
+        },
+        {
+            "id":3,
+            "item":"Votre Agenda",
+            "routerLink":"agenda"    
+        },
+        {
+            "id":4,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique"    
+        }
+
+    ]
+}
