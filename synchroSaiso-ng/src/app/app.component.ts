@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'synchroSaiso-ng';
+  dataNavBar:any
+
+  constructor (){}
+
+  ngOnInit(): void {
+    this.watchNavBar();
+  }
+
+  public watchNavBar(){
+
+  }
+
 }
