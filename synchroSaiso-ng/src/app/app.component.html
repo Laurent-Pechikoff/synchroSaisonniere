@@ -15,7 +15,7 @@
         <ul class="navbar-nav m-auto" >
 
             <li class="nav-item" *ngFor="let inb of dataNavBar">
-                <a class="nav-link" routerLink="{{inb.routerLink}}" role="button">{{inb.item}}</a>
+                <a class="nav-link" routerLink="{{inb.routerLink}}" (click)="watchNavBarVert(inb)" role="button">{{inb.item}}</a>
             </li>                                
                 
         </ul>
@@ -39,5 +39,14 @@
         </div>
     </div>
   </div>
+
+  <!-- ******************************************************* navbar verticale ************************************************** -->
+
+<div id="navert" class="container-fluid" *ngIf="(checkNavBarVert==true)">
+    <nav class="nav flex-column" *ngFor="let inbt of dataNavBarVert">
+        <a class="nav-link">{{inbt.name}}</a>
+    </nav>
+
+</div>
   
   <router-outlet></router-outlet>

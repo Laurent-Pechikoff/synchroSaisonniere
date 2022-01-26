@@ -18,3 +18,14 @@
 #logo{
     width:40px;    
 }
+#navert{
+    background-color: #303030;
+    max-width: 200px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 100px;
+    margin-left: 20px;
+    height:500px;
+    vertical-align: auto;
+    
+}
