@@ -1,28 +1,61 @@
 <h1 class="text-center text-success">Notre équipe de développeurs</h1>
 <div class="container">
     <div class="devUn row">
-        <article class="info col-6 row d-flex justify-content-center">
+        <article class="text-success upperLeft info col-6 row d-flex justify-content-center">
             <h2 class="text-center">Patrick LOUISE</h2>
             <p class="text-center">Ce dev fait du php....</p>
-            <button class="col-3">CV</button>
-            <i class="fab fa-github"> Github</i>
-            <i class="fab fa-linkedin"> Linkedin</i>
+            <button class="btn btn-success col-3">CV</button>
+            <div class="mt-3 d-inline-flex justify-content-around">
+                <i class="fab fa-github"> Github</i>
+                <i class="far fa-envelope"> Email</i>
+                <i class="fab fa-linkedin"> Linkedin</i>
+            </div>
+            
         </article>
-        <article class="photo col-6 d-flex justify-content-center align-items-center">
+        <article class="upperRight bg-success photo row col-6 d-flex justify-content-center align-items-center">
             <img src="photo1.png" class="text-center" alt="photo de Patrick">
         </article>
     </div>
     <div class="devUn row">
-        <article class="photo col-6 d-flex justify-content-center align-items-center">
-            <img src="photo1.png" alt="photo de Laurent">
+        <article class="bottomLeft bg-success photo row col-6 d-flex justify-content-center align-items-center ">
+            <img src="photo1.png" class="text-center" alt="photo de Laurent">
         </article>
-        <article class="info col-6 row d-flex justify-content-center">
+        <article class="text-success bottomRight info col-6 row d-flex justify-content-center">
             <h2 class="text-center">Laurent PECHIKOFF</h2>
             <p class="text-center">Le meilleur des dev</p>
-            <button class="col-3">CV</button>
-            <i class="fab fa-github"> Github</i>
-            <i class="fab fa-linkedin"> Linkedin</i>
+            <button class="btn btn-success col-3">CV</button>
+            <div class="mt-3 d-inline-flex justify-content-around">
+                <i class="fab fa-github"> Github</i>
+                <i class="far fa-envelope"> Email</i>
+                <i class="fab fa-linkedin"> Linkedin</i>
+            </div>
         </article>
     </div>
 
 </div>
+
+
+<!-- test modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
