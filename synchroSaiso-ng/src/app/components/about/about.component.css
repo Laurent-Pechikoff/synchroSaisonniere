@@ -2,10 +2,15 @@ h1{
     margin-bottom: 10vh;
     margin-top: 5vh;
 }
-
+a{
+    text-decoration: none;
+    color:green;
+}
+a:link{
+    color: green;
+}
 .devUn{
     height: 30vh;
-    
 }
 
 .info{

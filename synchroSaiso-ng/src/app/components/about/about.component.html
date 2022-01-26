@@ -4,13 +4,14 @@
         <article class="text-success upperLeft info col-6 row d-flex justify-content-center">
             <h2 class="text-center">Patrick LOUISE</h2>
             <p class="text-center">Ce dev fait du php....</p>
-            <button class="btn btn-success col-3">CV</button>
+            <button class="btn btn-success col-3" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropPatrick">CV</button>
             <div class="mt-3 d-inline-flex justify-content-around">
                 <i class="fab fa-github"> Github</i>
                 <i class="far fa-envelope"> Email</i>
                 <i class="fab fa-linkedin"> Linkedin</i>
             </div>
-            
+
         </article>
         <article class="upperRight bg-success photo row col-6 d-flex justify-content-center align-items-center">
             <img src="photo1.png" class="text-center" alt="photo de Patrick">
@@ -23,11 +24,12 @@
         <article class="text-success bottomRight info col-6 row d-flex justify-content-center">
             <h2 class="text-center">Laurent PECHIKOFF</h2>
             <p class="text-center">Le meilleur des dev</p>
-            <button class="btn btn-success col-3">CV</button>
+            <button class="btn btn-success col-3" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropLaurent">CV</button>
             <div class="mt-3 d-inline-flex justify-content-around">
-                <i class="fab fa-github"> Github</i>
-                <i class="far fa-envelope"> Email</i>
-                <i class="fab fa-linkedin"> Linkedin</i>
+                <a href="https://github.com/Laurent-Pechikoff" target="_blank" class="fab fa-github"> Github</a>
+                <a href="mailto: laurent.pechikoff@gmail.com" class="far fa-envelope"> Email</a>
+                <a href="https://www.linkedin.com/in/laurent-pechikoff-140ba7143/" target="_blank" class="fab fa-linkedin"> Linkedin</a>
             </div>
         </article>
     </div>
@@ -35,27 +37,43 @@
 </div>
 
 
-<!-- test modal -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal Patrick-->
+<div class="modal fade" id="staticBackdropPatrick" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" style="width: 18rem;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+
+
+<!-- Modal Laurent-->
+<div class="modal fade" id="staticBackdropLaurent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="../../../assets/image/cv_Laurent_Pechikoff_Java_JEE_Angular-page-001.jpg" alt=""
+                    style="width: 18rem;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
