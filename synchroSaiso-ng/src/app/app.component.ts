@@ -9,6 +9,8 @@ import { NavbarService } from './services/navbar.service';
 export class AppComponent {
   title = 'synchroSaiso-ng';
   dataNavBar:any
+  dataNavBarVert:any
+  checkNavBarVert=false
 
   constructor (private nbs:NavbarService){}
 
@@ -20,6 +22,19 @@ export class AppComponent {
     this.nbs.getItemsNavBar().subscribe(resp=>{
       this.dataNavBar=resp
       console.log(this.dataNavBar)
+     
+    })
+  }
+  
+  public watchNavBarVert(table:any){
+    console.log(table)
+    this.checkNavBarVert=false
+    this.nbs.getItemsNavabarVert(table.routerLink).subscribe(resp=>{
+      this.dataNavBarVert=resp
+      if(table.navbarVert==true){
+        this.checkNavBarVert=true
+      }
+      console.log(this.checkNavBarVert)
     })
   }
 
