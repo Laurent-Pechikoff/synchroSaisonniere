@@ -3,6 +3,7 @@
     font-size: 20px; 
     background-color: #303030;
     padding: 10px;
+    position: sticky !important;
    
 }
 .nav-link, .navbar-brand, #togglerIcon{
