@@ -8,13 +8,15 @@ import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ActifsComponent } from './components/actifs/actifs.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ActifsComponent
+    ActifsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
