@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminComponent implements OnInit {
   userList: any;
+  user: any;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -17,9 +18,14 @@ export class AdminComponent implements OnInit {
       this.userList = data;
     })
   }
-suprimUser(userId:any){
-  this.userService.deleteUser(userId).subscribe(resp=>{
-    this.getAllUsers();
-  })
-}
+  getUserByID(userId: any) {
+    this.userService.getUserById(userId).subscribe(resp => {
+      this.user = resp;
+    })
+  }
+  suprimUser(userId: any) {
+    this.userService.deleteUser(userId).subscribe(resp => {
+      this.getAllUsers();
+    })
+  }
 }

@@ -77,16 +77,30 @@
             "id": 1
         }
     ],
-    "users": [
+    "admin": [
         {
             "id": 1,
             "name": "pat",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
             "role": [
                 "user",
                 "admin",
                 "visiteur"
             ],
-            "navbarVert": false
+            "navbarVert": true
+        },
+        {
+            "id": 2,
+            "name": "pat",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": true
         }
     ]
 }

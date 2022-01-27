@@ -5,14 +5,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
- 
-  constructor(private http:HttpClient) { }
+  url = 'http://localhost:3000/users';
+  constructor(private http: HttpClient) { }
 
-getUsers(){
-  return this.http.get('');
-}
-deleteUser(userId:any){
-  return this.http.delete(''+'/'+userId)
-}
+  getUsers() {
+    return this.http.get(this.url);
+  }
+
+  getUserById(userId: any) {
+    return this.http.get(this.url + '/' + userId)
+  }
+
+  deleteUser(userId: any) {
+    return this.http.delete(this.url + '/' + userId)
+  }
 
 }
