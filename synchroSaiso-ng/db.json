@@ -27,7 +27,43 @@
             "routerLink":"statistique",
             "role":["user","admin"],
             "navbarVert":false
+        },
+        {
+            "id":5,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique",
+            "role":["user","admin"],
+            "navbarVert":false
+        },
+        {
+            "id":6,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique",
+            "role":["user","admin"],
+            "navbarVert":false
+        },
+        {
+            "id":7,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique",
+            "role":["user","admin"],
+            "navbarVert":false
+        },
+        {
+            "id":8,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique",
+            "role":["user","admin"],
+            "navbarVert":false
+        }, {
+            "id":9,
+            "item":"Vos Statistiques",
+            "routerLink":"statistique",
+            "role":["user","admin"],
+            "navbarVert":false
         }
+       
+       
     ],
    
     "actifs":[
