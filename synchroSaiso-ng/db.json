@@ -92,7 +92,31 @@
         },
         {
             "id": 2,
-            "name": "pat",
+            "name": "olivier",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": true
+        },
+        {
+            "id": 3,
+            "name": "luis",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": true
+        },
+        {
+            "id": 4,
+            "name": "Jaouad",
             "firstName": "blackos",
             "email": "babla@hotmail.com",
             "role": [

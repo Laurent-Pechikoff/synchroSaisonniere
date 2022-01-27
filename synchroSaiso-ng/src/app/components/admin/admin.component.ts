@@ -8,10 +8,19 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminComponent implements OnInit {
   userList: any;
-  user: any;
+  userSelected:any
+  user= {
+    id:'',
+    name:'',
+    firstName: '',
+    email: '',
+    role: [],
+    navbarVert: false
+  };
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getUserByID(1);
   }
   getAllUsers() {
     this.userService.getUsers().subscribe(data => {
@@ -20,7 +29,8 @@ export class AdminComponent implements OnInit {
   }
   getUserByID(userId: any) {
     this.userService.getUserById(userId).subscribe(resp => {
-      this.user = resp;
+      this.userSelected = resp;
+      console.log(this.userSelected);
     })
   }
   suprimUser(userId: any) {

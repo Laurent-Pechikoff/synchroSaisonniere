@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminComponent } from './components/admin/admin.component';
 import { NavbarService } from './services/navbar.service';
 
 @Component({
@@ -37,6 +38,8 @@ export class AppComponent {
       }
     })
   }
+
+
 
   // i=0
   // compteurCard=0
