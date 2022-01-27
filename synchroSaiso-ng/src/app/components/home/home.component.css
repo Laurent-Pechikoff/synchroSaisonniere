@@ -56,3 +56,10 @@ img{
     margin:auto;
     width:50%
 }
+
+/* img{
+    animation: rotate 8s linear infinite; 
+}
+@keyframes rotate{
+    to{ transform: rotate(360deg); }
+  } */
