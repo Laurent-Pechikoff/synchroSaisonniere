@@ -23,6 +23,13 @@
 }
 
 /* **********************************************  barre de navigation horizontale  ************************* */
+#logo:hover{
+    animation: rotate 7s linear infinite;   
+}
+@keyframes rotate{
+    to{ transform: rotate(360deg); }
+  }
+
 #navert{
     background-color: #303030;
     max-width: 200px;
