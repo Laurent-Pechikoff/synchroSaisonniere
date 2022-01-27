@@ -76,6 +76,7 @@ img{
     /* margin-top: 21.75vh;
     margin-left: 8.75vw; */
     animation: rotate 7s linear infinite;
+    
 }
 @keyframes rotate{
     to{ transform: rotate(360deg); }
@@ -86,11 +87,17 @@ img{
     max-width: 42%;
     height: auto;
 }
-@media screen and (max-width : 1024px){
+#pink{
+    display: none;
+}
+@media screen and (max-width : 1400px){
     #sync{
         display: none;
     }
     #noSync{
         display: none;
+    }
+    #pink{
+        display:block
     }
 }

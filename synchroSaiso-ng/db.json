@@ -1,63 +1,92 @@
 {
-    "navbar":[
+    "navbar": [
         {
-            "id":1,
-            "item":"Qui sommes nous?",
-            "routerLink":"about",
-            "role":["user","admin","visiteur"],
-            "navbarVert":false
+            "id": 1,
+            "item": "Qui sommes nous?",
+            "routerLink": "about",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": false
         },
         {
-            "id":2,
-            "item":"Vos Actifs",
-            "routerLink":"actifs",
-            "role":["user","admin"],
-            "navbarVert":true
+            "id": 2,
+            "item": "Vos Actifs",
+            "routerLink": "actifs",
+            "role": [
+                "user",
+                "admin"
+            ],
+            "navbarVert": true
         },
         {
-            "id":3,
-            "item":"Votre Agenda",
-            "routerLink":"agenda",
-            "role":["user","admin"],
-            "navbarVert":false
+            "id": 3,
+            "item": "Votre Agenda",
+            "routerLink": "agenda",
+            "role": [
+                "user",
+                "admin"
+            ],
+            "navbarVert": false
         },
         {
-            "id":4,
-            "item":"Vos Statistiques",
-            "routerLink":"statistique",
-            "role":["user","admin"],
-            "navbarVert":false
-        }
-       
-       
-    ],
-   
-    "actifs":[
-        {
-            "id":1,
-            "name":"T2 4, rue gourjon"
+            "id": 4,
+            "item": "Vos Statistiques",
+            "routerLink": "statistique",
+            "role": [
+                "user",
+                "admin"
+            ],
+            "navbarVert": false
         },
         {
-            "id":2,
-            "name":"T3 4, rue gourjon"
-        }  
-    ],
-
-    "agenda":[
-        {
-            "id":1
-        }
-    ],
-
-    "statistique":[
-        {
-            "id":1
+            "id": 5,
+            "item": "admin",
+            "routerLink": "admin",
+            "role": [
+                "user",
+                "admin"
+            ],
+            "navbarVert": true
         }
     ],
-
-    "about":[
+    "actifs": [
         {
-            "id":1
+            "id": 1,
+            "name": "T2 4, rue gourjon"
+        },
+        {
+            "id": 2,
+            "name": "T3 4, rue gourjon"
+        }
+    ],
+    "agenda": [
+        {
+            "id": 1
+        }
+    ],
+    "statistique": [
+        {
+            "id": 1
+        }
+    ],
+    "about": [
+        {
+            "id": 1
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "pat",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": false
         }
     ]
 }
