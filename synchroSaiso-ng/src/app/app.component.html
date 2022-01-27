@@ -5,7 +5,7 @@
             <a class="navbar-brand" routerLink="home">
                 <img id="logo" src="../assets/image/logo-pink.png" alt="" (click)="checkHome()">
             </a>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item" *ngFor="let inb of dataNavBar">
@@ -15,21 +15,18 @@
                 </ul>
             </div>
 
-            <div id="rigthNav" class="d-flex justify-content-end">
-                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false">
-                    <div class="center">
-                        <div></div>
-                    </div>
-                </span>
-                <div class="navbar-nav mr-auto">
-                    <bouton routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal"
-                        data-bs-target="#userModal">
-                        <img src="../assets/image/login---2.png" alt="" id="arrow">
-                        <img src="../assets/image/login---1.png" alt="" id="rectangle">
-                    </bouton>
+            <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false">
+                <div class="togglerIcon" id="togglerIcon" (click)="togglerAnim('togglerIcon')">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </div>
-            </div>    
+            </div>
+            <bouton routerLink="connexion" type='button' data-bs-toggle="modal" data-bs-target="#userModal" id="logIcon">
+                <img src="../assets/image/login---2.png" alt="" id="arrow">
+                <img src="../assets/image/login---1.png" alt="" id="rectangle">
+            </bouton>
         </div>
     </nav>
 </div>

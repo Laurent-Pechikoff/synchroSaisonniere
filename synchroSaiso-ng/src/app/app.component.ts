@@ -67,6 +67,14 @@ export class AppComponent {
   //   return TableauCouleur[this.i];
   // }
 
-
+  public togglerAnim(css:any){
+    let toggler=document.getElementById(css)
+    let togglerStatut='togglerIcon no-active'
+    if(toggler?.className==togglerStatut){
+      toggler?.classList.toggle('open')
+    }else{
+      toggler?.classList.toggle('open')
+    }
+  }
 
 }
