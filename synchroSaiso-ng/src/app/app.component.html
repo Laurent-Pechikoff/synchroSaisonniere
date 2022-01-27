@@ -23,22 +23,24 @@
                     <span class="line"></span>
                 </div>
             </div>
-            <bouton routerLink="connexion" type='button' data-bs-toggle="modal" data-bs-target="#userModal" id="logIcon">
+            <bouton routerLink="user" type='button' id="logIcon" *ngIf="(!sessionExist)">
                 <img src="../assets/image/login---2.png" alt="" id="arrow">
                 <img src="../assets/image/login---1.png" alt="" id="rectangle">
+            </bouton>
+            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#userModal" id="unlogIcon" *ngIf="(sessionExist)">
+                <i class="fas fa-user text-success"></i>
+
             </bouton>
         </div>
     </nav>
 </div>
-<!-- ******************************************************* Modal User************************************************** -->
+<!-- ******************************************************* Modal User close Session ************************************************** -->
 <div *ngIf="" class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content container-fluid">
-
             <div class='d-grid gap-2 col-6 mx-auto mt-4'>
                 <a type='submit' data-bs-dismiss="modal" aria-label="Close" routerLink='bibliotheque'>Se Déconnecter</a>
             </div>
-
         </div>
     </div>
 </div>

@@ -11,11 +11,15 @@ export class AppComponent {
   dataNavBar:any
   dataNavBarVert:any
   checkNavBarVert=false
+  session=JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
+  sessionExist=false;
 
   constructor (private nbs:NavbarService){}
 
   ngOnInit(): void {
+    
     this.watchNavBar();
+    
   }
 
   public checkHome(){   
@@ -74,6 +78,14 @@ export class AppComponent {
       toggler?.classList.toggle('open')
     }else{
       toggler?.classList.toggle('open')
+    }
+  }
+
+  private checkSession(){
+    if(Object.keys(this.session).length!=0){
+      this.sessionExist=true
+    }else{
+      this.sessionExist=false
     }
   }
 
