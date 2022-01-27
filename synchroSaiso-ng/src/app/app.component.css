@@ -1,3 +1,5 @@
+
+/* **********************************************  barrde navigitation horizontale *********************************** */
 #navbarStyle{
     font-weight: 700;
     font-size: 20px; 
@@ -16,8 +18,11 @@
     font-size: 28px;
 }
 #logo{
-    width:40px;    
+    width:40px;
+    left: 10%;    
 }
+
+/* **********************************************  barre de navigation horizontale  ************************* */
 #navert{
     background-color: #303030;
     max-width: 200px;
@@ -29,6 +34,48 @@
     vertical-align: auto;
     position: sticky;
     float: left;
-    
-    
 }
+
+#rectangle, #arrow{
+    max-width: 15%;
+}
+
+/* **********************************  animation connexion  ************************************* */
+#arrow:hover{
+
+    animation: transform 300ms ease-in-out 300ms;
+    transform: translate(20px,0);
+}
+
+
+/* ******************************  animation hamburger  ***************************************** */
+.center {
+    font-size: 28px;
+     top: 40px; 
+    right: 20px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 40px;
+  }
+  
+  .center:before,
+  .center:after,
+  .center div {
+    background: #fa25cb;
+    content: "";
+    display: block;
+    height: 5px;
+    border-radius: 3px;
+    margin: 7px 0;
+    transition: 0.5s;
+  }
+  .center:hover:before {
+    transform: translateY(12px) rotate(135deg);
+  }
+  .center:hover:after {
+    transform: translateY(-12px) rotate(-135deg);
+  }
+  .center:hover div {
+    transform: scale(0);
+  }
+  
