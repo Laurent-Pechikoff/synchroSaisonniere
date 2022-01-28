@@ -29,3 +29,13 @@ a:link{
 .bottomRight{
     border-radius: 0 0 20px 0;
 }
+.bounce:hover {
+    animation: bounce 0.35s ease alternate;
+    animation-iteration-count: 2;
+}
+
+@keyframes bounce{
+     from {transform: translateY(0);}
+     to   {transform: translateY(-20px);}
+}
+    

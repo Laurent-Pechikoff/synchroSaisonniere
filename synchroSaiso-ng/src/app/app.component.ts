@@ -15,7 +15,7 @@ export class AppComponent {
   sessionExist=false;
   
 
-  constructor (private nbs:NavbarService){}
+  constructor(private nbs: NavbarService) { }
 
   ngOnInit(): void {
     if(Object.keys(this.session).length!=0){
@@ -28,8 +28,8 @@ export class AppComponent {
     this.watchNavBar();
   }
 
-  public checkHome(){   
-      this.checkNavBarVert=false
+  public checkHome() {
+    this.checkNavBarVert = false
   }
 
   public watchNavBar(){
@@ -40,13 +40,13 @@ export class AppComponent {
       })
     
   }
-  
-  public watchNavBarVert(table:any){
-    this.checkNavBarVert=false
-    this.nbs.getItemsNavabarVert(table.routerLink).subscribe(resp=>{
-      this.dataNavBarVert=resp
-      if(table.navbarVert==true){
-        this.checkNavBarVert=true
+
+  public watchNavBarVert(table: any) {
+    this.checkNavBarVert = false
+    this.nbs.getItemsNavabarVert(table.routerLink).subscribe(resp => {
+      this.dataNavBarVert = resp
+      if (table.navbarVert == true) {
+        this.checkNavBarVert = true
       }
     })
   }
@@ -56,16 +56,16 @@ export class AppComponent {
     let togglerStatut='togglerIcon no-active'
     if(toggler?.className==togglerStatut){
       toggler?.classList.toggle('open')
-    }else{
+    } else {
       toggler?.classList.toggle('open')
     }
   }
 
-  private checkSession(){
-    if(Object.keys(this.session).length!=0){
-      this.sessionExist=true
-    }else{
-      this.sessionExist=false
+  private checkSession() {
+    if (Object.keys(this.session).length != 0) {
+      this.sessionExist = true
+    } else {
+      this.sessionExist = false
     }
   }
 

@@ -8,24 +8,39 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminComponent implements OnInit {
   userList: any;
-  user: any;
+  userSelected:any;
+  affichSelected:boolean=false;
+  user= {
+    id:'',
+    name:'',
+    firstName: '',
+    email: '',
+    role: [],
+    navbarVert: false
+  };
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getAllUsers();
   }
   getAllUsers() {
     this.userService.getUsers().subscribe(data => {
       this.userList = data;
+      console.log(this.userList)
+        
+      
     })
   }
   getUserByID(userId: any) {
-    this.userService.getUserById(userId).subscribe(resp => {
-      this.user = resp;
+    this.userService.getUserById(userId.id).subscribe(resp => {
+      this.userSelected = resp;
+      this.affichSelected=true;
     })
   }
   suprimUser(userId: any) {
-    this.userService.deleteUser(userId).subscribe(resp => {
+    this.userService.deleteUser(userId.id).subscribe(resp => {
       this.getAllUsers();
+      this.affichSelected=false
     })
   }
 }

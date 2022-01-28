@@ -46,7 +46,6 @@
             "navbarVert": true
         }
     ],
-
     "actifs": [
         {
             "id": 1,
@@ -57,19 +56,16 @@
             "name": "T3 4, rue gourjon"
         }
     ],
-
     "agenda": [
         {
             "id": 1
         }
     ],
-
     "statistique": [
         {
             "id": 1
         }
     ],
-
     "about": [
         {
             "id": 1
@@ -91,7 +87,6 @@
     }
 
     ],
-
     "admin": [
         {
             "id": 1,
@@ -107,7 +102,31 @@
         },
         {
             "id": 2,
-            "name": "pat",
+            "name": "olivier",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": true
+        },
+        {
+            "id": 3,
+            "name": "luis",
+            "firstName": "blackos",
+            "email": "babla@hotmail.com",
+            "role": [
+                "user",
+                "admin",
+                "visiteur"
+            ],
+            "navbarVert": true
+        },
+        {
+            "id": 4,
+            "name": "Jaouad",
             "firstName": "blackos",
             "email": "babla@hotmail.com",
             "role": [
