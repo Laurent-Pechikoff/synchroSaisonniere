@@ -5,7 +5,7 @@
             <a class="navbar-brand" routerLink="home">
                 <img id="logo" src="../assets/image/logo-pink.png" alt="" (click)="checkHome()">
             </a>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item" *ngFor="let inb of dataNavBar">
@@ -15,33 +15,32 @@
                 </ul>
             </div>
 
-            <div id="rigthNav" class="d-flex justify-content-end">
-                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false">
-                    <div class="center">
-                        <div></div>
-                    </div>
-                </span>
-                <div class="navbar-nav mr-auto">
-                    <bouton routerLink="connexion" class="statutsession" type='button' data-bs-toggle="modal"
-                        data-bs-target="#userModal">
-                        <img src="../assets/image/login---2.png" alt="" id="arrow">
-                        <img src="../assets/image/login---1.png" alt="" id="rectangle">
-                    </bouton>
+            <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false">
+                <div class="togglerIcon" id="togglerIcon" (click)="togglerAnim('togglerIcon')">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </div>
-            </div>    
+            </div>
+            <bouton routerLink="user" type='button' id="logIcon" *ngIf="(!sessionExist)">
+                <img src="../assets/image/login---2.png" alt="" id="arrow">
+                <img src="../assets/image/login---1.png" alt="" id="rectangle">
+            </bouton>
+            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#userModal" id="unlogIcon" *ngIf="(sessionExist)">
+                <i class="fas fa-user text-success"></i>
+
+            </bouton>
         </div>
     </nav>
 </div>
-<!-- ******************************************************* Modal User************************************************** -->
+<!-- ******************************************************* Modal User close Session ************************************************** -->
 <div *ngIf="" class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content container-fluid">
-
             <div class='d-grid gap-2 col-6 mx-auto mt-4'>
                 <a type='submit' data-bs-dismiss="modal" aria-label="Close" routerLink='bibliotheque'>Se Déconnecter</a>
             </div>
-
         </div>
     </div>
 </div>

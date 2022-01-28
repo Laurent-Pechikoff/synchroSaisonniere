@@ -6,7 +6,6 @@
     background-color: #303030;
     padding: 10px;
     position: sticky !important;
-   
 }
 .nav-link, .navbar-brand, #togglerIcon{
     color: #fa25cb !important;
@@ -14,22 +13,22 @@
 .nav-link:hover, .navbar-brand:hover, #togglerIcon:hover{
     color: white !important;
 }
-#togglerIcon{
-    font-size: 28px;
-}
+
+/* **********************************************  logo animation  ************************* */
 #logo{
     width:40px;
-    left: 10%;    
+    left: 150%;    
+    top: 30px;
 }
-
-/* **********************************************  barre de navigation horizontale  ************************* */
 #logo:hover{
     animation: rotate 7s linear infinite;   
 }
 @keyframes rotate{
     to{ transform: rotate(360deg); }
-  }
+}
 
+
+/* **********************************************  barrde navigitation verticale *********************************** */
 #navert{
     background-color: #303030;
     max-width: 200px;
@@ -43,46 +42,52 @@
     float: left;
 }
 
+
+/* **********************************  animation connexion  ************************************* */
 #rectangle, #arrow{
     max-width: 15%;
 }
-
-/* **********************************  animation connexion  ************************************* */
-#arrow:hover{
-
-    animation: transform 300ms ease-in-out 300ms;
-    transform: translate(20px,0);
+#arrow{
+    /* animation: transform 300ms ease-in-out 300ms;
+    transform: translate(20px,0); */
+    position: relative;
+    animation-name: logIcon;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
-
+@keyframes logIcon {
+    0%      {left: 0px;}
+    100%    {left: 25px;}
+    
+} 
 
 /* ******************************  animation hamburger  ***************************************** */
-.center {
+#togglerIcon{
     font-size: 28px;
-     top: 40px; 
-    right: 20px;
+}
+.togglerIcon {
+    background-color: transparent;
+    cursor: pointer;
     transform: translate(-50%, -50%);
     position: absolute;
-    width: 40px;
-  }
-  
-  .center:before,
-  .center:after,
-  .center div {
-    background: #fa25cb;
-    content: "";
+    top: 45px;
+    right: 20px;
+}
+.togglerIcon .line {
+    background-color: #fa25cb;
     display: block;
-    height: 5px;
-    border-radius: 3px;
     margin: 7px 0;
-    transition: 0.5s;
-  }
-  .center:hover:before {
-    transform: translateY(12px) rotate(135deg);
-  }
-  .center:hover:after {
-    transform: translateY(-12px) rotate(-135deg);
-  }
-  .center:hover div {
+    border-radius: 3px;
+    height: 6px;
+    width: 40px;
+    transition: all 0.5s ease-in;
+}
+.togglerIcon.open .line:nth-child(1) {
+    transform: translateY(6px) rotate(135deg);
+}
+.togglerIcon.open .line:nth-child(2) {
+    transform: translateY(-6px) rotate(-135deg);
+}
+.togglerIcon.open .line:nth-child(3) {
     transform: scale(0);
-  }
-  
+}

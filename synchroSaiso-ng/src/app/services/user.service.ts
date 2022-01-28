@@ -12,6 +12,10 @@ export class UserService {
     return this.http.get(this.url);
   }
 
+  getUser(login:any, mdp:any){
+    return this.http.get(this.url+'/'+'?login='+login)
+  }
+
   getUserById(userId: any) {
     return this.http.get(this.url + '/' + userId)
   }

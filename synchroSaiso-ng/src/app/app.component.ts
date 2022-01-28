@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AdminComponent } from './components/admin/admin.component';
 import { NavbarService } from './services/navbar.service';
 
 @Component({
@@ -12,11 +11,15 @@ export class AppComponent {
   dataNavBar: any
   dataNavBarVert: any
   checkNavBarVert = false
+  session = JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
+  sessionExist = false;
 
   constructor(private nbs: NavbarService) { }
 
   ngOnInit(): void {
+
     this.watchNavBar();
+
   }
 
   public checkHome() {
@@ -39,6 +42,51 @@ export class AppComponent {
     })
   }
 
+  // i=0
+  // compteurCard=0
+  // compteurLigne=0
+  // couleurCardProduit(id:any){
+  //   if(id==1){
+  //     this.i=0
+  //     this.compteurCard=1
+  //     this.compteurLigne=0
+  //   }
+  //   let TableauCouleur=["#3ED598","#F2B200","#FF565E","#69A1BA"];// Vert,Jaune,Rouge,Bleu
+  //   if(this.compteurCard%4==0 && this.compteurLigne==0)//si multiple de 4
+  //     {
+  //       this.compteurLigne++;
+  //       this.i=this.compteurCard-1
+  //     }else if(this.compteurCard%4==0  && this.compteurLigne>0)//si multiple de 4
+  //     {
+  //       this.compteurLigne++;
+  //       if(this.i==3){this.i=0 }else{this.i=this.i+1}
+  //   }else if(this.compteurCard<5)
+  //   {
+  //     this.i=this.compteurCard-(4*this.compteurLigne)-1
+  //   }else{
+  //     this.i=this.compteurCard-(4*this.compteurLigne);
+  //   }
+  //   console.log("voici mon i "+this.i+" pour compteur carte: "+this.compteurCard+" id = "+id);
+  //   this.compteurCard++
+  //   return TableauCouleur[this.i];
+  // }
 
+  public togglerAnim(css: any) {
+    let toggler = document.getElementById(css)
+    let togglerStatut = 'togglerIcon no-active'
+    if (toggler?.className == togglerStatut) {
+      toggler?.classList.toggle('open')
+    } else {
+      toggler?.classList.toggle('open')
+    }
+  }
+
+  private checkSession() {
+    if (Object.keys(this.session).length != 0) {
+      this.sessionExist = true
+    } else {
+      this.sessionExist = false
+    }
+  }
 
 }

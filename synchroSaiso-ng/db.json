@@ -52,6 +52,7 @@
             "navbarVert": false
         }
     ],
+
     "actifs": [
         {
             "id": 1,
@@ -62,21 +63,41 @@
             "name": "T3 4, rue gourjon"
         }
     ],
+
     "agenda": [
         {
             "id": 1
         }
     ],
+
     "statistique": [
         {
             "id": 1
         }
     ],
+
     "about": [
         {
             "id": 1
         }
     ],
+
+    "users":[
+    {
+        "id":1,
+        "login":"patrick",
+        "mdp":"toto",
+        "role":"user"
+    },
+    {
+        "id":2,
+        "login":"lolo",
+        "mdp":"tutu",
+        "role":"admin"
+    }
+
+    ],
+
     "admin": [
         {
             "id": 1,
