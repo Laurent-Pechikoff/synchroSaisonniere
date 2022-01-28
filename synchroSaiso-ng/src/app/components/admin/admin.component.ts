@@ -8,7 +8,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminComponent implements OnInit {
   userList: any;
-  userSelected:any
+  userSelected:any;
+  affichSelected:boolean=false;
   user= {
     id:'',
     name:'',
@@ -31,14 +32,15 @@ export class AdminComponent implements OnInit {
     })
   }
   getUserByID(userId: any) {
-    this.userService.getUserById(userId).subscribe(resp => {
+    this.userService.getUserById(userId.id).subscribe(resp => {
       this.userSelected = resp;
-      console.log(this.userSelected);
+      this.affichSelected=true;
     })
   }
   suprimUser(userId: any) {
-    this.userService.deleteUser(userId).subscribe(resp => {
+    this.userService.deleteUser(userId.id).subscribe(resp => {
       this.getAllUsers();
+      this.affichSelected=false
     })
   }
 }

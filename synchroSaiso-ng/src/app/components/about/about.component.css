@@ -30,7 +30,8 @@ a:link{
     border-radius: 0 0 20px 0;
 }
 .bounce:hover {
-    animation: bounce 0.35s ease infinite alternate;
+    animation: bounce 0.35s ease alternate;
+    animation-iteration-count: 2;
 }
 
 @keyframes bounce{
