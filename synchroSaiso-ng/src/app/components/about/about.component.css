@@ -29,7 +29,7 @@ a:link{
 .bottomRight{
     border-radius: 0 0 20px 0;
 }
-.bounce {
+.bounce:hover {
     animation: bounce 0.35s ease infinite alternate;
 }
 
@@ -37,9 +37,4 @@ a:link{
      from {transform: translateY(0);}
      to   {transform: translateY(-20px);}
 }
-    /* animation: bounce 0.35s ease infinite;
-}
-@keyframes bounce{
-    from {top: 106px;}
-    to   {top: 86px;}
-} */
+    

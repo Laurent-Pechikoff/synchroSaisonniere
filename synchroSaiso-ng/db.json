@@ -49,7 +49,7 @@
                 "user",
                 "admin"
             ],
-            "navbarVert": true
+            "navbarVert": false
         }
     ],
     "actifs": [
