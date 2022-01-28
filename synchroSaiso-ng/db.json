@@ -4,51 +4,45 @@
             "id": 1,
             "item": "Qui sommes nous?",
             "routerLink": "about",
-            "role": [
-                "user",
-                "admin",
-                "visiteur"
-            ],
+            "roleVisiteur":true,
+            "roleUser": true,
+            "roleAdmin": true,
             "navbarVert": false
         },
         {
             "id": 2,
             "item": "Vos Actifs",
             "routerLink": "actifs",
-            "role": [
-                "user",
-                "admin"
-            ],
+            "roleVisiteur":false,
+            "roleUser": true,
+            "roleAdmin": true,
             "navbarVert": true
         },
         {
             "id": 3,
             "item": "Votre Agenda",
             "routerLink": "agenda",
-            "role": [
-                "user",
-                "admin"
-            ],
+            "roleVisiteur":false,
+            "roleUser": true,
+            "roleAdmin": true,
             "navbarVert": false
         },
         {
             "id": 4,
             "item": "Vos Statistiques",
             "routerLink": "statistique",
-            "role": [
-                "user",
-                "admin"
-            ],
+            "roleVisiteur":false,
+            "roleUser": true,
+            "roleAdmin": true,
             "navbarVert": false
         },
         {
             "id": 5,
             "item": "admin",
             "routerLink": "admin",
-            "role": [
-                "user",
-                "admin"
-            ],
+            "roleVisiteur":false,
+            "roleUser": false,
+            "roleAdmin": true,
             "navbarVert": true
         }
     ],
@@ -87,13 +81,13 @@
         "id":1,
         "login":"patrick",
         "mdp":"toto",
-        "role":"user"
+        "role":"User"
     },
     {
         "id":2,
         "login":"lolo",
         "mdp":"tutu",
-        "role":"admin"
+        "role":"Admin"
     }
 
     ],
