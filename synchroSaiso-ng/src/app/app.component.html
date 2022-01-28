@@ -27,7 +27,7 @@
                 <img src="../assets/image/login---2.png" alt="" id="arrow">
                 <img src="../assets/image/login---1.png" alt="" id="rectangle">
             </bouton>
-            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#userModal" id="unlogIcon" *ngIf="(sessionExist)">
+            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#unlogModal" id="unlogIcon" *ngIf="(sessionExist)">
                 <i class="fas fa-user text-success"></i>
 
             </bouton>
@@ -35,11 +35,11 @@
     </nav>
 </div>
 <!-- ******************************************************* Modal User close Session ************************************************** -->
-<div *ngIf="" class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+<div  class="modal fade" id="unlogModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content container-fluid">
-            <div class='d-grid gap-2 col-6 mx-auto mt-4'>
-                <a type='submit' data-bs-dismiss="modal" aria-label="Close" routerLink='bibliotheque'>Se Déconnecter</a>
+            <div class='d-grid gap-2 col-6 mx-auto mt-4 text-dark'>
+                <a type='submit' data-bs-dismiss="modal" aria-label="Close" (click)=deleteSession()>Se Déconnecter</a>
             </div>
         </div>
     </div>

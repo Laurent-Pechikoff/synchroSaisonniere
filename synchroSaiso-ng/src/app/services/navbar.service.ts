@@ -9,8 +9,8 @@ export class NavbarService {
 
   constructor(private http:HttpClient) { }
 
-  public getItemsNavBar(){
-    return this.http.get(this.url+"/navbar")
+  public getItemsNavBar(role:any){
+    return this.http.get(this.url+"/navbar?role"+role+"=true")
   }
 
   public getItemsNavabarVert(table:any){
