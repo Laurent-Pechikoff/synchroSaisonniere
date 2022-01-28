@@ -1,0 +1,7 @@
+.bordure{
+    padding: 10%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    background-color: rgb(48,48,48);
+}

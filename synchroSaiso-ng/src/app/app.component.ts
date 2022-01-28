@@ -13,6 +13,7 @@ export class AppComponent {
   checkNavBarVert=false
   session=JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist=false;
+  
 
   constructor (private nbs:NavbarService){}
 
@@ -71,6 +72,12 @@ export class AppComponent {
   public deleteSession(){
     sessionStorage.removeItem('login');
     location.replace('/home')
+  }
+
+
+  checkOrigin(){
+    localStorage.setItem('origin','connexion')
+    location.replace('/user')
   }
 
 }
