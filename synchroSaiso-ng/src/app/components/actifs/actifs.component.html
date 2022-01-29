@@ -1,1 +1,32 @@
 <p>actifs works!</p>
+<div class="container-fluid">
+    <google-map>
+
+
+    </google-map>
+</div>
+
+<div class="container-fluid" >
+    <form (ngSubmit)="findGeocoding(userForm)" #userForm='ngForm' >
+        <input ngModel type="text" name="name">
+        <input ngModel type="text" name='adress'>
+        <button class='btn btn-primary ' type='submit'>Find</button>
+    </form>
+
+</div>
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="row d-inline"><span class="text-light" id="0">N° : </span><span class="text-light">{{dataAddress.numero}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="1">Rue : </span><span class="text-light">{{dataAddress.rue}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="2">Code Postal : </span><span class="text-light">{{dataAddress.cp}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="3">Ville : </span><span class="text-light">{{dataAddress.ville}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="4">Département : </span><span class="text-light">{{dataAddress.departement}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="5">Région : </span><span class="text-light">{{dataAddress.region}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="6">Pays : </span><span class="text-light">{{dataAddress.pays}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="6">Latitude : </span><span class="text-light">{{dataAddress.lat}}</span></div>
+        <div class="row d-inline"><span class="text-light" id="6">Longitude : </span><span class="text-light">{{dataAddress.lng}}</span></div>
+
+    </div>
+</div>
+

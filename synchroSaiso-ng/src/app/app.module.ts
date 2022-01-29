@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ActifsComponent } from './components/actifs/actifs.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     AboutComponent,
     ActifsComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
