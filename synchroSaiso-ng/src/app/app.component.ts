@@ -80,4 +80,8 @@ export class AppComponent {
     location.replace('/user')
   }
 
+  sendId(id:any){
+    localStorage.setItem('actifId',id)
+  }
+
 }

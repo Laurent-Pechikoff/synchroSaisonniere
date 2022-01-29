@@ -1,0 +1,10 @@
+#geocod{
+   border-radius: 10px;
+   border-color: white;
+   border: solid;
+   width:1050px
+
+}
+#geocodResult{
+   width: 500px;
+}

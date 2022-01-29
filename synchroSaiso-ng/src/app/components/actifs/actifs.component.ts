@@ -7,8 +7,12 @@ import { ActifService } from 'src/app/services/actif.service';
   styleUrls: ['./actifs.component.css']
 })
 export class ActifsComponent implements OnInit {
-  data:any
 
+  // *****************************************variable crud ******************************
+datActifs:any
+datActif:any
+
+  // *****************************************variable geocoding ******************************
   dataAddress={
     numero:'',
     rue:'',
@@ -23,32 +27,90 @@ export class ActifsComponent implements OnInit {
   dataGeocoding:any
   geocoding:any
   adress=''
+// ***************************************** variable googlemaps ******************************
+  centerOrigin={
+    lat: 47.139049,
+    lng: 2.644761,
+  }
+  zoom = -5
+  center!: google.maps.LatLngLiteral;
+  options: google.maps.MapOptions = {
+    mapTypeId: 'hybrid',
+    zoomControl: true,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    maxZoom: 15,
+    minZoom: 8
+  }
+
+// ***************************************** variable markers ******************************
+  markers:any
+
+//*****************************************************************************************
+// ******************************************* les methodes **********************************
+// **********************************************************************************************
 
   constructor(private as:ActifService) { }
 
   ngOnInit(): void {
+    this.getActifs()
+    
   }
 
-
+// ****************************************  Requete geocoding ****************************
   findGeocoding(form:any){
     this.adress=form.form.value.adress
     this.as.geocoding(this.adress).subscribe(resp=>{
       this.dataGeocoding=resp
-      // this.dataAddress=this.dataGeocoding.results[0].address_components
-      
-      
-      for(let i=0;i<7;i++){
+      //********************** alimentation de l'adresse dans l'objet ************************************/
+      for(let i=0;i<7;i++){ 
         let x=this.dataGeocoding.results[0].address_components[i].long_name
         let y: string =Object.keys(this.dataAddress)[i]
-        console.log(y+' : '+x)
-        // alert(this.dataAddress[y ])
         Object.defineProperty(this.dataAddress,y,{value:x})
       }
+           
+      //********************** alimentation des coordonnées GPS  dans l'objet ************************************/
       let x=this.geocoding=this.dataGeocoding.results[0].geometry.location
       this.dataAddress['lat']=x.lat
       this.dataAddress['lng']=x.lng
 
     })
+
+  }
+// ****************************************  Création des Marqueurs ****************************
+  addMarker() {
+    this.markers.push({
+      position: {
+        lat: this.center.lat + ((Math.random() - 0.5) * 2) / 10,
+        lng: this.center.lng + ((Math.random() - 0.5) * 2) / 10,
+      },
+      label: {
+        color: 'red',
+        text: 'Marker label ' + (this.markers.length + 1),
+      },
+      title: 'Marker title ' + (this.markers.length + 1),
+      options: { animation: google.maps.Animation.BOUNCE },
+    })
+  }
+// **********************************  CRUD  ******************************************
+  public getActifs(){
+    this.as.getActifs().subscribe(resp=>{
+      this.datActifs=resp
+      this.getActif()
+    })
+    
   }
 
+  public getActif(){
+    for(let i=0;i<Object.keys(this.datActifs).length;i++){
+      if(this.datActifs.id==localStorage.getItem('actifId')){
+        this.datActif=this.datActifs[i]
+      }
+    }  
+  }
+
+
 }
+
+
+
