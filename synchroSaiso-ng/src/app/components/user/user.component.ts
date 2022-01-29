@@ -8,11 +8,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   dataUser:any
-
+origin:any
   constructor(private us:UserService) { }
 
 
   ngOnInit(): void {
+    this.origin=localStorage.getItem('origin')
   }
 
   public loginUser(userForm:any){
@@ -26,8 +27,19 @@ export class UserComponent implements OnInit {
     })
 
   }
+  checkOrigin(){
+    localStorage.setItem('origin','creation')
+    this.ngOnInit();
+  }
 
+  checkConnexion(){
+    localStorage.setItem('origin','connexion')
+    this.ngOnInit();
+  }
 
+removeOrigin(){
+  this.origin = localStorage.removeItem('origin')
+}
 
 
 }

@@ -1,20 +1,53 @@
 <p>user works!</p>
 
 <!-- ************************************************  Form Connexion ***************************************** -->
-
-<form (ngSubmit)="loginUser(userForm)" #userForm='ngForm' >
-    <div class='mb3'>
-        
-        <input ngModel  type="text" name='login' class="form-control" id='login'>
+<div class="container">
+    <div *ngIf="(origin=='connexion')">
+        <div class="bordure ">
+            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm' class="text-center">
+                <div class='mb-3 col-6 text-center'>
+                    <label class="col-6" for="login">Entrez votre identifiant</label>
+                    <input ngModel type="text" name='login' class="form-control col-6" id='login'>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="password">Entrez votre mot de pass</label>
+                    <input ngModel type="text" name='password' class="form-control col-6" id='password'>
+                </div>
+                <div class='d-grid gap-2 col-6 mx-auto mt-4'>
+                    <button class='btn btn-primary ' type='submit' id="connect">Connexion</button>
+                </div>
+            </form>
+            <button class="btn btn-success" (click)="checkOrigin()">Créer votre compte</button>
+        </div>
     </div>
-    <div class="mb-3">
-        <input ngModel type="text" name='password' class="form-control" id='password'>
-    </div>
-    <div class='d-grid gap-2 col-6 mx-auto mt-4'>
-        <button class='btn btn-primary ' type='submit'  id="connect">Connexion</button>
-    </div>
-</form>
 
-    <div > Créer votre compte</div>
 
-<!-- ************************************************  Form Creation ***************************************** -->
+    <!-- ************************************************  Form Creation ***************************************** -->
+
+    <div *ngIf="(origin=='creation')">
+        <div class="bordure">
+            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm'>
+                <div class='mb3'>
+                    <label for="name">Entrez votre nom</label>
+                    <input ngModel type="text" name='name' class="form-control" id='login'>
+                </div>
+                <div class='mb3'>
+                    <label for="firstName">Entrez votre prenom</label>
+                    <input ngModel type="text" name='firstName' class="form-control" id='login'>
+                </div>
+                <div class='mb3'>
+                    <label for="email">Entrez votre email</label>
+                    <input ngModel type="text" name='email' class="form-control" id='login'>
+                </div>
+                <div class="mb-3">
+                    <label for="password">Entrez votre mot de pass</label>
+                    <input ngModel type="text" name='password' class="form-control" id='password'>
+                </div>
+                <div class='d-grid gap-2 col-6 mx-auto mt-4'>
+                    <button class='btn btn-primary ' type='submit' id="connect" (click)="removeOrigin()">Connexion</button>
+                </div>
+            </form>
+            <button class="btn btn-success" (click)="checkConnexion()">Déja un compte?</button>
+        </div>
+    </div>
+</div>

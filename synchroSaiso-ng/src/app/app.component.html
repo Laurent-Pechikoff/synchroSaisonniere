@@ -23,11 +23,11 @@
                     <span class="line"></span>
                 </div>
             </div>
-            <bouton routerLink="user" type='button' id="logIcon" *ngIf="(!sessionExist)">
+            <bouton (click)='checkOrigin()' routerLink="user" type='button' id="logIcon" *ngIf="(!sessionExist)">
                 <img src="../assets/image/login---2.png" alt="" id="arrow">
                 <img src="../assets/image/login---1.png" alt="" id="rectangle">
             </bouton>
-            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#unlogModal" id="unlogIcon" *ngIf="(sessionExist)">
+            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#unlogModal"  id="unlogIcon" *ngIf="(sessionExist)">
                 <i class="fas fa-user text-success"></i>
 
             </bouton>
@@ -49,7 +49,7 @@
 
 <div id="navert" class="container-fluid" *ngIf="(checkNavBarVert==true)">
     <nav class="nav flex-column" *ngFor="let inbt of dataNavBarVert">
-        <a class="nav-link">{{inbt.name}}</a>
+        <a class="nav-link" >{{inbt.name}}</a>
     </nav>
 
 </div>

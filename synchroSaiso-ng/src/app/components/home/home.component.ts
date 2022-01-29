@@ -11,5 +11,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  checkOrigin(){
+    localStorage.setItem('origin','creation')
+    location.replace('/user')
+  }
 }

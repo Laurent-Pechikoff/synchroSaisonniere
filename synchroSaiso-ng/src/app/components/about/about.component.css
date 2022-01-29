@@ -1,20 +1,29 @@
 h1{
     margin-bottom: 10vh;
     margin-top: 5vh;
+    color: rgb(26,156,234);
+}
+article{
+    color: rgb(26,156,234);
+}
+
+.photo{
+    background-color: rgb(48,48,48);
 }
 a{
     text-decoration: none;
-    color:green;
+    color:rgb(26,156,234);
 }
 a:link{
-    color: green;
+    color: rgb(26,156,234);
 }
 .devUn{
     height: 30vh;
 }
 
 .info{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(26,156,234);
 }
 
 .bottomLeft{
@@ -29,3 +38,13 @@ a:link{
 .bottomRight{
     border-radius: 0 0 20px 0;
 }
+.bounce:hover {
+    animation: bounce 0.35s ease alternate;
+    animation-iteration-count: 2;
+}
+
+@keyframes bounce{
+     from {transform: translateY(0);}
+     to   {transform: translateY(-20px);}
+}
+    
