@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, OnInit} from '@angular/core';
+import { ActifsComponent } from './components/actifs/actifs.component';
+import { ActifService } from './services/actif.service';
 import { NavbarService } from './services/navbar.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+
+@Injectable({providedIn:'any'})
+export class AppComponent implements OnInit {  
   title = 'synchroSaiso-ng';
   dataNavBar:any
   dataNavBarVert:any
   checkNavBarVert=false
   session=JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist=false;
+  actifId=0
+
+  constructor(private nbs: NavbarService, private actif:ActifsComponent) {  }  
   
 
-  constructor(private nbs: NavbarService) { }
-
   ngOnInit(): void {
+    
     if(Object.keys(this.session).length!=0){
       this.sessionExist=true
       this.session=this.session[0]
@@ -80,4 +86,12 @@ export class AppComponent {
     location.replace('/user')
   }
 
+
+  sendId(id:any){
+    localStorage.setItem('actifID', id)
+    this.actif.getActifById(id)
+  }
+
 }
+
+

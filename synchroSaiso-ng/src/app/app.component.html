@@ -34,6 +34,7 @@
         </div>
     </nav>
 </div>
+
 <!-- ******************************************************* Modal User close Session ************************************************** -->
 <div  class="modal fade" id="unlogModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -46,10 +47,11 @@
 </div>
 
 <!-- ******************************************************* navbar verticale ************************************************** -->
-
 <div id="navert" class="container-fluid" *ngIf="(checkNavBarVert==true)">
     <nav class="nav flex-column" *ngFor="let inbt of dataNavBarVert">
-        <a class="nav-link" >{{inbt.name}}</a>
+        <button class="nav-link" (click)="sendId(inbt.id)">{{inbt.name}}
+            
+        </button>
     </nav>
 
 </div>

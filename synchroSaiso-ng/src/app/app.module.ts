@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ActifsComponent } from './components/actifs/actifs.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import { UserComponent } from './components/user/user.component';
     AboutComponent,
     ActifsComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
-  providers: [],
+  providers: [ActifsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
