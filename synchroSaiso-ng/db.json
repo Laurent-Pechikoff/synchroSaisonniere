@@ -56,22 +56,22 @@
             "departement":"",
             "region":"",
             "pays":"",
-            "cp":"",
+            "cp":"13002",
             "lat":0,
             "lng":0
         },
         {
-            "id": 1,
+            "id": 2,
             "name": "T3 4, rue gourjon",
             "numero":4 ,
             "rue":"rue gourjon",
             "ville":"Marseille",
-            "departement":"",
+            "departement":"13002",
             "region":"",
             "pays":"",
             "cp":"",
             "lat":0,
-            "lng":0
+            "lng":1
         }
     ],
     "agenda": [

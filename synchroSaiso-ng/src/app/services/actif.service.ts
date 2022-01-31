@@ -15,7 +15,12 @@ export class ActifService {
   }
 
   getActifs(){
+    console.log(this.http.get(this.url))
     return this.http.get(this.url)
+  }
+
+  getActifById(id:any){
+    return this.http.get(this.url+'/'+id)
   }
 
 }

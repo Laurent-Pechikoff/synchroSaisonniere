@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { ActifService } from 'src/app/services/actif.service';
 
 @Component({
   selector: 'app-actifs',
   templateUrl: './actifs.component.html',
-  styleUrls: ['./actifs.component.css']
+  styleUrls: ['./actifs.component.css'],
 })
-export class ActifsComponent implements OnInit {
 
+
+export class ActifsComponent implements OnInit {
   // *****************************************variable crud ******************************
 datActifs:any
 datActif:any
+actifId=1
 
   // *****************************************variable geocoding ******************************
   dataAddress={
@@ -32,15 +34,15 @@ datActif:any
     lat: 47.139049,
     lng: 2.644761,
   }
-  zoom = -5
+  zoom = 5
   center!: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: true,
-    scrollwheel: false,
+    scrollwheel: true,
     disableDoubleClickZoom: true,
     maxZoom: 15,
-    minZoom: 8
+    minZoom: 0
   }
 
 // ***************************************** variable markers ******************************
@@ -53,8 +55,7 @@ datActif:any
   constructor(private as:ActifService) { }
 
   ngOnInit(): void {
-    this.getActifs()
-    
+      this.getActifById(this.actifId)
   }
 
 // ****************************************  Requete geocoding ****************************
@@ -96,17 +97,29 @@ datActif:any
   public getActifs(){
     this.as.getActifs().subscribe(resp=>{
       this.datActifs=resp
-      this.getActif()
+      console.log(this.datActifs)
     })
     
   }
 
-  public getActif(){
+  public getActifPageLoad(){
+    console.log(Object.keys(this.datActifs).length)
+    let id=0
     for(let i=0;i<Object.keys(this.datActifs).length;i++){
-      if(this.datActifs.id==localStorage.getItem('actifId')){
+      if(this.datActifs[i].id==id){
         this.datActif=this.datActifs[i]
       }
     }  
+  }
+
+
+  public getActifById(id:any){
+    console.log(id)
+    this.as.getActifById(id).subscribe(resp=>{
+      this.datActif=resp
+      console.log(this.datActif)  
+    })
+
   }
 
 

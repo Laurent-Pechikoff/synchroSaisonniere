@@ -28,7 +28,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     FormsModule,
     GoogleMapsModule
   ],
-  providers: [],
+  providers: [ActifsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
