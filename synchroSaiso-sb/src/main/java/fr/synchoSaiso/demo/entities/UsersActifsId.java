@@ -1,5 +1,6 @@
 package fr.synchoSaiso.demo.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,25 +18,31 @@ import lombok.Setter;
 
 @Embeddable
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class UsersActifsId {
+public class UsersActifsId implements Serializable{
 	
-	private User user;
-	private Actif actif;
+	@Column(name ="user_id")
+	private Integer userId;
+	@Column(name ="actif_id")
+	private Integer actifId;
+//	
+	@Override
+	public int hashCode() {
+		return Objects.hash(actifId, userId);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsersActifsId other = (UsersActifsId) obj;
+		return Objects.equals(actifId, other.actifId) && Objects.equals(userId, other.userId);
+	}
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-    public User getUser() {
-        return user;
-    }
-	public void setUser(User user) {
-        this.user = user;
-    }
-	@ManyToOne(cascade = CascadeType.ALL)
-    public Actif getActif() {
-        return actif;
-    }
- 
-    public void setActif(Actif actif) {
-        this.actif = actif;
-    }
+	
+	
+	
 	
 }
