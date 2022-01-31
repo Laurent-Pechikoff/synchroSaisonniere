@@ -1,0 +1,120 @@
+{
+  "navbar": [
+    {
+      "id": 1,
+      "item": "Qui sommes nous?",
+      "routerLink": "about",
+      "role": [
+        "user",
+        "admin",
+        "visiteur"
+      ],
+      "navbarVert": false
+    },
+    {
+      "id": 2,
+      "item": "Vos Actifs",
+      "routerLink": "actifs",
+      "role": [
+        "user",
+        "admin"
+      ],
+      "navbarVert": true
+    },
+    {
+      "id": 3,
+      "item": "Votre Agenda",
+      "routerLink": "agenda",
+      "role": [
+        "user",
+        "admin"
+      ],
+      "navbarVert": false
+    },
+    {
+      "id": 4,
+      "item": "Vos Statistiques",
+      "routerLink": "statistique",
+      "role": [
+        "user",
+        "admin"
+      ],
+      "navbarVert": false
+    },
+    {
+      "id": 5,
+      "item": "admin",
+      "routerLink": "admin",
+      "role": [
+        "user",
+        "admin"
+      ],
+      "navbarVert": true
+    }
+  ],
+  "actifs": [
+    {
+      "id": 1,
+      "name": "T2 4, rue gourjon"
+    },
+    {
+      "id": 2,
+      "name": "T3 4, rue gourjon"
+    }
+  ],
+  "agenda": [
+    {
+      "id": 1
+    }
+  ],
+  "statistique": [
+    {
+      "id": 1
+    }
+  ],
+  "about": [
+    {
+      "id": 1
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "login": "patrick",
+      "mdp": "toto",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "login": "lolo",
+      "mdp": "tutu",
+      "role": "admin"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "name": "pat",
+      "firstName": "blackos",
+      "email": "babla@hotmail.com",
+      "role": [
+        "user",
+        "admin",
+        "visiteur"
+      ],
+      "navbarVert": true
+    },
+    {
+      "id": 2,
+      "name": "pat",
+      "firstName": "blackos",
+      "email": "babla@hotmail.com",
+      "role": [
+        "user",
+        "admin",
+        "visiteur"
+      ],
+      "navbarVert": true
+    }
+  ]
+}
