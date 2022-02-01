@@ -16,6 +16,8 @@ actifId=1
 
   // *****************************************variable geocoding ******************************
   dataAddress={
+    id:0,
+    name:'',
     numero:'',
     rue:'',
     ville:'',
@@ -55,7 +57,7 @@ actifId=1
   constructor(private as:ActifService) { }
 
   ngOnInit(): void {
-      this.getActifById(this.actifId)
+    this.watchActif(1)
   }
 
 // ****************************************  Requete geocoding ****************************
@@ -94,31 +96,36 @@ actifId=1
     })
   }
 // **********************************  CRUD  ******************************************
-  public getActifs(){
-    this.as.getActifs().subscribe(resp=>{
-      this.datActifs=resp
-      console.log(this.datActifs)
-    })
-    
-  }
 
-  public getActifPageLoad(){
-    console.log(Object.keys(this.datActifs).length)
-    let id=0
-    for(let i=0;i<Object.keys(this.datActifs).length;i++){
-      if(this.datActifs[i].id==id){
-        this.datActif=this.datActifs[i]
-      }
-    }  
-  }
-
-
-  public getActifById(id:any){
-    console.log(id)
+  public watchActif(id:any){
     this.as.getActifById(id).subscribe(resp=>{
-      this.datActif=resp
-      console.log(this.datActif)  
+    this.datActif=resp
+    console.log(this.datActif)  
+    this.switchActif(this.datActif)
     })
+    this.as.getActifs().subscribe(resp=>{
+    this.datActifs=resp
+    // console.log(this.datActifs)  
+    // console.log(this.datActifs, this.datActif)
+  
+
+    })
+    // for(let i=0;i<Object.keys(this.datActifs).length;i++){
+    //   if(id==this.datActifs[i].id){
+    //     this.dataAddress=this.datActifs[i]
+    //   }
+    // }
+  }
+
+  switchActif(data:any){
+    let div=<HTMLInputElement>document.getElementById('actifDetail')
+    div.innerHTML=""
+    for(let i=0;i<Object.keys(data).length;i++){
+      let item=Object.keys(data)[i]
+      let valu=Object.values(data)[i];
+      // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
+      div.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>"
+    }
 
   }
 

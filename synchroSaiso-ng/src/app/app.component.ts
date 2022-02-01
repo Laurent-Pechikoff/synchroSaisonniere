@@ -15,9 +15,8 @@ export class AppComponent implements OnInit {
   dataNavBar:any
   dataNavBarVert:any
   checkNavBarVert=false
-  session=JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
+  session=JSON.parse(sessionStorage.getItem('login')||'{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist=false;
-  actifId=0
 
   constructor(private nbs: NavbarService, private actif:ActifsComponent) {  }  
   
@@ -88,8 +87,7 @@ export class AppComponent implements OnInit {
 
 
   sendId(id:any){
-    localStorage.setItem('actifID', id)
-    this.actif.getActifById(id)
+    this.actif.watchActif(id)
   }
 
 }
