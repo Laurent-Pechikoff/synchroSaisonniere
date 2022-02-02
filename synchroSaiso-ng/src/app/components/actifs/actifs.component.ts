@@ -10,9 +10,9 @@ import { ActifService } from 'src/app/services/actif.service';
 
 export class ActifsComponent implements OnInit {
   // *****************************************variable crud ******************************
-datActifs:any
-datActif:any
-actifId=1
+  datActifs: any
+  datActif: any
+  actifId = 1
 
   // *****************************************variable geocoding ******************************
   dataAddress={
@@ -47,36 +47,36 @@ actifId=1
   //   minZoom: 0
   // }
 
-// ***************************************** variable markers ******************************
-  markers:any
+  // ***************************************** variable markers ******************************
+  markers: any
 
-//*****************************************************************************************
-// ******************************************* les methodes **********************************
-// **********************************************************************************************
+  //*****************************************************************************************
+  // ******************************************* les methodes **********************************
+  // **********************************************************************************************
 
-  constructor(private as:ActifService) { }
+  constructor(private as: ActifService) { }
 
   ngOnInit(): void {
     this.watchActif(1)
     let loader 
   }
 
-// ****************************************  Requete geocoding ****************************
-  findGeocoding(form:any){
-    this.adress=form.form.value.adress
-    this.as.geocoding(this.adress).subscribe(resp=>{
-      this.dataGeocoding=resp
+  // ****************************************  Requete geocoding ****************************
+  findGeocoding(form: any) {
+    this.adress = form.form.value.adress
+    this.as.geocoding(this.adress).subscribe(resp => {
+      this.dataGeocoding = resp
       //********************** alimentation de l'adresse dans l'objet ************************************/
-      for(let i=0;i<7;i++){ 
-        let x=this.dataGeocoding.results[0].address_components[i].long_name
-        let y: string =Object.keys(this.dataAddress)[i]
-        Object.defineProperty(this.dataAddress,y,{value:x})
+      for (let i = 0; i < 7; i++) {
+        let x = this.dataGeocoding.results[0].address_components[i].long_name
+        let y: string = Object.keys(this.dataAddress)[i]
+        Object.defineProperty(this.dataAddress, y, { value: x })
       }
-           
+
       //********************** alimentation des coordonnées GPS  dans l'objet ************************************/
-      let x=this.geocoding=this.dataGeocoding.results[0].geometry.location
-      this.dataAddress['lat']=x.lat
-      this.dataAddress['lng']=x.lng
+      let x = this.geocoding = this.dataGeocoding.results[0].geometry.location
+      this.dataAddress['lat'] = x.lat
+      this.dataAddress['lng'] = x.lng
 
     })
 
