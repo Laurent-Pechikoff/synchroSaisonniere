@@ -14,6 +14,7 @@ export class ActifsComponent implements OnInit {
   datActif: any
   actifId = 1
 
+
   // *****************************************variable geocoding ******************************
   dataAddress={
     id:0,
@@ -32,33 +33,56 @@ export class ActifsComponent implements OnInit {
   geocoding:any
   adress=''
 // ***************************************** variable googlemaps ******************************
-  // centerOrigin={
-  //   lat: 47.139049,
-  //   lng: 2.644761,
-  // }
-  // zoom = 5
-  // center!: google.maps.LatLngLiteral;
-  // options: google.maps.MapOptions = {
-  //   mapTypeId: 'hybrid',
-  //   zoomControl: true,
-  //   scrollwheel: true,
-  //   disableDoubleClickZoom: true,
-  //   maxZoom: 15,
-  //   minZoom: 0
-  // }
+  
+
+  centerOrigin={
+    lat: 47.139049,
+    lng: 2.644761,
+  }
+  zoom = 5
+  center!: google.maps.LatLngLiteral;
+  options: google.maps.MapOptions = {
+    mapTypeId: 'hybrid',
+    zoomControl: true,
+    scrollwheel: true,
+    disableDoubleClickZoom: true,
+    maxZoom: 15,
+    minZoom: 0
+  }
+
 
   // ***************************************** variable markers ******************************
-  markers: any
+    // actifMarker=new google.maps.Marker({
+    //   position: {
+    //     lat: 47.139049,
+    //     lng: 2.644761
+    //   },
+    //   label:"test"
+    // })
 
   //*****************************************************************************************
   // ******************************************* les methodes **********************************
   // **********************************************************************************************
 
+  marker={
+    position:{lat: 47.139049,lng: 2.644761}
+  }
+
+
   constructor(private as: ActifService) { }
 
   ngOnInit(): void {
     this.watchActif(1)
-    let loader 
+
+    // **************** lancement googlemaps  **********************
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
+    })
+
+   
   }
 
   // ****************************************  Requete geocoding ****************************
@@ -96,6 +120,8 @@ export class ActifsComponent implements OnInit {
   //     options: { animation: google.maps.Animation.BOUNCE },
   //   })
   // }
+
+
 // **********************************  CRUD  ******************************************
 
   public watchActif(id:any){

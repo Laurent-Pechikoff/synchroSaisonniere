@@ -2,9 +2,19 @@
 <p>{{dataAddress.rue}}</p>
 <div class="row d-flex" id="geocod">
     <div class="container col-6">
-        <div id="map" class="actifMap">
+        <google-map id="actifMap"
+            height="500px"
+            width="100%"
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options">
 
-        </div>
+            <map-marker
+                [position]="marker.position">
+
+            </map-marker>
+      
+        </google-map>    
     </div>
 </div>
 

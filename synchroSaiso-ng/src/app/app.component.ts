@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
+    // **********************  navbar  ************************
     if(Object.keys(this.session).length!=0){
       this.sessionExist=true
       this.session=this.session[0]
@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
       this.session.role='Visiteur'
     }
     this.watchNavBar();
+    // ************************ googlemaps **************************
   }
 
   public checkHome() {
