@@ -1,5 +1,6 @@
 package fr.synchoSaiso.demo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,17 @@ public class UsersActifsService {
 	
 	
 	@GetMapping("/getActifsByUser/{id}")
-	private List<UsersActifs> getActifsByUserId(@PathVariable ("id") Integer id){
+	private List<Actif> getActifsByUserId(@PathVariable ("id") Integer id){
 		List<UsersActifs> result = uarp.findByUserId(id);
-		
-		return uarp.findByUserId(id);
+		System.out.println(result);
+		List<Actif> listActifs = new ArrayList<>();
+		for (UsersActifs usersActifs : result) {
+			int index = usersActifs.getId().getActifId();
+			System.out.println((index));
+			listActifs.add(arp.findById(index).orElse(null));
+			System.out.println(listActifs);
+		}
+		return listActifs;
 		
 	}
 }

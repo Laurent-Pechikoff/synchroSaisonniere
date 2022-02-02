@@ -25,12 +25,12 @@ public class UsersActifs {
 	@EmbeddedId
 	private UsersActifsId id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("userId")
 	@JoinColumn(name = "user_id")
 	@JsonBackReference
 	private User user;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@MapsId("actifId")
 	@JoinColumn(name ="actif_id")
 	@JsonBackReference
