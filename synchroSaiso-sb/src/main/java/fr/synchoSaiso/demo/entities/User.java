@@ -14,6 +14,8 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,6 +39,7 @@ public class User {
 			mappedBy = "user",
 			cascade = CascadeType.ALL
 			)
+	@JsonManagedReference
 	private List<UsersActifs> actifs = new ArrayList<>();
 	//private Set<UsersActifs> uActifs;
 

@@ -10,4 +10,6 @@ import fr.synchoSaiso.demo.entities.Actif;
 @RestController
 public interface ActifRepository extends JpaRepository<Actif, Integer>{
 
+
+	
 }

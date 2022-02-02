@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,6 +60,7 @@ public class Actif {
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 			)
+	@JsonManagedReference
 	private List<UsersActifs> users = new ArrayList<>();
 	//private Set<UsersActifs> uActifs;
 

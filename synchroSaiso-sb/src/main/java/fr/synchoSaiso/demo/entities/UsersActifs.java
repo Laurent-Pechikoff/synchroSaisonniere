@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +28,12 @@ public class UsersActifs {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("userId")
 	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	private User user;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("actifId")
 	@JoinColumn(name ="actif_id")
+	@JsonBackReference
 	private Actif actif;
 	
 	
