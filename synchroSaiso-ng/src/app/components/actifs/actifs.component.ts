@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActifService } from 'src/app/services/actif.service';
 
 @Component({
@@ -32,20 +32,20 @@ actifId=1
   geocoding:any
   adress=''
 // ***************************************** variable googlemaps ******************************
-  centerOrigin={
-    lat: 47.139049,
-    lng: 2.644761,
-  }
-  zoom = 5
-  center!: google.maps.LatLngLiteral;
-  options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
-    zoomControl: true,
-    scrollwheel: true,
-    disableDoubleClickZoom: true,
-    maxZoom: 15,
-    minZoom: 0
-  }
+  // centerOrigin={
+  //   lat: 47.139049,
+  //   lng: 2.644761,
+  // }
+  // zoom = 5
+  // center!: google.maps.LatLngLiteral;
+  // options: google.maps.MapOptions = {
+  //   mapTypeId: 'hybrid',
+  //   zoomControl: true,
+  //   scrollwheel: true,
+  //   disableDoubleClickZoom: true,
+  //   maxZoom: 15,
+  //   minZoom: 0
+  // }
 
 // ***************************************** variable markers ******************************
   markers:any
@@ -58,6 +58,7 @@ actifId=1
 
   ngOnInit(): void {
     this.watchActif(1)
+    let loader 
   }
 
 // ****************************************  Requete geocoding ****************************
@@ -81,40 +82,31 @@ actifId=1
 
   }
 // ****************************************  Création des Marqueurs ****************************
-  addMarker() {
-    this.markers.push({
-      position: {
-        lat: this.center.lat + ((Math.random() - 0.5) * 2) / 10,
-        lng: this.center.lng + ((Math.random() - 0.5) * 2) / 10,
-      },
-      label: {
-        color: 'red',
-        text: 'Marker label ' + (this.markers.length + 1),
-      },
-      title: 'Marker title ' + (this.markers.length + 1),
-      options: { animation: google.maps.Animation.BOUNCE },
-    })
-  }
+  // addMarker() {
+  //   this.markers.push({
+  //     position: {
+  //       lat: 43.3049803,
+  //       lng: 5.369274,
+  //     },
+  //     label: {
+  //       color: 'red',
+  //       text: 'Marker label ' + ("4 rue gourjon"),
+  //     },
+  //     title: 'Marker title ' + (this.markers.length + 1),
+  //     options: { animation: google.maps.Animation.BOUNCE },
+  //   })
+  // }
 // **********************************  CRUD  ******************************************
 
   public watchActif(id:any){
     this.as.getActifById(id).subscribe(resp=>{
-    this.datActif=resp
-    console.log(this.datActif)  
-    this.switchActif(this.datActif)
+      this.datActif=resp
+      console.log(this.datActif)  
+      this.switchActif(this.datActif)
     })
     this.as.getActifs().subscribe(resp=>{
-    this.datActifs=resp
-    // console.log(this.datActifs)  
-    // console.log(this.datActifs, this.datActif)
-  
-
+      this.datActifs=resp
     })
-    // for(let i=0;i<Object.keys(this.datActifs).length;i++){
-    //   if(id==this.datActifs[i].id){
-    //     this.dataAddress=this.datActifs[i]
-    //   }
-    // }
   }
 
   switchActif(data:any){
