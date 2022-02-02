@@ -17,7 +17,7 @@ import fr.synchoSaiso.demo.dao.UserRepository;
 import fr.synchoSaiso.demo.entities.User;
 
 @RestController
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 public class UserService {
 	@Autowired
 	private UserRepository urp;
@@ -29,22 +29,23 @@ public class UserService {
 	}
 	
 	@GetMapping("/getUser/{id}")
-	private User user(@PathVariable ("id") Integer id) {
+	private User user(@PathVariable ("id") Long id) {
 		return urp.findById(id).orElse(null);
 	}
 	
 	@PostMapping("/addUser")
-	private void addUser(@RequestBody User user) {
+	public void addUser(@RequestBody User user) {
+		System.out.println("coucou");
 		urp.save(user);
 	}
 	
 	@DeleteMapping("/deleteUser/{id}")
-	private void deleteUser(@PathVariable ("id") Integer id) {
+	private void deleteUser(@PathVariable ("id") Long id) {
 		urp.deleteById(id);
 	}
 	
 	@PutMapping("/putUser/{id}")
-	public void putUser(@PathVariable ("id") Integer id,
+	public void putUser(@PathVariable ("id") Long id,
 			@RequestBody User userUpdate){		
 		userUpdate.setId(id);
 		urp.save(userUpdate);

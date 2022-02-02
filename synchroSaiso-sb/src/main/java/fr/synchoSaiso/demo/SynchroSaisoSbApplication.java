@@ -8,10 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import fr.synchoSaiso.demo.dao.ActifRepository;
+import fr.synchoSaiso.demo.dao.EntityTestRepository;
 import fr.synchoSaiso.demo.dao.RentCalendarRepository;
 import fr.synchoSaiso.demo.dao.UserRepository;
 import fr.synchoSaiso.demo.dao.UsersActifsRepository;
 import fr.synchoSaiso.demo.entities.Actif;
+import fr.synchoSaiso.demo.entities.EntityTest;
 import fr.synchoSaiso.demo.entities.NavBar;
 import fr.synchoSaiso.demo.entities.RentCalendar;
 import fr.synchoSaiso.demo.entities.Role;
@@ -31,6 +33,8 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	@Autowired
 	private UsersActifsRepository uarp;
 	@Autowired
+	private EntityTestRepository etrp;
+	@Autowired
 	private RepositoryRestConfiguration rrc;
 	
 	
@@ -42,7 +46,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		rrc.exposeIdsFor(Actif.class,User.class,RentCalendar.class,NavBar.class,Role.class,UsersActifs.class);
+		rrc.exposeIdsFor(Actif.class,User.class,RentCalendar.class,NavBar.class,Role.class,UsersActifs.class,EntityTest.class);
 		System.out.println("Coucou Synchro!!!");
 		//creation user
 //		urp.save(new User(null, "nom1", "prenom", null, null, null, null, null));

@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.synchoSaiso.demo.entities.User;
+import fr.synchoSaiso.demo.entities.EntityTest;
 
 @CrossOrigin("*")
 @RestController
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface EntityTestRepository extends JpaRepository<EntityTest, String>{
 
 }

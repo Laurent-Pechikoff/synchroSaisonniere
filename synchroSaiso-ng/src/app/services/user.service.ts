@@ -6,14 +6,19 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   url = 'http://localhost:3000/admin';
+  urlBack = "http://localhost:8088";
+
+
+
+
   constructor(private http: HttpClient) { }
 
   getUsers() {
     return this.http.get(this.url);
   }
 
-  getUser(login:any, mdp:any){
-    return this.http.get(this.url+'/'+'?login='+login)
+  getUser(login: any, mdp: any) {
+    return this.http.get(this.url + '/' + '?login=' + login)
   }
 
   getUserById(userId: any) {
@@ -24,4 +29,7 @@ export class UserService {
     return this.http.delete(this.url + '/' + userId)
   }
 
+  postUser(user: any) {
+    return this.http.post(this.urlBack + '/addUser', user)
+  }
 }

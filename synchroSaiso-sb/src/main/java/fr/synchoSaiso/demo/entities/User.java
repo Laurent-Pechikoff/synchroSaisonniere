@@ -26,7 +26,7 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	private String name;
 	private String firstName;
@@ -36,8 +36,8 @@ public class User {
 	private String password;
 	
 	@OneToMany(
-			mappedBy = "user",
-			cascade = CascadeType.ALL
+			mappedBy = "user"
+			,cascade = CascadeType.ALL
 			)
 	@JsonManagedReference
 	private List<UsersActifs> actifs = new ArrayList<>();

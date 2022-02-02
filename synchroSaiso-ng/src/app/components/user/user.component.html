@@ -26,7 +26,7 @@
 
     <div *ngIf="(origin=='creation')">
         <div class="bordure">
-            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm'>
+            <form (ngSubmit)="creatAccount(newUserForm)" #newUserForm='ngForm'>
                 <div class='mb3'>
                     <label for="name">Entrez votre nom</label>
                     <input ngModel type="text" name='name' class="form-control" id='login'>
@@ -44,7 +44,8 @@
                     <input ngModel type="text" name='password' class="form-control" id='password'>
                 </div>
                 <div class='d-grid gap-2 col-6 mx-auto mt-4'>
-                    <button class='btn btn-primary ' type='submit' id="connect" (click)="removeOrigin()">Connexion</button>
+                    <button class='btn btn-primary ' type='submit' id="connect" >Enregistrer
+                        votre compte</button>
                 </div>
             </form>
             <button class="btn btn-success" (click)="checkConnexion()">Déja un compte?</button>
