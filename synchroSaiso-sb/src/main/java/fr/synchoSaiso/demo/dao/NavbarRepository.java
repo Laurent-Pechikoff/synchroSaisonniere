@@ -8,6 +8,6 @@ import fr.synchoSaiso.demo.entities.NavBar;
 
 @CrossOrigin("http://localhost:4200/")
 @RestController
-public interface NavbarRepository extends JpaRepository<NavBar, Integer>{
+public interface NavbarRepository extends JpaRepository<NavBar, Long>{
 
 }

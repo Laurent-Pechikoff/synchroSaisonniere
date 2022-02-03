@@ -11,7 +11,7 @@ import fr.synchoSaiso.demo.entities.Actif;
 
 @CrossOrigin("http://localhost:4200/")
 @RestController
-public interface ActifRepository extends JpaRepository<Actif, Integer>{
+public interface ActifRepository extends JpaRepository<Actif, Long>{
 
 	@Query(value = "select * from bddsynchro.actif  a inner join bddsynchro.user_actif ua on  a.actif_id = ua.actif_id where ua.user_id = ?1", nativeQuery = true)
 	List<Actif> findByUsersId(Long id);
