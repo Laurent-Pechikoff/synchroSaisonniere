@@ -11,9 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -35,33 +38,45 @@ public class User {
 	private String phone;
 	private String password;
 	
-	@OneToMany(
-			mappedBy = "user"
-			,cascade = CascadeType.ALL
+	
+	//many to many sans propriété (table 1/2)
+	@ManyToMany
+	@JoinTable(
+			name = "userActif",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "actif_id")
 			)
-	@JsonManagedReference
-	private List<UsersActifs> actifs = new ArrayList<>();
-	//private Set<UsersActifs> uActifs;
+	@JsonBackReference
+	private List<Actif> actifs = new ArrayList<>();
+	
+//	//ancienne version
+//	@OneToMany(
+//			mappedBy = "user"
+//			,cascade = CascadeType.ALL
+//			)
+//	//@JsonManagedReference
+//	private List<UsersActifs> actifs = new ArrayList<>();
+//	//private Set<UsersActifs> uActifs;
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(actifs, email, firstName, id, name, password, phone, statutUsers);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Objects.equals(actifs, other.actifs) && Objects.equals(email, other.email)
-				&& Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
-				&& Objects.equals(phone, other.phone) && Objects.equals(statutUsers, other.statutUsers);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(actifs, email, firstName, id, name, password, phone, statutUsers);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		User other = (User) obj;
+//		return Objects.equals(actifs, other.actifs) && Objects.equals(email, other.email)
+//				&& Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
+//				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
+//				&& Objects.equals(phone, other.phone) && Objects.equals(statutUsers, other.statutUsers);
+//	}
 
 	
 	

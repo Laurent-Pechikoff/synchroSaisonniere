@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -46,52 +47,60 @@ public class Actif {
 	private String urlTripAdvisor;
 	private String urlHomeAway;
 	
-	//many to many sans propriété (table 1/2)
+//	//many to many sans propriété (table 1/2)
 	@ManyToMany
 	@JoinTable(
 			name = "actifRentCalendar",
 			joinColumns = @JoinColumn(name = "actif_id"),
 			inverseJoinColumns = @JoinColumn(name = "rentCalendar_id")
 			)
+	@JsonBackReference
 	private List<RentCalendar> rentcalendars = new ArrayList<>();
 	
-	@OneToMany(
-			mappedBy = "actif",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true
-			)
+//	many to many user sans propriété (table2/2)
 	@JsonManagedReference
-	private List<UsersActifs> users = new ArrayList<>();
+	@ManyToMany(mappedBy = "actifs")
+	private List<User> users = new ArrayList<>();
+	
+	
+//	//changement bdd
+//	@OneToMany(
+//			mappedBy = "actif",
+//			cascade = CascadeType.ALL,
+//			orphanRemoval = true
+//			)
+//	@JsonManagedReference
+//	private List<UsersActifs> users = new ArrayList<>();
 	//private Set<UsersActifs> uActifs;
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(actifId, adresseActifs, cpActifs, latitudeActifs, longitudeActifs, nameActifs,
-				numeroFiscalActifs, rentcalendars, statutFiscalActifs, urlAirBnb, urlBooking, urlHomeAway,
-				urlTripAdvisor, users, villeActifs);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Actif other = (Actif) obj;
-		return Objects.equals(actifId, other.actifId) && Objects.equals(adresseActifs, other.adresseActifs)
-				&& cpActifs == other.cpActifs && Objects.equals(latitudeActifs, other.latitudeActifs)
-				&& Objects.equals(longitudeActifs, other.longitudeActifs)
-				&& Objects.equals(nameActifs, other.nameActifs)
-				&& Objects.equals(numeroFiscalActifs, other.numeroFiscalActifs)
-				&& Objects.equals(rentcalendars, other.rentcalendars)
-				&& Objects.equals(statutFiscalActifs, other.statutFiscalActifs)
-				&& Objects.equals(urlAirBnb, other.urlAirBnb) && Objects.equals(urlBooking, other.urlBooking)
-				&& Objects.equals(urlHomeAway, other.urlHomeAway)
-				&& Objects.equals(urlTripAdvisor, other.urlTripAdvisor) && Objects.equals(users, other.users)
-				&& Objects.equals(villeActifs, other.villeActifs);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(actifId, adresseActifs, cpActifs, latitudeActifs, longitudeActifs, nameActifs,
+//				numeroFiscalActifs, rentcalendars, statutFiscalActifs, urlAirBnb, urlBooking, urlHomeAway,
+//				urlTripAdvisor, users, villeActifs);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Actif other = (Actif) obj;
+//		return Objects.equals(actifId, other.actifId) && Objects.equals(adresseActifs, other.adresseActifs)
+//				&& cpActifs == other.cpActifs && Objects.equals(latitudeActifs, other.latitudeActifs)
+//				&& Objects.equals(longitudeActifs, other.longitudeActifs)
+//				&& Objects.equals(nameActifs, other.nameActifs)
+//				&& Objects.equals(numeroFiscalActifs, other.numeroFiscalActifs)
+//				&& Objects.equals(rentcalendars, other.rentcalendars)
+//				&& Objects.equals(statutFiscalActifs, other.statutFiscalActifs)
+//				&& Objects.equals(urlAirBnb, other.urlAirBnb) && Objects.equals(urlBooking, other.urlBooking)
+//				&& Objects.equals(urlHomeAway, other.urlHomeAway)
+//				&& Objects.equals(urlTripAdvisor, other.urlTripAdvisor) && Objects.equals(users, other.users)
+//				&& Objects.equals(villeActifs, other.villeActifs);
+//	}
 
 	
 	

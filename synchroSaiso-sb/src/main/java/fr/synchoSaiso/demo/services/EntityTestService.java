@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.synchoSaiso.demo.dao.EntityTestRepository;
 import fr.synchoSaiso.demo.entities.EntityTest;
+import fr.synchoSaiso.demo.entities.User;
 
 @RestController
 @CrossOrigin("*")
