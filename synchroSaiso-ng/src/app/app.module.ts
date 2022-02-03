@@ -11,6 +11,16 @@ import { ActifsComponent } from './components/actifs/actifs.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component'; 
 import { GoogleMapsModule } from '@angular/google-maps'
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { CalendarComponent } from './components/calendar/calendar.component';
+
+FullCalendarModule.registerPlugins([ 
+  interactionPlugin,
+  dayGridPlugin
+]);
+
 
 @NgModule({
   declarations: [
@@ -20,13 +30,15 @@ import { GoogleMapsModule } from '@angular/google-maps'
     ActifsComponent,
     AdminComponent,
     UserComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FullCalendarModule
   ],
   providers: [ActifsComponent],
   bootstrap: [AppComponent]
