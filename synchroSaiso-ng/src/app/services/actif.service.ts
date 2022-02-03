@@ -8,6 +8,7 @@ export class ActifService {
   url='http://localhost:3000/actifs'
   urlGeocoding='https://maps.googleapis.com/maps/api/geocode/json?address='
   googleKey='AIzaSyD_BA1AREtkic6MhEopOCT6vQtStzRD7Qw'
+ 
   constructor(private http:HttpClient) { }
 
   geocoding(adress:any){
@@ -15,7 +16,6 @@ export class ActifService {
   }
 
   getActifs(){
-    console.log(this.http.get(this.url))
     return this.http.get(this.url)
   }
 

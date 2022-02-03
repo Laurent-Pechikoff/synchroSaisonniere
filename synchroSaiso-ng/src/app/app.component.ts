@@ -15,15 +15,14 @@ export class AppComponent implements OnInit {
   dataNavBar:any
   dataNavBarVert:any
   checkNavBarVert=false
-  session=JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
+  session=JSON.parse(sessionStorage.getItem('login')||'{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist=false;
-  actifId=0
 
   constructor(private nbs: NavbarService, private actif:ActifsComponent) {  }  
   
 
   ngOnInit(): void {
-    
+    // **********************  navbar  ************************
     if(Object.keys(this.session).length!=0){
       this.sessionExist=true
       this.session=this.session[0]
@@ -32,6 +31,7 @@ export class AppComponent implements OnInit {
       this.session.role='Visiteur'
     }
     this.watchNavBar();
+    // ************************ googlemaps **************************
   }
 
   public checkHome() {
@@ -88,8 +88,7 @@ export class AppComponent implements OnInit {
 
 
   sendId(id:any){
-    localStorage.setItem('actifID', id)
-    this.actif.getActifById(id)
+    this.actif.watchActif(id)
   }
 
 }
