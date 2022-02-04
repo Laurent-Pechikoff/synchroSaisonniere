@@ -16,6 +16,7 @@ import fr.synchoSaiso.demo.dao.UserRepository;
 
 import fr.synchoSaiso.demo.entities.Actif;
 import fr.synchoSaiso.demo.entities.NavBar;
+import fr.synchoSaiso.demo.entities.Rent;
 import fr.synchoSaiso.demo.entities.RentCalendar;
 import fr.synchoSaiso.demo.entities.Role;
 import fr.synchoSaiso.demo.entities.User;
@@ -44,7 +45,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		rrc.exposeIdsFor(Actif.class,User.class,RentCalendar.class,NavBar.class,Role.class);
+		rrc.exposeIdsFor(Actif.class,User.class,Rent.class,NavBar.class,Role.class);
 		System.out.println("Coucou Synchro!!!");
 		//creation user
 //		urp.save(new User(null, "nom1", "prenom", null, null, null, null, null));

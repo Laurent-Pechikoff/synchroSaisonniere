@@ -1,15 +1,16 @@
 package fr.synchoSaiso.demo.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,14 +19,21 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class RentCalendar {
-
+public class Rent {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idrentCalendar;
+	private Long id;
 	
-	private String rentCalendarcol;
+	private LocalDate startDate;
+	private	LocalDate endDate;
+	private LocalTime startHour;
+	private LocalTime endHour;
 	private String urlOrigin;
+	private Long idOrigin;
+	private String description;
 	
-	
+	@ManyToOne
+	@JsonBackReference
+	private Actif actif;
 }

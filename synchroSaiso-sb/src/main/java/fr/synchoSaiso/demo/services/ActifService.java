@@ -65,7 +65,7 @@ public class ActifService {
 	}
 	
 	@PutMapping("/putActif/{id}")
-	public void putUser(@PathVariable ("id") Long id,
+	public void putActif(@PathVariable ("id") Long id,
 			@RequestBody Actif actifUpdate){		
 		actifUpdate.setActifId(id);
 		arp.save(actifUpdate);

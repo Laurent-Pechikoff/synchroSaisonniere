@@ -1,6 +1,7 @@
 package fr.synchoSaiso.demo.entities;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -34,33 +35,33 @@ public class Actif {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	private Integer idActifs;
 	private Long actifId;
-	private String nameActifs;
-	private String adresseActifs;
-	private int cpActifs;
-	private String villeActifs;
-	private String longitudeActifs;
-	private String latitudeActifs;
-	private String numeroFiscalActifs;
-	private String statutFiscalActifs;
+	private String name;
+	private int numero;
+	private String rue;
+	private int cp;
+	private String ville;
+	private String region;
+	private String pays;
+	private String lng;
+	private String lat;
+	private String numeroFiscal;
+	private String statutFiscal;
 	private String urlAirBnb;
 	private String urlBooking;
 	private String urlTripAdvisor;
 	private String urlHomeAway;
 	
-//	//many to many sans propriété (table 1/2)
-	@ManyToMany
-	@JoinTable(
-			name = "actifRentCalendar",
-			joinColumns = @JoinColumn(name = "actif_id"),
-			inverseJoinColumns = @JoinColumn(name = "rentCalendar_id")
-			)
-	@JsonBackReference
-	private List<RentCalendar> rentcalendars = new ArrayList<>();
+
 	
 //	many to many user sans propriété (table2/2)
 	@JsonManagedReference
 	@ManyToMany(mappedBy = "actifs")
 	private List<User> users = new ArrayList<>();
 	
+	
+	//relation avec rent
+	@OneToMany(mappedBy = "actif")
+	@JsonManagedReference
+	private Collection<Rent> rents;
 	
 }

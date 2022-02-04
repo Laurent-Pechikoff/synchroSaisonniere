@@ -9,14 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ActifsComponent } from './components/actifs/actifs.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { UserComponent } from './components/user/user.component'; 
+import { UserComponent } from './components/user/user.component';
 import { GoogleMapsModule } from '@angular/google-maps'
-import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CalendarComponent } from './components/calendar/calendar.component';
 
-FullCalendarModule.registerPlugins([ 
+FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin
 ]);
@@ -37,7 +37,8 @@ FullCalendarModule.registerPlugins([
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    GoogleMapsModule,
+    GoogleMapsModule
+    ,
     FullCalendarModule
   ],
   providers: [ActifsComponent],
