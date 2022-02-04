@@ -1,0 +1,95 @@
+{
+    "vcalendar": [
+        {
+            "prodid": "-//Airbnb Inc//Hosting Calendar 0.8.8//EN",
+            "calscale": "GREGORIAN",
+            "version": "2.0",
+            "vevent": [
+                {
+                    "dtend": [
+                        "20220212",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtstart": [
+                        "20220211",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "1418fb94e984-686e0b7484e2acf1481a0b63d6a74df2@airbnb.com",
+                    "description": "Reservation URL: https://www.airbnb.com/hosting/reservations/details/HMPF2SSM49\\nPhone Number (Last 4 Digits): 4249",
+                    "summary": "Reserved"
+                },
+                {
+                    "dtend": [
+                        "20220213",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtstart": [
+                        "20220212",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "1418fb94e984-d4791fb0a0f951006a68275e388a953d@airbnb.com",
+                    "description": "Reservation URL: https://www.airbnb.com/hosting/reservations/details/HMA8XMZN5H\\nPhone Number (Last 4 Digits): 3017",
+                    "summary": "Reserved"
+                },
+                {
+                    "dtend": [
+                        "20220301",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtstart": [
+                        "20220221",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "1418fb94e984-97771e590fbeda8f39dfb58baa4c477c@airbnb.com",
+                    "description": "Reservation URL: https://www.airbnb.com/hosting/reservations/details/HMQYZAPRNC\\nPhone Number (Last 4 Digits): 9799",
+                    "summary": "Reserved"
+                },
+                {
+                    "dtend": [
+                        "20220221",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtstart": [
+                        "20220215",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "6fec1092d3fa-506cd16430819f086a54957e97b963ca@airbnb.com",
+                    "summary": "Airbnb (Not available)"
+                },
+                {
+                    "dtend": [
+                        "20230205",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtstart": [
+                        "20230204",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "6fec1092d3fa-af5febd7fb1be04b2aacc6b9f2d35f19@airbnb.com",
+                    "summary": "Airbnb (Not available)"
+                }
+            ]
+        }
+    ],
+    "success": true
+}

@@ -15,4 +15,13 @@ export class CalendarService {
     return this.http.get( 'https://www.airbnb.fr/calendar/ical/53827178.ics?s=1bd07d6991e5cc8601762d6348e9febf')
   }
 
+
+  
+  
+  getIcal(){
+    
+    let data=this.http.get('../assets/ical/airbnb-53827178.json')
+    return data
+  }
+
 }
