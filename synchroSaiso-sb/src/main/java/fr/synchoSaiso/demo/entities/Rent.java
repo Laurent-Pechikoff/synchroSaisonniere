@@ -26,6 +26,7 @@ public class Rent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	//   private LocalTime onSenBranle;
 	private LocalDate startDate;
 	private	LocalDate endDate;
 	private LocalTime startHour;

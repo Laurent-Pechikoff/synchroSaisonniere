@@ -1,5 +1,6 @@
 package fr.synchoSaiso.demo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -32,12 +33,16 @@ public class RentService {
 		return rrp.findAll();
 	}
 	
-//	@GetMapping("/allRentByUser/{id}")
-//	private List<Rent> getRentsByUser(@PathParam ("id") String id){
-//		return rrp.findByActifId(id);
-//	}
+	
+	
+	@GetMapping("/allRentByActif/{id}")
+	private List<Rent> getRentsByUser(@PathVariable ("id") int id){
+		
+		
+		return rrp.findByActifId(id);
+	}
 	@DeleteMapping("/supprimRent/{id}")
-	private void deletRent(@PathParam ("id") Long id) {
+	private void deletRent(@PathVariable ("id") Long id) {
 		rrp.deleteById(id);
 	}
 	@PostMapping("/addRent/{id}")
