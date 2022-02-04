@@ -7,14 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.synchoSaiso.demo.entities.Actif;
+import fr.synchoSaiso.demo.entities.Rent;
 
 @CrossOrigin("http://localhost:4200/")
 @RestController
-public interface ActifRepository extends JpaRepository<Actif, Long>{
-
-	//find actif by user id 
-	@Query(value = "select * from bddsynchro.actif  a inner join bddsynchro.user_actif ua on  a.actif_id = ua.actif_id where ua.user_id = ?1", nativeQuery = true)
-	List<Actif> findByUsersId(Long id);
+public interface RentRepository extends JpaRepository<Rent, Long>{
 	
+	@Query(value = "select * from bddsynchro.rent  where actif_actif_id = ?1", nativeQuery = true)
+	List<Rent> findByActifId(int id);
 }

@@ -17,7 +17,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 
 // **************************  Apis Externe  ***************************
 import { GoogleMapsModule } from '@angular/google-maps'
-import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 

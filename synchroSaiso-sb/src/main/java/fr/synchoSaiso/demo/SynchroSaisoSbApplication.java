@@ -11,18 +11,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import fr.synchoSaiso.demo.dao.ActifRepository;
-import fr.synchoSaiso.demo.dao.EntityTestRepository;
 import fr.synchoSaiso.demo.dao.RentCalendarRepository;
 import fr.synchoSaiso.demo.dao.UserRepository;
 
 import fr.synchoSaiso.demo.entities.Actif;
-import fr.synchoSaiso.demo.entities.EntityTest;
 import fr.synchoSaiso.demo.entities.NavBar;
+import fr.synchoSaiso.demo.entities.Rent;
 import fr.synchoSaiso.demo.entities.RentCalendar;
 import fr.synchoSaiso.demo.entities.Role;
 import fr.synchoSaiso.demo.entities.User;
 
-import fr.synchoSaiso.demo.entities.UsersActifsId;
+
 
 @SpringBootApplication
 public class SynchroSaisoSbApplication implements CommandLineRunner{
@@ -33,8 +32,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	private RentCalendarRepository rcr;
 	@Autowired
 	private UserRepository urp;
-	@Autowired
-	private EntityTestRepository etrp;
+
 	@Autowired
 	private RepositoryRestConfiguration rrc;
 	
@@ -47,7 +45,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		rrc.exposeIdsFor(Actif.class,User.class,RentCalendar.class,NavBar.class,Role.class,EntityTest.class);
+		rrc.exposeIdsFor(Actif.class,User.class,Rent.class,NavBar.class,Role.class);
 		System.out.println("Coucou Synchro!!!");
 		//creation user
 //		urp.save(new User(null, "nom1", "prenom", null, null, null, null, null));
@@ -58,7 +56,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 //		List<User> usersTest = new ArrayList<>();
 //		List<Actif> actifTest = new ArrayList<>();
 //		for (int i = 0; i < 3; i++) {
-//			User u = new User(null, "nom "+i, "prenom "+i , null, null, null, null, null);
+//			User u = new User(null, "nom "+i, "prenom "+i , null, null, null, null, null, actifTest);
 //					urp.save(u);
 //					System.out.println("user "+i+" crée");
 //					usersTest.add(u);
@@ -70,7 +68,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 //		urp.findAll().forEach(u->{
 //			for (int i = 0; i < 3; i++) {
 //			
-//			Actif a = new Actif(null, "actif "+i, "adresse "+i, 13000+i, null, null, null, null, null, null, null, null, null, null, usersTest);
+//			Actif a = new Actif(null, "actif "+i, i, "adresse "+i, 13000+i, null, null, null, null, null, null, null, null, null, null, null, usersTest, null);
 //			actifTest.add(a);
 //			arp.save(a);
 //			

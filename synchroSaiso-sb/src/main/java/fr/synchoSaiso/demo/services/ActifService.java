@@ -53,19 +53,19 @@ public class ActifService {
 	}
 	
 	@GetMapping("/getActif/{id}")
-	private Actif getActif(@PathVariable ("id") Integer id) {
+	private Actif getActif(@PathVariable ("id") Long id) {
 		return arp.findById(id).orElse(null);
 	}
 	
 
 	
 	@DeleteMapping("/deleteActif/{id}")
-	private void deleteActif(@PathVariable ("id") Integer id) {
+	private void deleteActif(@PathVariable ("id") Long id) {
 		arp.deleteById(id);
 	}
 	
 	@PutMapping("/putActif/{id}")
-	public void putUser(@PathVariable ("id") Integer id,
+	public void putActif(@PathVariable ("id") Long id,
 			@RequestBody Actif actifUpdate){		
 		actifUpdate.setActifId(id);
 		arp.save(actifUpdate);

@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get(this.url);
+    return this.http.get(this.urlBack + '/getUsers');
   }
 
   getUser(login: any, mdp: any) {
@@ -22,11 +22,11 @@ export class UserService {
   }
 
   getUserById(userId: any) {
-    return this.http.get(this.url + '/' + userId)
+    return this.http.get(this.urlBack + '/getUser/' + userId)
   }
 
   deleteUser(userId: any) {
-    return this.http.delete(this.url + '/' + userId)
+    return this.http.delete(this.urlBack + '/deleteUser/' + userId)
   }
 
   postUser(user: any) {

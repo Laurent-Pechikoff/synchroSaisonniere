@@ -35,9 +35,9 @@ public class UserService {
 	
 	@PostMapping("/addUser")
 	public void addUser(@RequestBody User u) {
-		
+		u.setRole("user");
 		urp.save(u);
-		System.out.println("tata");
+		
 	}
 	
 	@DeleteMapping("/deleteUser/{id}")

@@ -18,9 +18,12 @@ import lombok.Setter;
 public class NavBar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idNavBar;
+	private Long idNavBar;
 	
+	private String item;
 	private String routerLink;
-	private int idRoles;
-	private String itemNavBar;
+	private boolean roleVisiteur;
+	private boolean roleUser;
+	private boolean roleAdmin;
+	private boolean navbarVert;
 }
