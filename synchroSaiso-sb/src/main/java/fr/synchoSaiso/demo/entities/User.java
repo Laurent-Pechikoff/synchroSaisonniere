@@ -38,7 +38,6 @@ public class User {
 	private String email;
 	private String phone;
 	private String mdp;
-	
 	private String role;
 	
 	//many to many sans propriété (table 1/2)

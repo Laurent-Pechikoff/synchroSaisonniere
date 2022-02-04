@@ -10,6 +10,11 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.checklocation();
   }
 
+  checklocation() {
+    let location = window.location.href;
+    console.log(location);
+  }
 }

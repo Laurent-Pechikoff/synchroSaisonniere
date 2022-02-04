@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.origin = localStorage.getItem('origin')
+
   }
 
   public loginUser(userForm: any) {
