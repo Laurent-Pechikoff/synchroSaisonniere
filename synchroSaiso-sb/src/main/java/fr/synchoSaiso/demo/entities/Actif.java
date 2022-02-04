@@ -54,14 +54,15 @@ public class Actif {
 
 	
 //	many to many user sans propriété (table2/2)
-	@JsonManagedReference
+	@JsonBackReference(value = "list_user")
 	@ManyToMany(mappedBy = "actifs")
 	private List<User> users = new ArrayList<>();
 	
 	
 	//relation avec rent
 	@OneToMany(mappedBy = "actif")
-	@JsonManagedReference
+	//@JsonBackReference(value = "list_rents")
+	@JsonManagedReference(value = "list_rents")
 	private Collection<Rent> rents;
 	
 }

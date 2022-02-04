@@ -12,5 +12,5 @@ import fr.synchoSaiso.demo.entities.Rent;
 @RestController
 public interface RentRepository extends JpaRepository<Rent, Long>{
 
-	List<Rent> findByActifId(Long id);
+//	List<Rent> findByActifId(String id);
 }
