@@ -1,0 +1,8 @@
+{
+    "/api":{
+        "target":"https://www.airbnb.fr",
+        "secure":false,
+        "changeOrigin":true,
+        "logLevel": "debug"
+    }
+}
