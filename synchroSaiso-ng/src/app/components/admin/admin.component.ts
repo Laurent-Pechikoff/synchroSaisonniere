@@ -68,6 +68,5 @@ export class AdminComponent implements OnInit {
       // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
       div.innerHTML += "<div class='row'><span class='col-4'>" + item + " : </span><span class='col-8'>" + valu + "</span></div>"
     }
-
   }
 }
