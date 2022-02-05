@@ -28,9 +28,7 @@ export class CalendarComponent implements OnInit {
 
 
 
-  Events: any = [
-    {titre:'test1', start:'2022-02-15'},{titre:'test2', start:'2022-02-16', end:'2022-02-18'}
-  ];
+  Events: any = [  ];
   calendarOptions: CalendarOptions | undefined;
    
   constructor(private cs:CalendarService) { }
@@ -95,6 +93,7 @@ export class CalendarComponent implements OnInit {
       for(let i=0;i<this.dataIcal.length;i++){ 
           this.Events.push( this.icalToEvent(i,plateform))
       }
+      console.log(this.Events)
     })
   }
 
@@ -121,11 +120,23 @@ icalToEvent( i:any, plateform:any){
   }
   if(plateform=="Booking" && "summary" in this.dataIcal[i]){ 
     for(let j=0;j<this.dataIcal[i].summary.length;j++){
-      if(j>9){ name+=this.dataIcal[i].summary[j]}
+      if(j>8){ name+=this.dataIcal[i].summary[j]}
       
     }
   }
-  if(plateform=='AirBnb'){icalEvent2.title=plateform}else{icalEvent2.title=plateform+name}
+  if(plateform=='AirBnb'){
+    if("description" in this.dataIcal[i]){
+      icalEvent2.title=plateform
+      icalEvent2.plateform=plateform
+    }else{
+      icalEvent2.title='En Direct'
+      icalEvent2.plateform='Réservation Direct'
+    }
+  }else{
+    icalEvent2.title=plateform+name
+    icalEvent2.plateform=plateform
+
+  }
   
   icalEvent2.start=this.convertFullCalendarDate(this.dataIcal[i].dtstart[0]);
   icalEvent2.end=this.convertFullCalendarDate(this.dataIcal[i].dtend[0]);
