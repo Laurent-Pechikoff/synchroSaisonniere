@@ -1,0 +1,637 @@
+{
+    "vcalendar": [
+        {
+            "version": "2.0",
+            "prodid": "-//admin.booking.com\\, bv//NONSGML v1.0//EN",
+            "calscale": "GREGORIAN",
+            "method": "PUBLIER",
+            "vevent": [
+                {
+                    "dtstart": [
+                        "20220204",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220207",
+                        {
+                            "value": " DATE"
+                        }
+                    ],
+                    "uid": "7cf32aa34f2f5368b99ede1448802a92@booking.com",
+                    "summary": " FERMÉ - Alina"
+                },
+                {
+                    "dtstart": [
+                        "20220207",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    " dtend": [
+                        "20220208",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "466ba0fcba67d53cb2a25f061ce3934a@booking.com",
+                    "summary": " FERME - Kamilia"
+                },
+                {
+                    "dtstart": [
+                        "20220311 ",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220314",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "366c3759b10c169061ac04c4b041e996@booking.com",
+                    "summary": " FERMÉ - Jésus"
+                },
+                {
+                    "dtstart": [
+                        "20220315",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220317",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "19b7bd762a6ca110519cb6f097a4c78c@ booking.com",
+                    "summary": " FERME - Laidne"
+                },
+                {
+                    "dtstart": [
+                        "20220321",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220322",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "fe4902b7d764ec00de1ac5dcce4b5e01@booking.com",
+                    "summary": " FERME - Dohmen"
+                },
+                {
+                    "dtstart": [
+                        "20220323",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220326",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "514eef2b03b315de18b3b11da76d6a51@booking.com",
+                    "summary": " FERMÉ - Shivaji"
+                },
+                {
+                    "dtstart": [
+                        "20220401",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220410",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "57e51a0b4d3cf74c3f12cb5c880af508@booking.com ",
+                    "summary": " FERME - Patrycja"
+                },
+                {
+                    "dtstart": [
+                        "20220410",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220411",
+                        {
+                            "value": "DATE "
+                        }
+                    ],
+                    "uid": "1ed53d275b6337ecbd52e7d2b12a94b8@booking.com",
+                    "summary": " FERMÉ - Alexandra"
+                },
+                {
+                    "dtstart": [
+                        "20220416",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220417",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "e94410e7dc08d1869b9e017a95b8e227@booking.com",
+                    "summary": " FERME - Vanessa"
+                },
+                {
+                    " dtstart": [
+                        "20220422",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220424",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "3f7b91ee0b3d1795d2499060e64579e9@booking.com",
+                    "summary": " FERMÉ - Victoria"
+                },
+                {
+                    "dtstart": [
+                        "20220430",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220502",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "c1410fa754a32959d9d769d19aab00cc@booking.com",
+                    "summary": " FERME - Christophe"
+                },
+                {
+                    "dtstart": [
+                        "20220506",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220508",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "a6fb06791f3bfbf745e82c290a8fde9e@booking.com",
+                    "summary": " FERME - Angel"
+                },
+                {
+                    " dtstart": [
+                        "20220513",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220516",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "85b79f50b47f2a1afe5663c54144776e@booking.com",
+                    "summary": " FERMÉ - Gard"
+                },
+                {
+                    "dtstart": [
+                        "20220521",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220523",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "1ba74545f9012e68594282a05d5d9678@booking.com",
+                    "summary": " FERMÉ - Maria"
+                },
+                {
+                    "dtstart": [
+                        "20220525",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220526",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "6373dcf46ccbf44b6baa77fe5d4fed23@booking.com",
+                    "summary": " FERME - Fabio"
+                },
+                {
+                    "dtstart": [
+                        " 20220526",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220529",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "e24920799b3b69c6debeacc8fe0eb0ff@booking.com",
+                    "summary": " FERMÉ - Stéphanie"
+                },
+                {
+                    "dtstart": [
+                        "20220602",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220605",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid ": "f141b988b683fb384b593519a2419e6d@booking.com",
+                    "summary": " FERMÉ - Céline"
+                },
+                {
+                    "dtstart": [
+                        "20220607",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220610",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "2153be0463cfba554dbba4ad74feaed2@booking.com",
+                    "summary": " FERME - Martine"
+                },
+                {
+                    "dtstart": [
+                        "20220612 ",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220616",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "dd64bfd50dbaaa4ecb074a10182c0e86@booking.com",
+                    "summary": " FERMÉ - chantal"
+                },
+                {
+                    "dtstart": [
+                        "20220618",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220619",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "b46e5d4c7b29e16f0d1be5c58038fd3e@booking.com",
+                    "summary": " FERMÉ - Stéphanie"
+                },
+                {
+                    "dtstart": [
+                        "20220620",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220623",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "618f9ee3cfb7dee73b85f619652246bc@booking.com",
+                    "summary": " FERMÉ - Chrétien"
+                },
+                {
+                    "dtstart": [
+                        "20220708 ",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220709",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "ed67c5006be05f388bbc328ad9809b53@booking.com",
+                    "summary": " FERMÉ - Danielle"
+                },
+                {
+                    "dtstart": [
+                        "20220710",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220714",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "a0a867ac41aacdb1647031143cb1aee5@booking.com",
+                    "summary": " FERME - Vanessa"
+                },
+                {
+                    "dtstart": [
+                        "20220714",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220716",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "9795077e12fcb7d9dd4714c31c028ff5@booking.com",
+                    "summary": " FERME - Wolfgang"
+                },
+                {
+                    "dtstart": [
+                        "20220717 ",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220718",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "a447ca5e32a694b6a257e03762cbb7c7@booking.com",
+                    "summary": " FERMÉ - Erwin"
+                },
+                {
+                    "dtstart": [
+                        "20220719",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220723",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "2ef35299ecb89d4f2d17e0c60e0f4287@booking.com",
+                    "summary": " FERMÉ - Stéphane"
+                },
+                {
+                    "dtstart": [
+                        "20220723",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220726",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "9c86f0d0cece63bc9c324f901d155849@booking.com",
+                    "summary": " FERMÉ - Roxana"
+                },
+                {
+                    "dtstart": [
+                        "20220728",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220730",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "54fa8cdc755bf386285dc45c41fef2ca@booking.com",
+                    "summary": " FERMÉ - Claudia "
+                },
+                {
+                    "dtstart": [
+                        "20220730",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220731",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "1c70db1bdae5e91cff03a3219eda5d89 @booking.com",
+                    "summary": " FERMÉ - Rémi"
+                },
+                {
+                    "dtstart": [
+                        "20220803",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220804",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "0cd84a17e7cdab1d0efb2a751ebacb6c@booking.com",
+                    "summary": " FERME - Laura"
+                },
+                {
+                    "dtstart": [
+                        "20220806",
+                        {
+                            "value ": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220808",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "2c7a3c4a63880b8a0dff8ebd600d6c8e@booking.com",
+                    "summary": " FERME - Manuela"
+                },
+                {
+                    "dtstart": [
+                        "20220808",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220812",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "d7c38fa9ba5d92478ea269f870103022@booking .com",
+                    "summary": " FERME - Marwan"
+                },
+                {
+                    "dtstart": [
+                        "20220812",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220817",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "c9f2bb3044d402d014730158cd91afa6@booking.com",
+                    "summary": " FERME - Josphine"
+                },
+                {
+                    "dtstart": [
+                        "20220818",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220820",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "dbf8d3ff07318bfc4a88d03291c520a6@booking.com",
+                    "summary": " FERME - Sonia"
+                },
+                {
+                    "dtstart": [
+                        "20220820",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220821",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "e3df1d682ce7654d4b48accc29e23e15@booking.com ",
+                    "summary": " FERME - Mustafa Kemal"
+                },
+                {
+                    "dtstart": [
+                        "20220822",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220825",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "0e812540ed9f0dddc8e2368f792424ad@booking.com",
+                    "summary": " FERMÉ - Chrétien"
+                },
+                {
+                    "dtstart": [
+                        "20220828",
+                        {
+                            "value": " DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220905",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "72c7003c57c1e65e360c1de987359358@booking.com",
+                    "summary": " FERME - Charlotte"
+                },
+                {
+                    " dtstart": [
+                        "20220922",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20220925",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "9b1798ac7de253dd9e00904b5cde000e@booking.com",
+                    "summary": " FERME - Rebecca"
+                },
+                {
+                    "dtstart": [
+                        "20220929",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "dtend": [
+                        "20221001",
+                        {
+                            "value": "DATE"
+                        }
+                    ],
+                    "uid": "700ced65f1714e1dc85d9403e364ead3@booking.com",
+                    "summary": " FERMÉ - Andreas"
+                }
+            ]
+        }
+    ],
+    "success": true
+}

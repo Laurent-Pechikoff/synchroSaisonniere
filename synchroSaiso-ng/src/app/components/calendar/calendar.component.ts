@@ -78,37 +78,55 @@ export class CalendarComponent implements OnInit {
 
 
   getIcal(){
-    this.cs.getIcal().subscribe(resp=>{
+    this.cs.getIcalAirBnb().subscribe(resp=>{
+      let plateform='AirBnb'
       this.dataIcal=resp
       this.dataIcal=this.dataIcal.vcalendar[0].vevent
       for(let i=0;i<this.dataIcal.length;i++){ 
-        if("description" in this.dataIcal[i]){ 
-          this.Events.push( this.icalToEvent(i))
+          this.Events.push( this.icalToEvent(i,plateform))
         }
+    })
+    this.cs.getIcalBooking().subscribe(resp=>{
+      let plateform='Booking'
+      this.dataIcal=resp
+      this.dataIcal=this.dataIcal.vcalendar[0].vevent
+      for(let i=0;i<this.dataIcal.length;i++){ 
+          this.Events.push( this.icalToEvent(i,plateform))
       }
     })
   }
 
 
-icalToEvent( i:any){
+icalToEvent( i:any, plateform:any){
   let icalEvent2={
     title:'',
     start:'',
     end:'',
-    startHour:14,
-    endHour:11,
+    plateform:'',
+    startHour:'14:00',
+    endHour:'11:00',
     url:'',
     idOrigin:'',
   } 
   let desc=''
-  icalEvent2.title='AirBnb'
+  let name=' - '
+  if("description" in this.dataIcal[i]){ 
       for(let j=0;j<this.dataIcal[i].description.length;j++){
         if(this.dataIcal[i].description[j]=='\\'){break}
         if(j>16){ desc+=this.dataIcal[i].description[j]}
+        icalEvent2.url=desc
       }
-      icalEvent2.url=desc
-  icalEvent2.start=this.convertFrenchDate(this.dataIcal[i].dtstart[0]);
-  icalEvent2.end=this.convertFrenchDate(this.dataIcal[i].dtend[0]);
+  }
+  if(plateform=="Booking" && "summary" in this.dataIcal[i]){ 
+    for(let j=0;j<this.dataIcal[i].summary.length;j++){
+      if(j>9){ name+=this.dataIcal[i].summary[j]}
+      
+    }
+  }
+  if(plateform=='AirBnb'){icalEvent2.title=plateform}else{icalEvent2.title=plateform+name}
+  
+  icalEvent2.start=this.convertFullCalendarDate(this.dataIcal[i].dtstart[0]);
+  icalEvent2.end=this.convertFullCalendarDate(this.dataIcal[i].dtend[0]);
   icalEvent2.idOrigin=this.dataIcal[i].uid;
   return icalEvent2
     
@@ -116,11 +134,17 @@ icalToEvent( i:any){
 
 
 
-convertFrenchDate(date:any){
+convertFullCalendarDate(date:any){
   let year= date.substr(0,4)
   let month= date.substr(4,2)
   let day= date.substr(6,2)
   return year+'-'+month+'-'+day
+}
+convertFrenchDate(date:any){
+  let year= date.substr(0,4)
+  let month= date.substr(4,2)
+  let day= date.substr(6,2)
+  return day+'/'+month+'/'+year
 }
 
 
