@@ -97,9 +97,9 @@ export class AppComponent implements OnInit {
         this.actif.watchActif(id)
         break;
       case 'admin':
-        this.admin.watchUser(id)
+        // this.admin.watchUser(id)
 
-        console.log(id)
+        // console.log(id)
         break;
       case 'calendar':
         //verifier le nom du path    

@@ -3,13 +3,13 @@
 
     <div *ngIf="(origin=='connexion')">
         <div class="bordure ">
-            <h2 class="text-center">Formulaire de connexion</h2>
-            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm' class="text-center">
-                <div class='mb-3 col-6 text-center'>
-                    <label class="col-6" for="login">Entrez votre identifiant</label>
+            <h2 class="text-center mb-4">Formulaire de connexion</h2>
+            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm' class="text-center ">
+                <div class='d-grid gap-2 col-6 mx-auto mt-4'>
+                    <label  for="login">Entrez votre identifiant</label>
                     <input ngModel type="text" name='login' class="form-control col-6" id='login'>
                 </div>
-                <div class="mb-3 col-6">
+                <div class="d-grid gap-2 col-6 mx-auto mt-4">
                     <label for="password">Entrez votre mot de pass</label>
                     <input ngModel type="text" name='password' class="form-control col-6" id='password'>
                 </div>
@@ -17,7 +17,7 @@
                     <button class='btn btn-primary ' type='submit' id="connect">Connexion</button>
                 </div>
             </form>
-            <button class="btn btn-success" (click)="checkOrigin()">Créer votre compte</button>
+            <button class="btn btn-success d-grid gap-2 col-6 mx-auto mt-4" (click)="checkOrigin()">Créer votre compte</button>
         </div>
     </div>
 

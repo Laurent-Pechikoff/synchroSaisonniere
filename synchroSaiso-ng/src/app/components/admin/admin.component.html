@@ -4,24 +4,84 @@
 <section class="container">
     <div class="row">
         <div class="col-3">
-            <div id="navert"  *ngFor="let elt of userList">
-                <button class="btn btn-info mt-3" (click)="getUser(elt)">{{elt.name}}</button>
+            <div id="navert" *ngFor="let elt of userList">
+                <button class="btn btn-info col-5 mt-3" (click)="getUser(elt)">{{elt.name}}</button>
             </div>
         </div>
-<div id="userDetails"></div>
 
-        <div class="col-8 " *ngIf="affichSelected">
+
+        <div class="col-6 " *ngIf="affichSelected">
             <div class="card">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Nom : {{userSelected.name}}</li>
                     <li class="list-group-item">Prénom : {{userSelected.firstName}}</li>
+                    <li class="list-group-item">Statut : {{userSelected.statutUsers}}</li>
                     <li class="list-group-item">Email : {{userSelected.email}}</li>
+                    <li class="list-group-item">phone : {{userSelected.phone}}</li>
                     <li class="list-group-item">role : {{userSelected.role}}</li>
                 </ul>
                 <div class="card-footer">
                     <button class="btn btn-danger" (click)="suprimUser(userSelected)">Supprimer abonné</button>
+                    <button class="btn btn-info" (click)="modifRecup(userSelected)" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Modifier abonné</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<!-- ************************modal modifier user************* -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier l'utilisateur</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nom de l'utilisateur</label>
+                            <input type="text" class="form-control" id="name" name="name" #name="ngModel"
+                                [(ngModel)]="user.name" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" #firstName="ngModel"
+                                [(ngModel)]="user.firstName" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="statutUsers" class="form-label">Statut de l'utilisateur</label>
+                            <input type="text" class="form-control" id="statutUsers" name="statutUsers"
+                                #statutUsers="ngModel" [(ngModel)]="user.statutUsers" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">email de l'utilisateur</label>
+                            <input type="email" class="form-control" id="email" name="email" #email="ngModel"
+                                [(ngModel)]="user.email" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">phone de l'utilisateur</label>
+                            <input type="text" class="form-control" id="phone" name="phone" #phone="ngModel"
+                                [(ngModel)]="user.phone" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">phone de l'utilisateur</label>
+                            <input type="text" class="form-control" id="role" name="role" #role="ngModel"
+                                [(ngModel)]="user.role" ngModel>
+                        </div>
+                        <div>
+                            <div class="mb-3 d-flex justify-content-evenly">
+                                <button type="submit" class="btn btn-primary" (click)="modifierUser()" data-bs-dismiss="modal">Valider
+                                    modification</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler modification</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

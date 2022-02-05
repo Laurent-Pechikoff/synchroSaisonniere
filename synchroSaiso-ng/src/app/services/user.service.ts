@@ -23,7 +23,7 @@ export class UserService {
 
   getUserById(userId: any) {
     console.log("userId service : "+userId)
-    return this.http.get(this.urlBack + '/getUser/' + userId)
+    return this.http.get(this.urlBack + '/getUser/' + userId.id)
   }
 
   deleteUser(userId: any) {
@@ -32,5 +32,9 @@ export class UserService {
 
   postUser(user: any) {
     return this.http.post(this.urlBack + '/addUser', user)
+  }
+
+  putUser(user:any){
+    return this.http.put(this.urlBack+'/putUser/'+user.id,{user})
   }
 }
