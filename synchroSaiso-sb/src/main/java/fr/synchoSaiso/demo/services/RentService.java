@@ -45,8 +45,8 @@ public class RentService {
 	private void deletRent(@PathVariable ("id") Long id) {
 		rrp.deleteById(id);
 	}
-	@PostMapping("/addRent/{id}")
-	private void postRent(@PathVariable ("id") Long id,@RequestBody Rent rent) {
+	
+	private void postRent(Long id,Rent rent) {
 		Rent newRent = new Rent();
 		newRent = rent;
 		Actif actif = arp.findById(id).orElse(null);
@@ -55,5 +55,11 @@ public class RentService {
 		
 		rrp.save(newRent);
 		arp.save(actif);
+	}
+	@PostMapping("/addRent/{id}")
+	private void postListRent(@PathVariable ("id") Long id,@RequestBody List<Rent> rents) {
+		for (Rent rent : rents) {
+			postRent(id,rent);
+		}
 	}
 }
