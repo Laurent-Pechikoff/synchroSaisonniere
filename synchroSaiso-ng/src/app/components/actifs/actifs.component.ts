@@ -73,7 +73,7 @@ export class ActifsComponent implements OnInit {
 
   ngOnInit(): void {
     this.watchActif(1)
-
+    localStorage.setItem('location','actifs')
     // **************** lancement googlemaps  **********************
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {

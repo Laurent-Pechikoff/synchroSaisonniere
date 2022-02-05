@@ -10,6 +10,7 @@ import { CalendarService } from 'src/app/services/calendar.service';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  
  dataAirbnb:any
  dataIcal:any
 
@@ -39,6 +40,7 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('location','calendar')
     // setTimeout(() => {
     //   return this.httpClient.get('http://localhost:8888/event.php')
     //     .subscribe(res => {

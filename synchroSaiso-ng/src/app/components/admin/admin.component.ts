@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  dataNavBarVert: any;
   userList: any;
   userSelected: any;
   affichSelected: boolean = false;
@@ -22,7 +23,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
-    console.log(location.search)
+    localStorage.setItem('location', 'admin')
   }
   getAllUsers() {
     this.userService.getUsers().subscribe(data => {
@@ -32,8 +33,9 @@ export class AdminComponent implements OnInit {
 
     })
   }
-  getUserByID(userId: any) {
-    this.userService.getUserById(userId.id).subscribe(resp => {
+  getUser(userId: any) {
+    console.log("userId ts : " + userId)
+    this.userService.getUserById(userId).subscribe(resp => {
       this.userSelected = resp;
       this.affichSelected = true;
     })
@@ -44,5 +46,28 @@ export class AdminComponent implements OnInit {
       this.affichSelected = false
     })
   }
-  
+  public watchUser(id: any) {
+    this.userService.getUserById(id).subscribe(resp => {
+      this.userSelected = resp
+      console.log(this.userSelected)
+      this.switchUser(this.userSelected)
+    })
+
+  }
+
+  switchUser(data: any) {
+    let div = <HTMLInputElement>document.getElementById('userDetails')
+    div.innerHTML = ""
+    for (let i = 0; i < Object.keys(data).length; i++) {
+      let item = Object.keys(data)[i]
+
+      let valu = Object.values(data)[i];
+      // if (valu == null) {
+      //   valu = "";
+      // }
+      // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
+      div.innerHTML += "<div class='row'><span class='col-4'>" + item + " : </span><span class='col-8'>" + valu + "</span></div>"
+    }
+
+  }
 }

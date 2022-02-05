@@ -14,7 +14,18 @@ export class NavbarService {
   }
 
   public getItemsNavabarVert(table:any){
-    return this.http.get(this.url+'/'+table)
+    let response:any
+    switch (table) {
+      case 'admin':
+        response = this.http.get('http://localhost:8088'+'/getUsers')
+        break;
+        case 'actifs':
+          response = this.http.get(this.url+'/'+table)
+          break;
+      default:
+        break;
+    }
+    return response;
   }
 
 }

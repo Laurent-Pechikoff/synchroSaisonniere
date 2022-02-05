@@ -22,6 +22,7 @@ export class UserService {
   }
 
   getUserById(userId: any) {
+    console.log("userId service : "+userId)
     return this.http.get(this.urlBack + '/getUser/' + userId)
   }
 

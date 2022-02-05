@@ -5,9 +5,10 @@
     <div class="row">
         <div class="col-3">
             <div id="navert"  *ngFor="let elt of userList">
-                <button class="btn btn-info mt-3" (click)="getUserByID(elt)">{{elt.name}}</button>
+                <button class="btn btn-info mt-3" (click)="getUser(elt)">{{elt.name}}</button>
             </div>
         </div>
+<div id="userDetails"></div>
 
         <div class="col-8 " *ngIf="affichSelected">
             <div class="card">
