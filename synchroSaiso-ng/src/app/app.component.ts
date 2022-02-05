@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit} from '@angular/core';
 import { ActifsComponent } from './components/actifs/actifs.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { ActifService } from './services/actif.service';
 import { NavbarService } from './services/navbar.service';
 
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
   session=JSON.parse(sessionStorage.getItem('login')||'{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist=false;
 
-  constructor(private nbs: NavbarService, private actif:ActifsComponent) {  }  
+  constructor(private nbs: NavbarService, private actif:ActifsComponent, private admin:AdminComponent) {  }  
   
 
   ngOnInit(): void {
@@ -88,7 +89,25 @@ export class AppComponent implements OnInit {
 
 
   sendId(id:any){
-    this.actif.watchActif(id)
+    let location = window.location.href;
+    console.log()
+    switch (location) {
+      case 'http://localhost:4200/actifs':
+        this.actif.watchActif(id)
+        break;
+      case 'http://localhost:4200/admin':
+         this.admin.getUserByID(id)   
+        break;
+      case 'http://localhost:4200/agenda':
+        //verifier le nom du path    
+        break;
+      case 'http://localhost:4200/statistique':
+          //verifier le nom du path    
+        break;
+      default:
+        break;
+    }
+    
   }
 
 }

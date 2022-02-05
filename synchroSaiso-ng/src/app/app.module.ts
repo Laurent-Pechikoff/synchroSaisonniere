@@ -46,7 +46,7 @@ FullCalendarModule.registerPlugins([
     GoogleMapsModule,
     FullCalendarModule,
   ],
-  providers: [ActifsComponent],
+  providers: [ActifsComponent,AdminComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

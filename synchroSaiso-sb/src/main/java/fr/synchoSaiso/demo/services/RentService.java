@@ -58,8 +58,16 @@ public class RentService {
 	}
 	@PostMapping("/addRent/{id}")
 	private void postListRent(@PathVariable ("id") Long id,@RequestBody List<Rent> rents) {
-		for (Rent rent : rents) {
-			postRent(id,rent);
-		}
+		
+			for (Rent rent : rents) {
+				try {
+					postRent(id,rent);
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				
+			}
+		
+		
 	}
 }
