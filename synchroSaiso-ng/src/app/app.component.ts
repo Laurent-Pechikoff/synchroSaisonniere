@@ -3,6 +3,8 @@ import { ActifsComponent } from './components/actifs/actifs.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ActifService } from './services/actif.service';
 import { NavbarService } from './services/navbar.service';
+import { CalendarComponent } from './components/calendar/calendar.component';
+
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,7 @@ export class AppComponent implements OnInit {
   session = JSON.parse(sessionStorage.getItem('login') || '{}'); //pour recuperer un objet dans localsotorage ou sessionstorage il faut le parser
   sessionExist = false;
 
-  constructor(private nbs: NavbarService, private actif: ActifsComponent, private admin: AdminComponent) { }
+  constructor(private nbs: NavbarService, private cc:CalendarComponent,  private actif: ActifsComponent, private admin: AdminComponent) { }
 
 
   ngOnInit(): void {
@@ -91,18 +93,22 @@ export class AppComponent implements OnInit {
 
   sendId(id: any) {
     let location = localStorage.getItem('location')
-    console.log(location)
     switch (location) {
       case 'actifs':
         this.actif.watchActif(id)
         break;
       case 'admin':
         this.admin.watchUser(id)
-
-        console.log(id)
         break;
       case 'calendar':
-        //verifier le nom du path    
+        // let actifObjectid
+        // for(let i=0;i<Object.keys(this.dataNavBarVert).length;i++){
+        //   if(id==this.dataNavBarVert[i].id){
+        //     actifObjectid=this.dataNavBarVert[i]
+        //   }
+        // }
+        // console.log(actifObjectid)
+        this.cc.getIcal(id)   
         break;
       case 'statistique':
         //verifier le nom du path    
