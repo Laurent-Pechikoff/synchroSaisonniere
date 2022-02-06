@@ -35,6 +35,7 @@ public class User {
 	private String name;
 	private String firstName;
 	private String statutUsers;
+	private String login;
 	private String email;
 	private String phone;
 	private String mdp;

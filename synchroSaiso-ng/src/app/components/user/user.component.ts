@@ -28,6 +28,20 @@ export class UserComponent implements OnInit {
     })
 
   }
+  //version pour le back
+  loginUserBack(userForm: any) {
+    let login = userForm.form.value.login
+    let mdp = userForm.form.value.mdp
+    console.log("login = "+login+" mdp = "+mdp)
+    this.us.getUserBack(login, mdp).subscribe(resp => {
+      this.dataUser = resp
+      sessionStorage.setItem('login', JSON.stringify(this.dataUser))
+      location.reload();
+
+    })
+
+  }
+
   checkOrigin() {
     localStorage.setItem('origin', 'creation')
     this.ngOnInit();
@@ -48,6 +62,7 @@ export class UserComponent implements OnInit {
     this.us.postUser(newUser).subscribe(resp => {
       console.log('utilisateur créer')
       this.removeOrigin();
+      this.loginUserBack(user)
     })
   }
 

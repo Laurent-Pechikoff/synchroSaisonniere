@@ -4,14 +4,14 @@
     <div *ngIf="(origin=='connexion')">
         <div class="bordure ">
             <h2 class="text-center mb-4">Formulaire de connexion</h2>
-            <form (ngSubmit)="loginUser(userForm)" #userForm='ngForm' class="text-center ">
+            <form (ngSubmit)="loginUserBack(userForm)" #userForm='ngForm' class="text-center ">
                 <div class='d-grid gap-2 col-6 mx-auto mt-4'>
                     <label  for="login">Entrez votre identifiant</label>
                     <input ngModel type="text" name='login' class="form-control col-6" id='login'>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto mt-4">
                     <label for="password">Entrez votre mot de pass</label>
-                    <input ngModel type="text" name='password' class="form-control col-6" id='password'>
+                    <input ngModel type="text" name='mdp' class="form-control col-6" id='mdp'>
                 </div>
                 <div class='d-grid gap-2 col-6 mx-auto mt-4'>
                     <button class='btn btn-primary ' type='submit' id="connect">Connexion</button>
@@ -38,7 +38,11 @@
                 </div>
                 <div class='mb3'>
                     <label for="email">Entrez votre email</label>
-                    <input ngModel type="text" name='email' class="form-control" id='login' ngModel>
+                    <input ngModel type="text" name='email' class="form-control" id='email' ngModel>
+                </div>
+                <div class='mb3'>
+                    <label for="login">Entrez votre identifiant de connexion(login)</label>
+                    <input ngModel type="text" name='login' class="form-control" id='login' ngModel>
                 </div>
                 <div class='mb3'>
                     <label for="phone">Entrez votre numéro de téléphone</label>

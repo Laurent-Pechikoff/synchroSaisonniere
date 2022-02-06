@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.synchoSaiso.demo.entities.Actif;
 
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
 public interface ActifRepository extends JpaRepository<Actif, Long>{
 

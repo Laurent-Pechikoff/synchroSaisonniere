@@ -20,7 +20,9 @@ export class UserService {
   getUser(login: any, mdp: any) {
     return this.http.get(this.url + '/' + '?login=' + login)
   }
-
+  getUserBack(login: any, mdp: any) {
+    return this.http.get(this.urlBack + /getUserLogin/+login+','+mdp)
+  }
   getUserById(userId: any) {
     console.log("userId service : "+userId)
     return this.http.get(this.urlBack + '/getUser/' + userId.id)

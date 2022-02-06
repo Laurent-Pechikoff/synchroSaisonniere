@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
     firstName: '',
     statutUsers: '',
     email: '',
+    login: '',
     phone: '',
     role: ''
   };

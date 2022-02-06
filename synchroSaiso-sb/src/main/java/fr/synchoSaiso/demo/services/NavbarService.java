@@ -10,7 +10,7 @@ import fr.synchoSaiso.demo.dao.NavbarRepository;
 import fr.synchoSaiso.demo.entities.NavBar;
 
 @RestController
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 public class NavbarService {
 
 	@Autowired
@@ -23,7 +23,7 @@ public class NavbarService {
 		nbrp.save(new NavBar(null, "Vos Actifs", "actifs", false, true, true, true));
 		nbrp.save(new NavBar(null, "Votre Agenda", "agenda", false, true, true, false));
 		nbrp.save(new NavBar(null, "Vos Statistiques", "statistique", false, true, true, false));
-		nbrp.save(new NavBar(null, "Administration", "admin", false, false, true, true));
+		nbrp.save(new NavBar(null, "Administration", "admin", false, false, true, false));
 	}
 	@DeleteMapping("/deleteNavbar")
 	private void deleteNavbar() {
