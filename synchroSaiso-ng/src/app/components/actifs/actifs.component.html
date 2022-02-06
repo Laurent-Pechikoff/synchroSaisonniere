@@ -1,12 +1,12 @@
 <h1 class="text-ligth text-center mt-4" id="title"></h1>
-<div class="container-fluid m-4  bg-transparent row" id="actif">
+<div class="container-fluid m-4  bg-transparent row " id="actif" style="max-width: 1500px;margin-left: 200px;">
     <!-- ************************************ card google  ********************************** -->
     <div class="container-fluid m-1 card  bg-transparent col" id='geoCard'>
 
         <!-- affichage googlemaps  height="500px" width="100%"-->
         <div class="card-img-top p-0 mt-4" id="geocod">
             <google-map id="actifMap" [zoom]="zoom" [center]="center" [options]="options">
-                <map-marker [position]="marker.position">
+                 <map-marker [position]="marker.position"> 
                 </map-marker>
             </google-map>
         </div>
