@@ -37,6 +37,6 @@ export class UserService {
   }
 
   putUser(user:any){
-    return this.http.put(this.urlBack+'/putUser/'+user.id,{user})
+    return this.http.put(this.urlBack+'/putUser/'+user.id,user)
   }
 }

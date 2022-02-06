@@ -75,7 +75,7 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 //			u.setActifs(actifTest);
 //			urp.save(u);
 //		});
-		
+		//urp.save(new User(null, null, null, null, "root", null, null, null, null, null))
 	}
 
 }
