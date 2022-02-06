@@ -15,9 +15,9 @@ export class AdminComponent implements OnInit {
     id: '',
     name: '',
     firstName: '',
-    statutUsers:'',
+    statutUsers: '',
     email: '',
-    phone:'',
+    phone: '',
     role: ''
   };
   constructor(private userService: UserService) { }
@@ -49,9 +49,9 @@ export class AdminComponent implements OnInit {
     })
   }
 
-  modifierUser(){
-    this.userService.putUser(this.user).subscribe(resp=>{
-     this.getAllUsers();
+  modifierUser() {
+    this.userService.putUser(this.user).subscribe(resp => {
+      this.getAllUsers();
     })
   }
   modifRecup(user: any) {
@@ -100,7 +100,7 @@ export class AdminComponent implements OnInit {
   //   }
 
   //   bouton.innerHTML = "<button class='btn btn-danger' >Supprimer abonné</button>"
-    
+
   //   //<button class="btn btn-danger" (click)="suprimUser(userSelected)">Supprimer abonné</button>
   // }
 }

@@ -16,19 +16,41 @@ export class ActifsComponent implements OnInit {
 
 
   // *****************************************variable geocoding ******************************
-  dataAddress={
-    id:0,
+  datActiForm={
+    actifId:'',
     name:'',
+    type:'',
+    surface:'',
+    capacité:'',
     numero:'',
     rue:'',
+    cp:'',
     ville:'',
     departement:'',
     region:'',
     pays:'',
-    cp:'',
     lat:0,
-    lng:0
+    lng:0,
+    numeroFiscal:'',
+    statutFiscal:'',
+    urlAirBnb:'',
+    urlBooking:'',
+    urlTripAdvisor:'',
+    urlHomeAway:'',
   }
+
+  dataAddress={
+    numero:'',
+    rue:'',
+    cp:'',
+    ville:'',
+    departement:'',
+    region:'',
+    pays:'',
+    lat:0,
+    lng:0,
+  }
+
   dataGeocoding:any
   geocoding:any
   adress=''
@@ -85,6 +107,7 @@ export class ActifsComponent implements OnInit {
    
   }
 
+  geoResult=false
   // ****************************************  Requete geocoding ****************************
   findGeocoding(form: any) {
     this.adress = form.form.value.adress
@@ -102,6 +125,7 @@ export class ActifsComponent implements OnInit {
       this.dataAddress['lat'] = x.lat
       this.dataAddress['lng'] = x.lng
 
+     this.geoResult=true
     })
 
   }
@@ -127,7 +151,6 @@ export class ActifsComponent implements OnInit {
   public watchActif(id:any){
     this.as.getActifById(id).subscribe(resp=>{
       this.datActif=resp
-      console.log(this.datActif)  
       this.switchActif(this.datActif)
     })
     this.as.getActifs().subscribe(resp=>{
@@ -144,10 +167,22 @@ export class ActifsComponent implements OnInit {
       // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
       div.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>"
     }
+  }
 
+  page=1
+  navFormSup(){
+    this.page+=1
+  }
+  navFormMoins(){
+    this.page-=1
   }
 
 
+  addActif1(addActiForm1:any){
+    let test=<HTMLInputElement>document.getElementById("test")
+    test.innerHTML="<button >Test</button>"
+    test.addEventListener("click", function(){alert('toto') })
+  }
 }
 
 

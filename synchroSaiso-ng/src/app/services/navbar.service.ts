@@ -5,23 +5,28 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class NavbarService {
-  url='http://localhost:3000'
+  urlJson='http://localhost:3000'
+  urlSB='http://localhost:8088'
 
   constructor(private http:HttpClient) { }
 
   public getItemsNavBar(role:any){
-    return this.http.get(this.url+"/navbar?role"+role+"=true")
+    return this.http.get(this.urlJson+"/navbar?role"+role+"=true")
   }
 
   public getItemsNavabarVert(table:any){
     let response:any
     switch (table) {
       case 'admin':
-        response = this.http.get('http://localhost:8088'+'/getUsers')
+        response = this.http.get(this.urlSB+'/getUsers')
         break;
         case 'actifs':
-          response = this.http.get(this.url+'/'+table)
+          response = this.http.get(this.urlJson+'/'+table)
           break;
+        case 'calendar':
+          response = this.http.get(this.urlJson+'/actifs')
+          break;
+    
       default:
         break;
     }

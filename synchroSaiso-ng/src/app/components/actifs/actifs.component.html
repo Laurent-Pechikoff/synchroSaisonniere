@@ -2,24 +2,15 @@
 <p>{{dataAddress.rue}}</p>
 <div class="row d-flex" id="geocod">
     <div class="container col-6">
-        <google-map id="actifMap"
-            height="500px"
-            width="100%"
-            [zoom]="zoom"
-            [center]="center"
-            [options]="options">
-
-            <map-marker
-                [position]="marker.position">
-
+        <google-map id="actifMap" height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
+            <map-marker [position]="marker.position">
             </map-marker>
-      
-        </google-map>    
+        </google-map>
     </div>
 </div>
 
-    <!-- ************************************  Formulaire Geocoding ***************************** -->
- <!--   <div class="container col-6" id="geocodResult" >
+<!-- ************************************  Formulaire Geocoding ***************************** -->
+<!--   <div class="container col-6" id="geocodResult" >
         <form (ngSubmit)="findGeocoding(userForm)" #userForm='ngForm' >
             <input ngModel type="text" name='adress'>
             <button class='btn btn-primary ' type='submit'>Find</button>
@@ -27,8 +18,8 @@
 
     -->
 
-        <!-- *********************************** Affichage resultat geocoding  *********************** -->
- <!--       <div class="container" >
+<!-- *********************************** Affichage resultat geocoding  *********************** -->
+<!--       <div class="container" >
             <h3 class="text-ligth">Resultat Geocoding</h3>
             <div class="row">
                 <div class="row d-inline"><span class="text-light" id="0">N° : </span><span class="text-dark" >{{dataAddress.numero}}</span></div>
@@ -47,12 +38,111 @@
 </div>-->
 
 <!-- ***********************************  formulaire de modification  *************************** -->
-<div class="row" >
+<div class="row">
     <form id="actiForm">
     </form>
-</div> 
+</div>
 
 <!-- ************************************* Actif detaillé  ******************************* -->
 <div id="actifDetail" class="row text-light" style='width:500px'>
 
 </div>
+
+<!-- *****************************************  formulaire de création  **************************** -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addActifModal">
+    Ajouter un Actif Immobilier
+</button>
+
+
+
+<!-- *****************************************  Modal de addActif  **************************** -->
+
+<div class="modal fade" id="addActifModal" tabindex="-1" aria-labelledby="addActifModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title text-dark" id="addActifModal">Nouvel Actif<br>  {{page}}/3</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="addActifModalBody">
+                <!-- ******************************************  1/3  ******************************** -->
+                    <form id="formAddActif1" (ngSubmit)="addActif1(addActiForm1)" #addActiForm1='ngForm'>
+                        <div *ngIf="page==1">
+                            <input type="text" name='nom' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="Nom">
+                            <select class="form-select form-select-lg mb-3 text-dark" aria-label=".form-select-lg example" ngModel>
+                                <option value="Studio">Studio</option>
+                                <option value="T1 bis">T1 bis</option>
+                                <option value="T2">T2</option>
+                                <option value="T3">T3</option>
+                                <option value="T4">T4</option>
+                                <option value="T5">T5</option>
+                            </select>
+                            <input type="text" name='nom' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="Nom">
+                            <input type="number" name='surface' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="Surface">
+                            <input type="capacite" name='capacité' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="Capacité d'accueil">
+                        </div>
+                <!-- ******************************************  2/3  ******************************** -->
+                        <div class="row" *ngIf="page==2">
+                            <form (ngSubmit)="findGeocoding(userForm)" #userForm='ngForm'>
+                                <input type="text" name='adress' ngModel required class="mb-3 form-control form-control-lg align-self-center col" placeholder="Adresse">
+                                <button class='btn btn-dark col' type='submit'>Find</button>
+                            </form>  
+                            <div *ngIf="geoResult==true">
+                                <h3 class="text-dark">Resultat Geocoding</h3>
+                                <div class="row">
+                                    <div class="text-dark col" id="0">N° : </div>
+                                    <div class="text-dark col" >{{dataAddress.numero}}</div>
+                                </div><div class="row">  
+                                    <div class="text-dark col" id="1">Rue : </div>
+                                    <div class="text-dark col" >{{dataAddress.rue}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="2">Code Postal : </div>
+                                    <div class="text-dark col" >{{dataAddress.cp}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="3">Ville : </div>
+                                    <div class="text-dark col" >{{dataAddress.ville}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="4">Département : </div>
+                                    <div class="text-dark col" >{{dataAddress.departement}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="5">Région : </div>
+                                    <div class="text-dark col" >{{dataAddress.region}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="6">Pays : </div>
+                                    <div class="text-dark col" >{{dataAddress.pays}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="6">Latitude : </div>
+                                    <div class="text-dark col" >{{dataAddress.lat}}</div>
+                                </div><div class="row">
+                                    <div class="text-dark col" id="6">Longitude : </div><div class="text-dark col" >{{dataAddress.lng}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- ******************************************  2/3  ******************************** -->
+                    <div *ngIf="page==3">
+                        <input type="text" name='numeroFiscal' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="Numero Fiscal">
+                       <input type="url" name='urlAirBnb' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="url Calendrier AirBnb">
+                       <input type="url" name='urlBooking' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="url Calendrier Booking">
+                       <input type="url" name='urlTripAdvisor' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="url Calendrier TripAdvisor">
+                       <input type="url" name='urlHomeAway' ngModel required class="mb-3 form-control form-control-lg align-self-center" placeholder="url Calendrier HomeAway">
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <div class="row">
+                    <button type="button" class="btn btn-dark col"  (click)="navFormMoins()" *ngIf="page>1">Précèdent</button>
+
+                    <button type="button" id="addActifModalClose" data-dismiss="modal" style="display: none">Close</button>
+                    <button type="button" class="btn btn-dark col"  (click)="navFormSup()" *ngIf="page!=3">Suivant</button>
+                    <button type="button" class="btn btn-dark col"   *ngIf="page==3">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
