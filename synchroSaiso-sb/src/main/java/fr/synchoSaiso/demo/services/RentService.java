@@ -57,7 +57,8 @@ public class RentService {
 		arp.save(actif);
 	}
 	@PostMapping("/addRent/{id}")
-	private void postListRent(@PathVariable ("id") Long id,@RequestBody List<Rent> rents) {
+	private void postListRent(@PathVariable ("id") Long id,
+			@RequestBody List<Rent> rents) {
 		
 			for (Rent rent : rents) {
 				try {
