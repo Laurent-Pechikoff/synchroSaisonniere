@@ -1,4 +1,4 @@
-#geocod{
+/* #geocod{
    border-radius: 10px;
    border-color: white;
    border: solid;
@@ -8,7 +8,19 @@
 #geocodResult{
    width: 500px;
 }
-
+ */
 .actifMap{
-   width: 500px;
+   width: 400px;
+
+}
+
+#actif{
+   border-radius: 10px;
+   border-color: white;
+   border: solid;
+
+}
+
+#geoCard{
+
 }

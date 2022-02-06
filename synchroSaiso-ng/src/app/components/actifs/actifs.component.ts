@@ -110,6 +110,7 @@ export class ActifsComponent implements OnInit {
   geoResult=false
   // ****************************************  Requete geocoding ****************************
   findGeocoding(form: any) {
+    console.log(form)
     this.adress = form.form.value.adress
     this.as.geocoding(this.adress).subscribe(resp => {
       this.dataGeocoding = resp
@@ -159,29 +160,68 @@ export class ActifsComponent implements OnInit {
   }
 
   switchActif(data:any){
-    let div=<HTMLInputElement>document.getElementById('actifDetail')
-    div.innerHTML=""
-    for(let i=0;i<Object.keys(data).length;i++){
-      let item=Object.keys(data)[i]
-      let valu=Object.values(data)[i];
-      // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
-      div.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>"
+    let divActif=<HTMLInputElement>document.getElementById('actifDetail')
+    divActif.innerHTML="";
+    let divAdress=<HTMLInputElement>document.getElementById('divAdress')
+    divAdress.innerHTML="";
+    let title=<HTMLInputElement>document.getElementById('title')
+    title.innerHTML="";
+
+      for(let i=0;i<Object.keys(data).length;i++){
+        let item=Object.keys(data)[i];
+        let valu=Object.values(data)[i];
+        let itemActifItemAddress=false
+        // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
+        for(let j=0;j<Object.keys(this.dataAddress).length;j++){
+         if(item==Object.keys(this.dataAddress)[j]){
+          itemActifItemAddress=true 
+          break 
+          }
+        }
+        if(itemActifItemAddress==true){
+          divAdress.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>";
+        }else{
+          if(item=='name'){
+            title.innerHTML+=valu
+          }
+          divActif.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>";
+        }
     }
   }
 
   page=1
   navFormSup(){
     this.page+=1
+    this.forModalActif(this.page)
   }
   navFormMoins(){
     this.page-=1
+    this.forModalActif(this.page)
+  }
+  forModalActif(page:any){
+    switch(page){
+      case 1:
+        document.getElementById('addActiForm1')?.classList.replace('d-none','d-block')
+        document.getElementById('addActiForm2')?.classList.replace('d-block','d-none')
+        break
+      case 2:
+        document.getElementById('addActiForm2')?.classList.replace('d-none', 'd-block')
+        document.getElementById('addActiForm1')?.classList.add('d-none')
+        document.getElementById('addActiForm3')?.classList.replace('d-block','d-none')
+        break
+      case 3:
+        document.getElementById('addActiForm3')?.classList.replace('d-none', 'd-block')
+        document.getElementById('addActiForm2')?.classList.replace('d-block', 'd-none')
+    }
   }
 
-
-  addActif1(addActiForm1:any){
-    let test=<HTMLInputElement>document.getElementById("test")
-    test.innerHTML="<button >Test</button>"
-    test.addEventListener("click", function(){alert('toto') })
+  addActif(addActiForm:any){
+    let addActiForm1=addActiForm.form.value
+    let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')
+    console.log(idUser)
+    this.as.postActif(addActiForm1, idUser).subscribe(resp=>{
+      console.log('actif add')
+    })
   }
 }
 

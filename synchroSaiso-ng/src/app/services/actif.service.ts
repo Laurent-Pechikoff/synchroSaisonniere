@@ -8,7 +8,9 @@ export class ActifService {
   url='http://localhost:3000/actifs'
   urlGeocoding='https://maps.googleapis.com/maps/api/geocode/json?address='
   googleKey='AIzaSyD_BA1AREtkic6MhEopOCT6vQtStzRD7Qw'
- 
+ urlSB='http://localhost:8088'
+
+
   constructor(private http:HttpClient) { }
 
   geocoding(adress:any){
@@ -21,6 +23,10 @@ export class ActifService {
 
   getActifById(id:any){
     return this.http.get(this.url+'/'+id)
+  }
+
+  postActif(addForm:any, idUser:any){
+    return this.http.post(this.urlSB+'/addActif/'+idUser,addForm)
   }
 
 }
