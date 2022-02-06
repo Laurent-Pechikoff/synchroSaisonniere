@@ -13,7 +13,7 @@ export class NavbarService {
   public getItemsNavBar(role:any){
    // return this.http.get(this.urlJson+"/navbar?role"+role+"=true")
    console.log("le role session est : "+role)
-    return this.http.get(this.urlSB+"/navBars?role"+role+"=true")
+    return this.http.get(this.urlSB+"/getNavbar/"+role)
   }
 
   public getItemsNavabarVert(table:any){
