@@ -43,7 +43,7 @@
             "roleVisiteur":false,
             "roleUser": false,
             "roleAdmin": true,
-            "navbarVert": true
+            "navbarVert": false
         }
     ],
     "actifs": [

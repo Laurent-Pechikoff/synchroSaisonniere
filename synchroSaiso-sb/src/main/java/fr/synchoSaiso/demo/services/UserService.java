@@ -28,6 +28,11 @@ public class UserService {
 		return urp.findAll();
 	}
 	
+	@GetMapping("/getUserLogin/{login},{mdp}")
+	private List<User> getUserByLoginAndMdp(@PathVariable ("login") String login,@PathVariable ("mdp") String mdp) {
+		return urp.findByLoginAndMdp(login, mdp);
+	}
+	
 	@GetMapping("/getUser/{id}")
 	private User user(@PathVariable ("id") Long id) {
 		return urp.findById(id).orElse(null);
@@ -35,7 +40,7 @@ public class UserService {
 	
 	@PostMapping("/addUser")
 	public void addUser(@RequestBody User u) {
-		u.setRole("user");
+		u.setRole("User");
 		urp.save(u);
 		
 	}

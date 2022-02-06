@@ -36,20 +36,25 @@ public class Actif {
 //	private Integer idActifs;
 	private Long actifId;
 	private String name;
+	private String type;
+	private int surface;
+	private int capacite;
 	private int numero;
 	private String rue;
 	private int cp;
 	private String ville;
+	private String departement;
 	private String region;
 	private String pays;
-	private String lng;
 	private String lat;
+	private String lng;
 	private String numeroFiscal;
 	private String statutFiscal;
 	private String urlAirBnb;
 	private String urlBooking;
 	private String urlTripAdvisor;
 	private String urlHomeAway;
+	
 	
 
 	

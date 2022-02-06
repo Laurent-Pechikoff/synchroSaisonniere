@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.synchoSaiso.demo.entities.NavBar;
 
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
 public interface NavbarRepository extends JpaRepository<NavBar, Long>{
 
