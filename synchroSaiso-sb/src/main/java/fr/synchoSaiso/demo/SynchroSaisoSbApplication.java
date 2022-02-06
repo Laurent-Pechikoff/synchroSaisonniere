@@ -51,30 +51,30 @@ public class SynchroSaisoSbApplication implements CommandLineRunner{
 	
 	
 //		
-		List<User> usersTest = new ArrayList<>();
-		List<Actif> actifTest = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
-			User u = new User(null, "nom "+i, "prenom "+i , null, null, null, null, null, null, actifTest);
-					urp.save(u);
-					System.out.println("user "+i+" crée");
-					usersTest.add(u);
-					usersTest.forEach(user->{
-						System.out.println("tata :"+ user.getName());
-					});
-		}
-			
-		urp.findAll().forEach(u->{
-			for (int i = 0; i < 3; i++) {
-			
-			Actif a = new Actif(null, "actif "+i, null, i, i, i, "adresse "+i, 13000+i, null, null, null, null, null, null, null, null, null, null, null, null, usersTest, null);
-			actifTest.add(a);
-			arp.save(a);
-			
-			
-			}
-			u.setActifs(actifTest);
-			urp.save(u);
-		});
+//		List<User> usersTest = new ArrayList<>();
+//		List<Actif> actifTest = new ArrayList<>();
+//		for (int i = 0; i < 3; i++) {
+//			User u = new User(null, "nom "+i, "prenom "+i , null, null, null, null, null, null, actifTest);
+//					urp.save(u);
+//					System.out.println("user "+i+" crée");
+//					usersTest.add(u);
+//					usersTest.forEach(user->{
+//						System.out.println("tata :"+ user.getName());
+//					});
+//		}
+//			
+//		urp.findAll().forEach(u->{
+//			for (int i = 0; i < 3; i++) {
+//			
+//			Actif a = new Actif(null, "actif "+i, null, i, i, i, "adresse "+i, 13000+i, null, null, null, null, null, null, null, null, null, null, null, null, usersTest, null);
+//			actifTest.add(a);
+//			arp.save(a);
+//			
+//			
+//			}
+//			u.setActifs(actifTest);
+//			urp.save(u);
+//		});
 		
 	}
 
