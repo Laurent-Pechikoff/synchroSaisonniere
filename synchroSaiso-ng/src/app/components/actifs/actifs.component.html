@@ -1,5 +1,5 @@
 <h1 class="text-ligth text-center mt-4" id="title"></h1>
-<div class="text-center">
+<div class="text-center #fa25cb">
     <button type="button" class="btn btn-dark mx-auto" data-bs-toggle="modal" data-bs-target="#addActifModal">
         Ajouter un Actif Immobilier
     </button>
@@ -27,37 +27,19 @@
 
     </div>
 
+    <div>
+        <button class="btn btn-dark" id="actifDeleteBtn" style="color:#fa25cb">
+            <i class="far fa-trash-alt"></i>
+        </button>
+    
+        <button type="button" class="btn btn-dark mx-auto" id="actifUDBtn" style="color:#fa25cb"data-bs-toggle="modal" data-bs-target="#editActifModal" (click)="editActif()">
+            <i class="fas fa-pen"></i>
+        </button>
 
+    </div>
 </div>
 
 
-<!-- ************************************  Formulaire Geocoding ***************************** -->
-<!--   <div class="container col-6" id="geocodResult" >
-        <form (ngSubmit)="findGeocoding(userForm)" #userForm='ngForm' >
-            <input ngModel type="text" name='adress'>
-            <button class='btn btn-primary ' type='submit'>Find</button>
-        </form>
-
-    -->
-
-<!-- *********************************** Affichage resultat geocoding  *********************** -->
-<!--       <div class="container" >
-            <h3 class="text-ligth">Resultat Geocoding</h3>
-            <div class="row">
-                <div class="row d-inline"><span class="text-light" id="0">N° : </span><span class="text-dark" >{{dataAddress.numero}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="1">Rue : </span><span class="text-dark" >{{dataAddress.rue}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="2">Code Postal : </span><span class="text-dark" >{{dataAddress.cp}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="3">Ville : </span><span class="text-dark" >{{dataAddress.ville}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="4">Département : </span><span class="text-dark" >{{dataAddress.departement}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="5">Région : </span><span class="text-dark" >{{dataAddress.region}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="6">Pays : </span><span class="text-dark" >{{dataAddress.pays}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="6">Latitude : </span><span class="text-dark" >{{dataAddress.lat}}</span></div>
-                <div class="row d-inline"><span class="text-light" id="6">Longitude : </span><span class="text-dark" >{{dataAddress.lng}}</span></div>
-
-            </div>
-        </div>
-    </div>
-</div>-->
 
 <!-- ***********************************  formulaire de modification  *************************** -->
 <div class="row">
@@ -203,6 +185,144 @@
                         style="display: none">Close</button>
                     <button type="button" class="btn btn-dark col" (click)="navFormSup()"
                         *ngIf="page!=3">Suivant</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- *****************************************  Modal de editActif  **************************** -->
+
+<div class="modal fade" id="editActifModal" tabindex="-1" aria-labelledby="editActifModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title text-dark text-center" id="editActifModal">
+                    
+                    <h1>Modifier votre Actif</h1>
+                    <h3>{{page}}/3</h3>   
+                   
+                </div>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="editActifModalBody">
+                    <!-- ******************************************  1/3  ******************************** -->
+                    <form id="formUDActif" >
+                        <div id="uDActiForm1">
+                            <input type="text" name='name'  required
+                                class="mb-3 form-control form-control-lg align-self-center" [(ngModel)]="datActiForm.name">
+                            <select name="type" class="form-select form-select-lg mb-3 text-dark"
+                                aria-label=".form-select-lg example" >
+                                <option value="Studio">Studio</option>
+                                <option value="T1 bis">T1 bis</option>
+                                <option value="T2">T2</option>
+                                <option value="T3">T3</option>
+                                <option value="T4">T4</option>
+                                <option value="T5">T5</option>
+                            </select>
+                            <input type="number" name='surface'  required
+                                class="mb-3 form-control form-control-lg align-self-center" [(ngModel)]="datActiForm.surface">
+                            <input type="capacite" name='capacite'  required
+                                class="mb-3 form-control form-control-lg align-self-center"
+                                [(ngModel)]="datActiForm.capacite">
+                        </div>
+                        <!-- ******************************************  2/3  ******************************** -->
+                        <div id="uDActiForm4" class="d-none">
+                            <input [(ngModel)]="datActiForm.numero" name="numero" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.rue" name="rue" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.cp" name="cp" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.ville" name="ville" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.departement" name="departement" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.region" name="region" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.pays" name="pays" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.lat" name="lat" class="text-dark col">
+                            <input [(ngModel)]="datActiForm.lng" name="lng" class="text-dark col">
+                        </div>
+
+                        <!-- ******************************************  3/3  ******************************** -->
+                        <div id="uDActiForm3" class="d-none">
+                            <input type="text" name='numeroFiscal'  required
+                                class="mb-3 form-control form-control-lg align-self-center" [(ngModel)]="datActiForm.numeroFiscal">
+                            <input type="url" name='urlAirBnb'  required
+                                class="mb-3 form-control form-control-lg align-self-center"
+                                [(ngModel)]="datActiForm.urlAirBnb">
+                            <input type="url" name='urlBooking'  required
+                                class="mb-3 form-control form-control-lg align-self-center"
+                                [(ngModel)]="datActiForm.urlBooking">
+                            <input type="url" name='urlTripAdvisor'  required
+                                class="mb-3 form-control form-control-lg align-self-center"
+                                [(ngModel)]="datActiForm.urlTripAdvisor">
+                            <input type="url" name='urlHomeAway'  required
+                                class="mb-3 form-control form-control-lg align-self-center"
+                                [(ngModel)]="datActiForm.urlHomeAway">
+                        </div>
+                        <button type="submit" class="btn btn-dark col" *ngIf="pageUD==3" (click)="upDateActif()">Enregistrer</button>
+                        <!-- ******************************************  2/3  ******************************** -->
+                        <div class="row" id="uDActiForm2" class="d-none">
+                            <form (ngSubmit)="findGeocoding(userForm)" #userForm='ngForm'>
+                                <input type="text" name='adress'  required
+                                    class="mb-3 form-control form-control-lg align-self-center col"
+                                    placeholder="Adresse">
+                                <button class='btn btn-dark col' type='submit'>Find</button>
+                            </form>
+                            <div >
+                                <h3 class="text-dark">Resultat Geocoding</h3>
+                                <div class="row">
+                                    <div class="text-dark col" id="0">N° : </div>
+                                    <div class="text-dark col">{{datActiForm.numero}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="1">Rue : </div>
+                                    <div class="text-dark col">{{datActiForm.rue}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="2">Code Postal : </div>
+                                    <div class="text-dark col">{{datActiForm.cp}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="3">Ville : </div>
+                                    <div class="text-dark col">{{datActiForm.ville}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="4">Département : </div>
+                                    <div class="text-dark col">{{datActiForm.departement}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="5">Région : </div>
+                                    <div class="text-dark col">{{datActiForm.region}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="6">Pays : </div>
+                                    <div class="text-dark col">{{datActiForm.pays}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="6">Latitude : </div>
+                                    <div class="text-dark col">{{datActiForm.lat}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="text-dark col" id="6">Longitude : </div>
+                                    <div class="text-dark col">{{datActiForm.lng}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <div class="row">
+                    <button type="button" class="btn btn-dark col" (click)="navFormMoinsUD()"
+                        *ngIf="pageUD>1">Précèdent</button>
+
+                    <button type="button" id="editActifModalClose" data-dismiss="modal"
+                        style="display: none">Close</button>
+                    <button type="button" class="btn btn-dark col" (click)="navFormSupUD()"
+                        *ngIf="pageUD!=3">Suivant</button>
                 </div>
             </div>
         </div>

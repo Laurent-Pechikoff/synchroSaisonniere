@@ -20,7 +20,10 @@ export class CalendarComponent implements OnInit {
 
 
 
-  Events: any = [];
+  Events: any = [
+    {title:'test', start:'2022-02-25', end:'2022-02-26'},
+    {title:'test', start:'2022-02-27', end:'2022-02-28'},
+  ];
   calendarOptions: CalendarOptions | undefined;
 
   constructor(private cs: CalendarService, private as:ActifService) { }
@@ -41,33 +44,53 @@ export class CalendarComponent implements OnInit {
     // }, 2200);
 
 // ******************************   lancement Full Calendar  ******************************
-    setTimeout(() => {
-      this.calendarOptions = {
-        initialView: 'dayGridMonth',
-        dateClick: this.onDateClick.bind(this),
-        events: this.Events,
-        eventClick: function (info) {
-          info.jsEvent.preventDefault();//empecher le changement d'url sur le meme onglet
-          if (info.event.url) {
-            window.open(info.event.url);//ouverture nouvel onglet sur url
-          }
-        }
-      };
-    }, 2500);
+this.getIcal(2)
+setTimeout(() => {
+  this.calendarOptions = {
+    initialView: 'dayGridMonth',
+    dateClick: this.onDateClick.bind(this),
+    events: this.Events,
+    eventClick: function (info) {
+      info.jsEvent.preventDefault();//empecher le changement d'url sur le meme onglet
+      if (info.event.url) {
+        window.open(info.event.url);//ouverture nouvel onglet sur url
+      }
+    }
+  };
+  setTimeout(()=>{ console.log('venets '+this.Events)},5000)
+
+}, 5000);
 
   }
+  
 
 
 
   //*************************************** Affichage Events   ****************************
-  getEvents() {
-    {
-      this.cs.getEvents().subscribe(resp => {
-        this.dataAirbnb = resp;
-        console.log(this.dataAirbnb)
-      });
+  getEventsBack(idactif:any) {
+    let watchEvent = {
+      title: '',
+      start: '',
+      end: '',
+      url: '',
     }
-  }
+     let dataBack:any
+      this.cs.getEventsBack(idactif).subscribe(resp => {
+        dataBack = resp;
+        console.log('resp ='+dataBack)
+
+        for(let i=0;i<dataBack.length;i++){
+          // watchEvent.title=dataBack[i].title
+          // watchEvent.start=dataBack[i].start
+          // watchEvent.end=dataBack[i].end
+          // watchEvent.url=dataBack[i].url
+          // this.Events.push(watchEvent)
+
+        }
+      });
+  
+    }
+  
 
 
 // **************************  recuperation fichier Ical et formatage pour enregistrement  *********************
@@ -87,11 +110,10 @@ export class CalendarComponent implements OnInit {
       let plateform = 'AirBnb'
       datA = resp
       datA = datA.vcalendar[0].vevent
-      console.log(datA)
       for (let i = 0; i < datA.length; i++) {
         let y=this.icalToEvent(i, plateform, idactif, datA)
-        console.log(y)
         this.dataEvents.push(y)
+        this.Events.push(y)
       }
     })
 
@@ -102,13 +124,12 @@ export class CalendarComponent implements OnInit {
 
       for (let i = 0; i <datB.length; i++) {
         let x =this.icalToEvent(i, plateform, idactif, datB)
-        console.log(x)
         this.dataEvents.push(x)
+        this.Events.push(x)
       }
-      // this.dataEvents= JSON.stringify(this.dataEvents)
-      // this.dataEvents= JSON.parse(this.dataEvents)
+
       this.cs.postEvents(idactif, this.dataEvents).subscribe(resp=>{
-        console.log(resp)
+      this.getEventsBack(idactif)
       })
     })
   }
@@ -122,7 +143,6 @@ export class CalendarComponent implements OnInit {
       url: '',
       idOrigin: '',
       plateform:'',
-      actif: 0
     }
       let desc = ''
     let name = ' - '
@@ -153,17 +173,17 @@ export class CalendarComponent implements OnInit {
 
     }
 
-    icalEvent.start = this.convertFullCalendarDate(data[i].dtstart[0]);
-    icalEvent.end = this.convertFullCalendarDate(data[i].dtend[0]);
+    icalEvent.start = this.convertFullCalendarDate(data[i].dtstart[0],'start');
+    icalEvent.end = this.convertFullCalendarDate(data[i].dtend[0], 'end');
     icalEvent.idOrigin = data[i].uid;
-    icalEvent.actif=idactif
     return icalEvent
 
   }
+//+'T'+'14:00:000'
 
 
-
-  convertFullCalendarDate(date: any) {
+convertFullCalendarDate(date: any,type:any) {
+    
     let year = date.substr(0, 4)
     let month = date.substr(4, 2)
     let day = date.substr(6, 2)

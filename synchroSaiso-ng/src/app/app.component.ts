@@ -91,32 +91,20 @@ export class AppComponent implements OnInit {
     location.replace('/user')
   }
 
-
+// ***************************  navigation navbar verticale  ************************************
 
   sendId(id: any) {
     let location = localStorage.getItem('location')
     switch (location) {
       case 'actifs':
-        console.log('senID: '+id)
         this.actif.watchActif(id)
         break;
       case 'admin':
-        // this.admin.watchUser(id)
-
-        // console.log(id)
         break;
       case 'calendar':
-        // let actifObjectid
-        // for(let i=0;i<Object.keys(this.dataNavBarVert).length;i++){
-        //   if(id==this.dataNavBarVert[i].id){
-        //     actifObjectid=this.dataNavBarVert[i]
-        //   }
-        // }
-        // console.log(actifObjectid)
         this.cc.getIcal(id)   
         break;
       case 'statistique':
-        //verifier le nom du path    
         break;
       default:
         break;

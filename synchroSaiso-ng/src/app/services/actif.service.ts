@@ -36,4 +36,9 @@ export class ActifService {
     return this.http.get(this.urlSB+'/getActif/'+idActif)
   }
 
+  updateActif(actif:any){
+    let id=actif.id
+    return this.http.put(this.urlSB+'/putActif/'+id,actif)
+  }
+
 }

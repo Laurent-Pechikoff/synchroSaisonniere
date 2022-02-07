@@ -15,8 +15,11 @@ export class CalendarService {
     return this.http.get('')
   }
 
+  getEventsBack(idActif:any){
+    return this.http.get(this.urlSB+'/allRentByActif/'+idActif)
+  }
+
   postEvents(idactif:any, dataEvent:any){
-    console.log(dataEvent)
     return this.http.post('http://localhost:8088/addRent/'+idactif,dataEvent)
   }
   

@@ -45,7 +45,7 @@ export class ActifsComponent implements OnInit {
     name:'',
     type:'',
     surface:'',
-    capacité:'',
+    capacite:'',
     numero:'',
     rue:'',
     cp:'',
@@ -146,7 +146,6 @@ export class ActifsComponent implements OnInit {
   geoResult=false
   // ****************************************  Requete geocoding ****************************
   findGeocoding(form: any) {
-    console.log(form)
     this.adress = form.form.value.adress
     this.as.geocoding(this.adress).subscribe(resp => {
       this.dataGeocoding = resp
@@ -194,6 +193,7 @@ export class ActifsComponent implements OnInit {
       this.datActif=this.datActifs[id-1]
       console.log(this.datActif)
       this.switchActif(this.datActif)
+      localStorage.setItem('actif', JSON.stringify(this.datActif))
 
     })
   }
@@ -207,6 +207,8 @@ export class ActifsComponent implements OnInit {
     title.innerHTML="";
     let lat:any;
     let lng:any;
+    // let actifDeleteBtn=<HTMLInputElement>document.getElementById('actifDeleteBtn').addEventListener("", deteActif())
+    // let actifUDBtn=<HTMLInputElement>document.getElementById('actifUDBtn').addEventListener("", upDateActif())
 
 
       for(let i=0;i<Object.keys(data).length;i++){
@@ -217,6 +219,7 @@ export class ActifsComponent implements OnInit {
           case 'lat': lat=valu;break
           case 'lng': lng=valu;break
         }
+        if(item!="rents"){
         // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
         for(let j=0;j<Object.keys(this.dataAddress).length;j++){
           if(item==Object.keys(this.dataAddress)[j]){
@@ -230,16 +233,16 @@ export class ActifsComponent implements OnInit {
           if(item=='name'){
             title.innerHTML+=valu
           }
-          // console.log(Object.values(this.itemActif)[18])
           divActif.innerHTML+="<div class='row'><span class='col-4'>"+Object.values(this.itemActif)[i] +" : </span><span class='col-8'>"+valu+"</span></div>";
         }
+
       }
 
       this.marker.position['lat']=lat
       this.marker.position['lng']=lng
       this.changeMarkerPosition(this.marker,lat,lng)
-
-
+      
+    }
   }
 
   page=1
@@ -275,6 +278,61 @@ export class ActifsComponent implements OnInit {
       console.log('actif add')
     })
   }
+
+
+
+// ***********************************  update actif  ********************************
+  editActif(){
+    let actifEdit:any
+    actifEdit=JSON.parse(localStorage.getItem('actif')|| '{}')
+    this.datActiForm=actifEdit
+  }
+
+  upDateActif(){
+    let actifChange=this.datActiForm
+    let actifChangeFormat
+    console.log(actifChange)
+    for(let i=0;i<Object.keys(actifChange).length;i++){
+        let x = Object.values(actifChange)[i]
+        let y: string = Object.keys(actifChange)[i]
+        if(Object.keys(actifChange)[i]!='rent')  {
+          Object.defineProperty(this.datActiForm, y, { value: x }) //erreur
+
+    }
+    }
+    console.log('avant envoie:'+this.datActiForm)
+    this.as.updateActif(this.datActiForm).subscribe(resp=>{
+      console.log('update done')
+    })
+  }
+
+  pageUD=1
+  navFormSupUD(){
+    this.pageUD+=1
+    this.forModalActifUD(this.pageUD)
+  }
+  navFormMoinsUD(){
+    this.pageUD-=1
+    this.forModalActifUD(this.pageUD)
+  }
+  forModalActifUD(pageUD:any){
+    switch(pageUD){
+      case 1:
+        document.getElementById('uDActiForm1')?.classList.replace('d-none','d-block')
+        document.getElementById('uDActiForm2')?.classList.replace('d-block','d-none')
+        break
+      case 2:
+        document.getElementById('uDActiForm2')?.classList.replace('d-none', 'd-block')
+        document.getElementById('uDActiForm1')?.classList.add('d-none')
+        document.getElementById('uDActiForm3')?.classList.replace('d-block','d-none')
+        break
+      case 3:
+        document.getElementById('uDActiForm3')?.classList.replace('d-none', 'd-block')
+        document.getElementById('uDActiForm2')?.classList.replace('d-block', 'd-none')
+    }
+  }
+
+
 }
 
 
