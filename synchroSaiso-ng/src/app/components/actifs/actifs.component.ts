@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { last } from 'rxjs';
 import { ActifService } from 'src/app/services/actif.service';
 
 @Component({
@@ -13,7 +14,30 @@ export class ActifsComponent implements OnInit {
   datActifs: any
   datActif: any
   actifId = 1
+  idUser:any
 
+  itemActif={
+    actifId:'id',
+    name:'Name',
+    type:'Type',
+    surface:'Surface',
+    capacite:'Capacite',
+    numero:'numero',
+    rue:'rue',
+    cp:'cp',
+    ville:'ville',
+    departement:'departement',
+    region:'region',
+    pays:'pays',
+    lat:0,
+    lng:0,
+    numeroFiscal:'Numero Fiscal',
+    statutFiscal:'Statut Fiscal',
+    urlAirBnb:'urlAirBnb',
+    urlBooking:'urlBooking',
+    urlTripAdvisor:'urlTripAdvisor',
+    urlHomeAway:'urlHomeAway',
+  }
 
   // *****************************************variable geocoding ******************************
   datActiForm={
@@ -42,11 +66,11 @@ export class ActifsComponent implements OnInit {
   dataAddress={
     numero:'',
     rue:'',
-    cp:'',
     ville:'',
     departement:'',
     region:'',
     pays:'',
+    cp:'',
     lat:0,
     lng:0,
   }
@@ -82,18 +106,23 @@ export class ActifsComponent implements OnInit {
     //   label:"test"
     // })
 
+    marker={
+      position:{lat: 47.139049,lng: 2.644761}
+    }
+  
+
   //*****************************************************************************************
   // ******************************************* les methodes **********************************
   // **********************************************************************************************
 
-  marker={
-    position:{lat: 47.139049,lng: 2.644761}
-  }
 
 
   constructor(private as: ActifService) { }
 
   ngOnInit(): void {
+   
+    this.idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].id
+
     this.watchActif(1)
     localStorage.setItem('location','actifs')
     // **************** lancement googlemaps  **********************
@@ -106,6 +135,13 @@ export class ActifsComponent implements OnInit {
 
    
   }
+
+
+  
+   changeMarkerPosition(marker:any, lat:any, lng:any) {
+      marker.position['lat']=lat;
+      marker.position['lng']=lng;
+    }
 
   geoResult=false
   // ****************************************  Requete geocoding ****************************
@@ -150,12 +186,15 @@ export class ActifsComponent implements OnInit {
 // **********************************  CRUD  ******************************************
 
   public watchActif(id:any){
-    this.as.getActifById(id).subscribe(resp=>{
-      this.datActif=resp
-      this.switchActif(this.datActif)
-    })
-    this.as.getActifs().subscribe(resp=>{
+
+    console.log('watch Actif idUser:'+id)
+    this.as.getActifsById().subscribe(resp=>{
       this.datActifs=resp
+      console.log(this.datActifs)
+      this.datActif=this.datActifs[id-1]
+      console.log(this.datActif)
+      this.switchActif(this.datActif)
+
     })
   }
 
@@ -166,16 +205,23 @@ export class ActifsComponent implements OnInit {
     divAdress.innerHTML="";
     let title=<HTMLInputElement>document.getElementById('title')
     title.innerHTML="";
+    let lat:any;
+    let lng:any;
+
 
       for(let i=0;i<Object.keys(data).length;i++){
         let item=Object.keys(data)[i];
         let valu=Object.values(data)[i];
         let itemActifItemAddress=false
+        switch (item){
+          case 'lat': lat=valu;break
+          case 'lng': lng=valu;break
+        }
         // form.innerHTML+="<div class='form-group d-inline'><label class='form-label mt-4 col-4' for='"+item+"'       >"+item+":</label><input name='"+item+"' value='"+valu+"'class='form-control col-8 text-dark' style='max-width: 400px;' ></div>"
         for(let j=0;j<Object.keys(this.dataAddress).length;j++){
-         if(item==Object.keys(this.dataAddress)[j]){
-          itemActifItemAddress=true 
-          break 
+          if(item==Object.keys(this.dataAddress)[j]){
+            itemActifItemAddress=true 
+            break 
           }
         }
         if(itemActifItemAddress==true){
@@ -184,9 +230,16 @@ export class ActifsComponent implements OnInit {
           if(item=='name'){
             title.innerHTML+=valu
           }
-          divActif.innerHTML+="<div class='row'><span class='col-4'>"+item+" : </span><span class='col-8'>"+valu+"</span></div>";
+          // console.log(Object.values(this.itemActif)[18])
+          divActif.innerHTML+="<div class='row'><span class='col-4'>"+Object.values(this.itemActif)[i] +" : </span><span class='col-8'>"+valu+"</span></div>";
         }
-    }
+      }
+
+      this.marker.position['lat']=lat
+      this.marker.position['lng']=lng
+      this.changeMarkerPosition(this.marker,lat,lng)
+
+
   }
 
   page=1
@@ -217,9 +270,8 @@ export class ActifsComponent implements OnInit {
 
   addActif(addActiForm:any){
     let addActiForm1=addActiForm.form.value
-    let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')
-    console.log(idUser)
-    this.as.postActif(addActiForm1, idUser).subscribe(resp=>{
+    // let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')
+    this.as.postActif(addActiForm1, this.idUser[0].id).subscribe(resp=>{
       console.log('actif add')
     })
   }

@@ -8,7 +8,7 @@ export class ActifService {
   url='http://localhost:3000/actifs'
   urlGeocoding='https://maps.googleapis.com/maps/api/geocode/json?address='
   googleKey='AIzaSyD_BA1AREtkic6MhEopOCT6vQtStzRD7Qw'
- urlSB='http://localhost:8088'
+  urlSB='http://localhost:8088'
 
 
   constructor(private http:HttpClient) { }
@@ -18,15 +18,22 @@ export class ActifService {
   }
 
   getActifs(){
-    return this.http.get(this.url)
+    return this.http.get(this.urlSB)
   }
 
-  getActifById(id:any){
-    return this.http.get(this.url+'/'+id)
+  getActifsById(){
+    let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].id
+
+    console.log('service iduser:'+idUser)
+    return this.http.get(this.urlSB+'/getAllActifsByUser/'+idUser)
   }
 
   postActif(addForm:any, idUser:any){
-    return this.http.post(this.urlSB+'/addActif/'+idUser,addForm)
+     return this.http.post(this.urlSB+'/addActif/'+idUser,addForm)
+  }
+
+  getActifById(idActif:any){
+    return this.http.get(this.urlSB+'/getActif/'+idActif)
   }
 
 }

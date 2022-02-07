@@ -23,10 +23,10 @@ export class NavbarService {
         response = this.http.get(this.urlSB+'/getUsers')
         break;
         case 'actifs':
-          response = this.http.get(this.urlJson+'/'+table)
+          response = this.http.get(this.urlSB+'/actifs')
           break;
         case 'calendar':
-          response = this.http.get(this.urlJson+'/actifs')
+          response = this.http.get(this.urlSB+'/actifs')
           break;
     
       default:

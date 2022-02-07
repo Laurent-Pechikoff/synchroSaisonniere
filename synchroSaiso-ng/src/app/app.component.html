@@ -50,7 +50,7 @@
 <!-- ******************************************************* navbar verticale ************************************************** -->
 <div id="navert" class="container-fluid" *ngIf="(checkNavBarVert==true)">
     <nav class="nav flex-column" *ngFor="let inbt of dataNavBarVert">
-        <button class="nav-link" (click)="sendId(inbt.id)">{{inbt.name}}
+        <button class="nav-link bg-transparent" (click)="sendId(inbt.actifId)" style="border:none">{{inbt.name}}
 
         </button>
     </nav>
@@ -58,4 +58,3 @@
 </div>
 
 <router-outlet></router-outlet>
-

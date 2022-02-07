@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, getEventClassNames } from '@fullcalendar/angular';
+import { ActifService } from 'src/app/services/actif.service';
 import { CalendarService } from 'src/app/services/calendar.service';
 
 
@@ -15,17 +16,6 @@ export class CalendarComponent implements OnInit {
   dataIcal: any
   dataEvents: any = []
 
-  icalEvent = {
-    title: '',
-    start: '',
-    end: '',
-    startHour: 14,
-    endHour: 11,
-    urlOrigin: '',
-    idOrigin: '',
-    plateform:'',
-    actif: {}
-  }
 
 
 
@@ -33,7 +23,7 @@ export class CalendarComponent implements OnInit {
   Events: any = [];
   calendarOptions: CalendarOptions | undefined;
 
-  constructor(private cs: CalendarService) { }
+  constructor(private cs: CalendarService, private as:ActifService) { }
 
   onDateClick(res: any) {
     alert('Clicked on date : ' + res.dateStr)
@@ -82,72 +72,92 @@ export class CalendarComponent implements OnInit {
 
 // **************************  recuperation fichier Ical et formatage pour enregistrement  *********************
   getIcal(idactif:any) {
-    this.cs.getIcalAirBnb().subscribe(resp => {
+    let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].login
+    let datA:any
+    let datB:any
+    // let actif
+    // this.as.getActifById(idactif).subscribe(resp=>{
+    //   actif=resp     
+    //   localStorage.setItem('actif',JSON.stringify(actif))
+    // })
+    // console.log('actif :'+actif.name)
+    // let actifName=JSON.parse(localStorage.getItem('actif')|| '{}')
+    this.cs.getIcalAirBnb(idUser, idactif).subscribe(resp => {
+      
       let plateform = 'AirBnb'
-      this.dataIcal = resp
-      this.dataIcal = this.dataIcal.vcalendar[0].vevent
-      for (let i = 0; i < this.dataIcal.length; i++) {
-        this.dataEvents.push(this.icalToEvent(i, plateform, idactif))
+      datA = resp
+      datA = datA.vcalendar[0].vevent
+      console.log(datA)
+      for (let i = 0; i < datA.length; i++) {
+        let y=this.icalToEvent(i, plateform, idactif, datA)
+        console.log(y)
+        this.dataEvents.push(y)
       }
     })
-    this.cs.getIcalBooking().subscribe(resp => {
+
+    this.cs.getIcalBooking(idUser, idactif).subscribe(resp => {
       let plateform = 'Booking'
-      this.dataIcal = resp
-      this.dataIcal = this.dataIcal.vcalendar[0].vevent
-      for (let i = 0; i < this.dataIcal.length; i++) {
-        this.dataEvents.push(this.icalToEvent(i, plateform, idactif))
+      datB = resp
+      datB = datB.vcalendar[0].vevent
+
+      for (let i = 0; i <datB.length; i++) {
+        let x =this.icalToEvent(i, plateform, idactif, datB)
+        console.log(x)
+        this.dataEvents.push(x)
       }
-      console.log(this.dataEvents)
-      this.cs.postEvents(this.dataEvents)
+      // this.dataEvents= JSON.stringify(this.dataEvents)
+      // this.dataEvents= JSON.parse(this.dataEvents)
+      this.cs.postEvents(idactif, this.dataEvents).subscribe(resp=>{
+        console.log(resp)
+      })
     })
   }
 
 
-  icalToEvent(i:any, plateform:any, idactif:any) {
-    let icalEvent2 = {
+  icalToEvent(i:any, plateform:any, idactif:any, data:any) {
+    let icalEvent = {
       title: '',
       start: '',
       end: '',
-      plateform: '',
-      startHour: '14:00',
-      endHour: '11:00',
       url: '',
       idOrigin: '',
+      plateform:'',
+      actif: 0
     }
-    let desc = ''
+      let desc = ''
     let name = ' - '
-    if ("description" in this.dataIcal[i]) {
-      for (let j = 0; j < this.dataIcal[i].description.length; j++) {
-        if (this.dataIcal[i].description[j] == '\\') { break }
-        if (j > 16) { desc += this.dataIcal[i].description[j] }
-        icalEvent2.url = desc
+    if ("description" in data[i]) {
+      for (let j = 0; j < data[i].description.length; j++) {
+        if (data[i].description[j] == '\\') { break }
+        if (j > 16) { desc += data[i].description[j] }
+        icalEvent.url = desc
       }
     }
-    if (plateform == "Booking" && "summary" in this.dataIcal[i]) {
-      for (let j = 0; j < this.dataIcal[i].summary.length; j++) {
-        if (j > 8) { name += this.dataIcal[i].summary[j] }
+    if (plateform == "Booking" && "summary" in data[i]) {
+      for (let j = 0; j < data[i].summary.length; j++) {
+        if (j > 8) { name += data[i].summary[j] }
 
       }
     }
     if (plateform == 'AirBnb') {
-      if ("description" in this.dataIcal[i]) {
-        this.icalEvent.title = plateform
-        this.icalEvent.plateform = plateform
+      if ("description" in data[i]) {
+        icalEvent.title = plateform
+        icalEvent.plateform = plateform
       } else {
-        this.icalEvent.title = 'En Direct'
-        this.icalEvent.plateform = 'Réservation Direct'
+        icalEvent.title = 'En Direct'
+        icalEvent.plateform = 'Réservation Direct'
       }
     } else {
-      this.icalEvent.title = plateform + name
-      this.icalEvent.plateform = plateform
+      icalEvent.title = plateform + name
+      icalEvent.plateform = plateform
 
     }
 
-    this.icalEvent.start = this.convertFullCalendarDate(this.dataIcal[i].dtstart[0]);
-    this.icalEvent.end = this.convertFullCalendarDate(this.dataIcal[i].dtend[0]);
-    this.icalEvent.idOrigin = this.dataIcal[i].uid;
-    this.icalEvent.actif=idactif
-    return this.icalEvent
+    icalEvent.start = this.convertFullCalendarDate(data[i].dtstart[0]);
+    icalEvent.end = this.convertFullCalendarDate(data[i].dtend[0]);
+    icalEvent.idOrigin = data[i].uid;
+    icalEvent.actif=idactif
+    return icalEvent
 
   }
 
