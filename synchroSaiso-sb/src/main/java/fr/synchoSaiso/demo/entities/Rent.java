@@ -35,7 +35,7 @@ public class Rent {
 	private LocalTime endHour;
 	private String url;
 	@Column(unique=true)
-	private Long idOrigin;
+	private String idOrigin;
 	
 	
 	@ManyToOne
