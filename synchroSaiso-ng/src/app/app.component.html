@@ -10,7 +10,7 @@
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item" *ngFor="let inb of dataNavBar">
                         <a class="nav-link" routerLink="{{inb.routerLink}}" (click)="watchNavBarVert(inb)"
-                         role="button">{{inb.item}}</a>
+                            role="button">{{inb.item}}</a>
                     </li>
                 </ul>
             </div>
@@ -27,7 +27,8 @@
                 <img src="../assets/image/login---2.png" alt="" id="arrow">
                 <img src="../assets/image/login---1.png" alt="" id="rectangle">
             </bouton>
-            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#unlogModal"  id="unlogIcon" *ngIf="(sessionExist)">
+            <bouton routerLink="user" type='button' data-bs-toggle="modal" data-bs-target="#unlogModal" id="unlogIcon"
+                *ngIf="(sessionExist)">
                 <i class="fas fa-user text-success"></i>
 
             </bouton>
@@ -36,7 +37,7 @@
 </div>
 
 <!-- ******************************************************* Modal User close Session ************************************************** -->
-<div  class="modal fade" id="unlogModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+<div class="modal fade" id="unlogModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content container-fluid">
             <div class='d-grid gap-2 col-6 mx-auto mt-4 text-dark'>
@@ -50,7 +51,7 @@
 <div id="navert" class="container-fluid" *ngIf="(checkNavBarVert==true)">
     <nav class="nav flex-column" *ngFor="let inbt of dataNavBarVert">
         <button class="nav-link bg-transparent" (click)="sendId(inbt.actifId)" style="border:none">{{inbt.name}}
-            
+
         </button>
     </nav>
 

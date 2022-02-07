@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserComponent implements OnInit {
   dataUser: any
   origin: any
+  session = sessionStorage.getItem('login')
   constructor(private us: UserService) { }
 
 
@@ -32,12 +33,12 @@ export class UserComponent implements OnInit {
   loginUserBack(userForm: any) {
     let login = userForm.form.value.login
     let mdp = userForm.form.value.mdp
-    console.log("login = "+login+" mdp = "+mdp)
+    
     this.us.getUserBack(login, mdp).subscribe(resp => {
       this.dataUser = resp
       sessionStorage.setItem('login', JSON.stringify(this.dataUser))
-      location.reload();
-
+      //location.reload();
+      location.replace('http://localhost:4200/home')
     })
 
   }
@@ -60,7 +61,7 @@ export class UserComponent implements OnInit {
     let newUser = user.value
     console.log(newUser);
     this.us.postUser(newUser).subscribe(resp => {
-      console.log('utilisateur créer')
+      
       this.removeOrigin();
       this.loginUserBack(user)
     })

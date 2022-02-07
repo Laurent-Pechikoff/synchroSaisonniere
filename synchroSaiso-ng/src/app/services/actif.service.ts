@@ -24,7 +24,7 @@ export class ActifService {
   getActifsById(){
     let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].id
 
-    console.log('service iduser:'+idUser)
+    
     return this.http.get(this.urlSB+'/getAllActifsByUser/'+idUser)
   }
 

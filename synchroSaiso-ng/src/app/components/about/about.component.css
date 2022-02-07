@@ -6,7 +6,11 @@ h1{
 article{
     color: rgb(26,156,234);
 }
-
+img{
+    width: 13vw;
+    height: auto;
+    border-radius: 50px;
+}
 .photo{
     background-color: rgb(48,48,48);
 }

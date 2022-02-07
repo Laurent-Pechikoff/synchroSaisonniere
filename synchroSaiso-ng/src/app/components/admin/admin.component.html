@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-3">
             <div id="navert" *ngFor="let elt of userList">
-                <button class="btn btn-info col-5 mt-3" (click)="getUser(elt)">{{elt.name}}</button>
+                <button class="btn btn-info col-5 mt-1" (click)="getUser(elt)">{{elt.name}}</button>
             </div>
         </div>
 
@@ -66,15 +66,18 @@
                                 [(ngModel)]="user.phone" ngModel>
                         </div>
                         <div class="mb-3">
-                            <label for="role" class="form-label">phone de l'utilisateur</label>
+                            <label for="role" class="form-label">role de l'utilisateur</label>
                             <input type="text" class="form-control" id="role" name="role" #role="ngModel"
                                 [(ngModel)]="user.role" ngModel>
                         </div>
                         <div>
-                            <div class="mb-3 d-flex justify-content-evenly">
+                            <div class="mb-3 d-flex justify-content-around">
                                 <button type="submit" class="btn btn-primary" (click)="modifierUser()" data-bs-dismiss="modal">Valider
-                                    modification</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler modification</button>
+                                    modification
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler modification
+
+                                </button>
                             </div>
 
                         </div>

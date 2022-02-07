@@ -1,12 +1,12 @@
 <!-- ************************************************  Form Connexion ***************************************** -->
 <div class="container">
 
-    <div *ngIf="(origin=='connexion')">
+    <div *ngIf="(origin=='connexion' && !session)">
         <div class="bordure ">
             <h2 class="text-center mb-4">Formulaire de connexion</h2>
             <form (ngSubmit)="loginUserBack(userForm)" #userForm='ngForm' class="text-center ">
                 <div class='d-grid gap-2 col-6 mx-auto mt-4'>
-                    <label  for="login">Entrez votre identifiant</label>
+                    <label for="login">Entrez votre identifiant</label>
                     <input ngModel type="text" name='login' class="form-control col-6" id='login'>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto mt-4">
@@ -17,7 +17,8 @@
                     <button class='btn btn-primary ' type='submit' id="connect">Connexion</button>
                 </div>
             </form>
-            <button class="btn btn-success d-grid gap-2 col-6 mx-auto mt-4" (click)="checkOrigin()">Créer votre compte</button>
+            <button class="btn btn-success d-grid gap-2 col-6 mx-auto mt-4" (click)="checkOrigin()">Créer votre
+                compte</button>
         </div>
     </div>
 
@@ -49,8 +50,15 @@
                     <input ngModel type="text" name='phone' class="form-control" id='phone' ngModel>
                 </div>
                 <div class='mb3'>
-                    <label for="statutUsers">Entrez votre statut</label>
-                    <input ngModel type="text" name='statutUsers' class="form-control" id='statutUsers'>
+                    <label for="statutUsers">Selectionnez votre statut</label><br>
+                    <select class="form-select" aria-label="Default select example"  id="statutUsers" name='statutUsers' ngModel>
+                        <!-- <option selected>--Sélectionnez votre statut--</option> -->
+                        <option value="Propriétaire">Propriétaire</option>
+                        <option value="Agence">Agence</option>
+                        <option value="Copropriétaire">Copropriétaire</option>
+                      </select>
+                    
+
                 </div>
                 <div class="mb-3">
                     <label for="mdp">Entrez votre mot de pass</label>
