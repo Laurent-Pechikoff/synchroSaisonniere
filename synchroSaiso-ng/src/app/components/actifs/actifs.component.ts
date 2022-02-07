@@ -122,7 +122,6 @@ export class ActifsComponent implements OnInit {
   ngOnInit(): void {
    
     this.idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].id
-    console.log(this.idUser)
 
     this.watchActif(1)
     localStorage.setItem('location','actifs')
@@ -188,10 +187,12 @@ export class ActifsComponent implements OnInit {
 
   public watchActif(id:any){
 
-    
-    this.as.getActifsById(this.idUser).subscribe(resp=>{
+    console.log('watch Actif idUser:'+id)
+    this.as.getActifsById().subscribe(resp=>{
       this.datActifs=resp
-      this.datActif=this.datActifs[id]
+      console.log(this.datActifs)
+      this.datActif=this.datActifs[id-1]
+      console.log(this.datActif)
       this.switchActif(this.datActif)
 
     })

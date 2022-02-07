@@ -54,6 +54,8 @@ export class AppComponent implements OnInit {
     this.checkNavBarVert = false
     this.nbs.getItemsNavabarVert(table.routerLink).subscribe((resp: any) => {
       this.dataNavBarVert = resp
+      this.dataNavBarVert=this.dataNavBarVert._embedded.actifs
+      console.log(this.dataNavBarVert)
       if (table.navbarVert == true) {
         this.checkNavBarVert = true
       }
@@ -95,6 +97,7 @@ export class AppComponent implements OnInit {
     let location = localStorage.getItem('location')
     switch (location) {
       case 'actifs':
+        console.log('senID: '+id)
         this.actif.watchActif(id)
         break;
       case 'admin':

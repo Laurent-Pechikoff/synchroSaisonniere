@@ -1,5 +1,11 @@
 <h1 class="text-ligth text-center mt-4" id="title"></h1>
-<div class="container-fluid m-4  bg-transparent row " id="actif" style="max-width: 1500px;margin-left: 200px;">
+<div class="text-center">
+    <button type="button" class="btn btn-dark mx-auto" data-bs-toggle="modal" data-bs-target="#addActifModal">
+        Ajouter un Actif Immobilier
+    </button>
+</div>
+
+<div class="container-fluid m-4  bg-transparent row " id="actif" style="max-width: 1200px;margin-left: 200px;">
     <!-- ************************************ card google  ********************************** -->
     <div class="container-fluid m-1 card  bg-transparent col" id='geoCard'>
 
@@ -16,7 +22,7 @@
 
         </div>
     </div>
-    <div class="container-fluid col card bg-transparent textligth mt-4" id="actifDetail">
+    <div class="container-fluid col card bg-transparent textligth mt-4" id="actifDetail" style="max-width: 500;">
 
 
     </div>
@@ -63,9 +69,6 @@
 
 
 <!-- *****************************************  formulaire de création  **************************** -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addActifModal">
-    Ajouter un Actif Immobilier
-</button>
 
 
 
@@ -75,7 +78,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title text-dark" id="addActifModa">Nouvel Actif<br> {{page}}/3</h1>
+                <div class="modal-title text-dark text-center" id="addActifModa">
+                    
+                    <h1>Nouvel Actif</h1>
+                    <h3>{{page}}/3</h3>   
+                   
+                </div>
+                
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

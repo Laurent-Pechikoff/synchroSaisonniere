@@ -21,12 +21,19 @@ export class ActifService {
     return this.http.get(this.urlSB)
   }
 
-  getActifsById(id:any){
-    return this.http.get(this.urlSB+'/getAllActifsByUser/'+id)
+  getActifsById(){
+    let idUser=JSON.parse(sessionStorage.getItem('login')|| '{}')[0].id
+
+    console.log('service iduser:'+idUser)
+    return this.http.get(this.urlSB+'/getAllActifsByUser/'+idUser)
   }
 
   postActif(addForm:any, idUser:any){
      return this.http.post(this.urlSB+'/addActif/'+idUser,addForm)
+  }
+
+  getActifById(idActif:any){
+    return this.http.get(this.urlSB+'/getActif/'+idActif)
   }
 
 }

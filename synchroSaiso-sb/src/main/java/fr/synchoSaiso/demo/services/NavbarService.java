@@ -26,7 +26,7 @@ public class NavbarService {
 	private void creaNavBar() {
 		nbrp.save(new NavBar(null, "Qui sommes nous?", "about", true, true, true, false));
 		nbrp.save(new NavBar(null, "Vos Actifs", "actifs", false, true, true, true));
-		nbrp.save(new NavBar(null, "Votre Agenda", "calendar", false, true, true, false));
+		nbrp.save(new NavBar(null, "Votre Agenda", "calendar", false, true, true, true));
 		nbrp.save(new NavBar(null, "Vos Statistiques", "statistique", false, true, true, false));
 		nbrp.save(new NavBar(null, "Administration", "admin", false, false, true, false));
 	}
