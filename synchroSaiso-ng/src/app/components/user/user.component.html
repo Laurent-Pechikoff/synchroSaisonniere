@@ -1,7 +1,7 @@
 <!-- ************************************************  Form Connexion ***************************************** -->
 <div class="container">
 
-    <div *ngIf="(origin=='connexion')">
+    <div *ngIf="(origin=='connexion' && !session)">
         <div class="bordure ">
             <h2 class="text-center mb-4">Formulaire de connexion</h2>
             <form (ngSubmit)="loginUserBack(userForm)" #userForm='ngForm' class="text-center ">
